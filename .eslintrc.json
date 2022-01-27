@@ -42,7 +42,7 @@
             "error",
             {
                 "singleQuote": true,
-                "endOfLine": "lf",
+                "endOfLine": "auto",
                 "trailingComma": "es5",
                 "printWidth": 100
             },
