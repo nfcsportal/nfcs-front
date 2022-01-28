@@ -1,6 +1,32 @@
 # NFCS Portal
 
+## Deploy domains
+
+## Master
+[Master Deploy URL](https://master.dsxbwlab3g9h8.amplifyapp.com/).
+
+## Preprod
+[Preprod Deploy URL](https://preprod.dsxbwlab3g9h8.amplifyapp.com/).
+
+## Dev
+[Preprod Deploy URL](https://dev.dsxbwlab3g9h8.amplifyapp.com//).
+
+
+## Branch namings
+For Features
+### `feature(task_name)/something_something`
+
+For Fixes
+### `fix(task_name)/something_something`
+
+For Hotfix
+### `hotfix(task_name)/something_something`
+
 ## Available Scripts
+
+Install
+
+### `npm i`
 
 In the project directory, you can run:
 
