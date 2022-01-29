@@ -9,8 +9,7 @@
 [Preprod Deploy URL](https://preprod.dsxbwlab3g9h8.amplifyapp.com/).
 
 ## Dev
-[Preprod Deploy URL](https://dev.dsxbwlab3g9h8.amplifyapp.com//).
-
+[Dev Deploy URL](https://dev.dsxbwlab3g9h8.amplifyapp.com//).
 
 ## Branch namings
 For Features
