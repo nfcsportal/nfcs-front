@@ -11,7 +11,6 @@
 ## Dev
 [Dev Deploy URL](https://dev.dsxbwlab3g9h8.amplifyapp.com//).
 
-
 ## Branch namings
 For Features
 ### `feature(task_name)/something_something`
