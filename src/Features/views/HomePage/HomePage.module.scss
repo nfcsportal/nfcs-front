@@ -1,7 +1,8 @@
 .main {
     display: flex;
     height: 100vh;
-    font-size: 40px;
+    font-size: clamp(16px, calc(1rem + ((1vw - 3.2px) * 4)), 80px);
+    min-height: 0vw;  
     font-weight: 600;
     color: rebeccapurple;
     background: aqua;
