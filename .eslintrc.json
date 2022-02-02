@@ -31,6 +31,7 @@
         "prettier"
     ],
     "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
         "indent": [
             0,
             2,
@@ -73,10 +74,9 @@
         ],
         "import/first": 2,
         "react/sort-comp": 0,
-        "one-var": 2,
         "import/no-named-as-default": 2,
         "import/no-named-default": 2,
-        "react/jsx-no-bind": 2,
+        "react/jsx-no-bind": 0,
         "no-undef": 0,
         "react/forbid-prop-types": 0,
         "react/require-default-props": 0,
