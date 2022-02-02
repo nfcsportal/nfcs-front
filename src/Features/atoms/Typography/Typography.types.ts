@@ -8,4 +8,6 @@ export interface ITypographyProps {
   value?: any;
   valueMessage?: string | number | boolean;
   style?: CSSProperties;
+  multyLangClasses?: any[];
+  onClick?: () => void;
 }

@@ -1,15 +1,17 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
+import { useSelector } from 'react-redux';
 
-import { useDetectCurrentLocale } from './Hooks/useDetectCurrentLocale';
+import { LOCALES } from './Constants/Locales';
 import Routes from './routes';
+import { getCurrentLocale } from './Store/Selectors/main';
 
 const App: React.FC = () => {
-  const { currentLocale, currentMessages } = useDetectCurrentLocale();
+  const currentLocale = useSelector(getCurrentLocale);
 
   return (
     <>
-      <IntlProvider locale={currentLocale} messages={currentMessages}>
+      <IntlProvider locale={currentLocale} messages={LOCALES[currentLocale]}>
         <Routes />
       </IntlProvider>
     </>
