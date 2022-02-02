@@ -10,7 +10,7 @@ const LocaleClassPrefixes: { [propery: string]: string } = {
   ['fr']: 'FRL',
 };
 
-export const detectCurrentClassWithLocale = (classNamesArr: string[]) => {
+export const useDetectCurrentClassWithLocale = (classNamesArr: string[]) => {
   const [multylangClass, setCurrentClass] = useState<string>('');
   const currentLocale = useSelector(getCurrentLocale);
 

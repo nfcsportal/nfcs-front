@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { detectCurrentClassWithLocale } from '../../../Utils/detectCurrentClassWithLocale';
+import { useDetectCurrentClassWithLocale } from '../../../Hooks/useDetectCurrentClassWithLocale';
 import { ITypographyProps } from './Typography.types';
 
 const Typography: React.FC<ITypographyProps> = ({
@@ -17,7 +17,8 @@ const Typography: React.FC<ITypographyProps> = ({
 }) => {
   const Component = component;
   const currentValue = value ? { [value]: valueMessage } : {};
-  const hasMultyClasss = multyLangClasses?.length && detectCurrentClassWithLocale(multyLangClasses);
+  const hasMultyClasss =
+    multyLangClasses?.length && useDetectCurrentClassWithLocale(multyLangClasses);
 
   return (
     <Component
