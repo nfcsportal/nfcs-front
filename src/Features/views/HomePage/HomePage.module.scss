@@ -1,3 +1,7 @@
+$FR_Prefix: "FRL";
+$DE_Prefix: "DEL";
+$EN_Prefix: "ENL";
+
 .main {
     display: flex;
     height: 100vh;
@@ -6,7 +10,21 @@
     font-weight: 600;
     color: rebeccapurple;
     background: aqua;
+    .#{$FR_Prefix}_main {
+        color: rebeccapurple;
+      }
+      .#{$DE_Prefix}_main {
+        color: wheat;
+      }
+      .#{$EN_Prefix}_main {
+        font-size: 80px;
+        color: red;
+      }
     width: 100%;
     justify-content: center;
     align-items: center;
+}
+
+.typo {
+    color: red;
 }
