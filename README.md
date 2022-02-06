@@ -6,10 +6,10 @@
 [Master Deploy URL](https://master.dsxbwlab3g9h8.amplifyapp.com/).
 
 ## Preprod
-[Preprod Deploy URL](https://preprod.dsxbwlab3g9h8.amplifyapp.com/).
+[Preprod Deploy URL](https://prod.nfcsportal.com/).
 
 ## Dev
-[Dev Deploy URL](https://dev.dsxbwlab3g9h8.amplifyapp.com//).
+[Dev Deploy URL](https://dev.nfcsportal.com/).
 
 ## Branch namings
 For Features

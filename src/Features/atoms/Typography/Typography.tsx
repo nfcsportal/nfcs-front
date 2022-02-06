@@ -19,7 +19,6 @@ const Typography: React.FC<ITypographyProps> = ({
   const currentValue = value ? { [value]: valueMessage } : {};
   const hasMultyClasss =
     multyLangClasses?.length && useDetectCurrentClassWithLocale(multyLangClasses);
-
   return (
     <Component
       onClick={onClick && onClick}

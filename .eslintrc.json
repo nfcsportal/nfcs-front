@@ -7,7 +7,7 @@
             "jsx": true,
             "experimentalObjectRestSpread": true
         }
-    },
+    },    
     "env": {
         "amd": true,
         "browser": true,
