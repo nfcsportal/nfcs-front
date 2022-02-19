@@ -7,6 +7,7 @@ import { setLocale } from '../../../Store/Slices/mainSlice';
 import Typography from '../../atoms/Typography';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
+import Portal from '../../organisms/Portal';
 import styles from './HomePage.module.scss';
 
 const HomePage: React.FC = () => {
@@ -15,6 +16,7 @@ const HomePage: React.FC = () => {
   return (
     <div className={styles.main}>
       <Header />
+      <Portal />
       {!isMobile ? (
         <Typography
           value="world"

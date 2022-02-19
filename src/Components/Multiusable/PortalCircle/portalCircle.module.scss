@@ -1,0 +1,79 @@
+.main{
+    width: 127px;
+    height: 127px;
+    background: #1A72FA;
+    border-radius: 50%;
+    z-index: 2;
+}
+.title{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 135.9%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    svg {
+        margin-top: 20px;
+    }
+}
+.blinker1{
+    display: inline-block;
+    width: 122px;
+    height: 122px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 16px;
+    border-color:  rgba(26, 114, 250, 0.44);
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top:0;
+    animation: blinker1 2s linear infinite;
+    left:0;
+    pointer-events:none;
+    opacity: 0;
+}
+.blinker2 {
+    display: inline-block;
+    width: 154px;
+    height: 154px;
+    border-radius: 50%;
+    box-shadow: 4px 8px 24px rgba(19, 20, 38, 0.16);
+    border-style: solid;
+    border-width: 16px;
+    border-color:  rgba(26, 114, 250, 0.24);;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: -16px;
+    animation: blinker2 2s linear infinite;
+    left: -16px;
+    pointer-events:none;
+    opacity: 0;
+}
+.blinkerWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 154px;
+    width: 155px;
+}
+
+  @keyframes blinker1 {
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes blinker2 {
+    50% {
+      opacity: 1;
+    }
+  }
