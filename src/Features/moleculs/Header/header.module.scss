@@ -1,11 +1,108 @@
-.main{
-    position: absolute;
-    top:  0;
-    height: 50px;
-    background: forestgreen;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.header {
+    background: rgba(20, 21, 39, 0.88);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    .nav {
+        @include flex-center-vert;
+        .headerMenu {
+            margin-left: auto;
+            .headerMenuList {
+                @include flex-center-vert;
+                list-style-type: none;
+                li {
+                    position: relative;
+                    padding: 23px 0;
+                    .langSubList {
+                        visibility: hidden;
+                        opacity: 0;
+                        position: absolute;
+                        top: 130%;
+                        left: 0;
+                        width: 100%;
+                        min-width: 150px;
+                        background-color: red;
+                        list-style-type: none;
+                        transition: 0.3s;
+                    }
+                    &:hover  {
+                       .langSubList {
+                           top: 100%;
+                           opacity: 1;
+                           visibility: visible;
+                       } 
+                    }
+                    &:not(:first-child) {
+                        .headerMenuLink {
+                            margin-left: 40px;
+                        }
+                    }
+                    .headerMenuLink {
+                        @include flex-center-vert;
+                        @include fontRem(16, 400);
+                        line-height: 20px;
+                        color: $white;
+                        text-decoration: none;
+                        padding-top: 12px;
+                        padding-bottom: 12px;
+                        span {
+                            margin-left: 12px;
+                        }
+                        &.headerSignIn {
+                            margin-left: 65px;
+                        }
+                        &.headerSignUp {
+                            display: inline-flex;
+                            justify-content: center;
+                            align-items: center;
+                            position: relative;
+                            padding: 12px 44px;
+                            border-radius: 8px;
+                            height: 48px;
+                            background-image: radial-gradient(
+                                    circle at 100% 100%,
+                                    transparent 8px,
+                                    #186ffc 8px,
+                                    #186ffc 10px,
+                                    transparent 10px
+                                ),
+                                linear-gradient(to right, #186ffc, #186ffc),
+                                radial-gradient(
+                                    circle at 0% 100%,
+                                    transparent 8px,
+                                    #186ffc 8px,
+                                    #186ffc 10px,
+                                    transparent 10px
+                                ),
+                                linear-gradient(to bottom, #186ffc, #00ddfb),
+                                radial-gradient(
+                                    circle at 0% 0%,
+                                    transparent 8px,
+                                    #00ddfb 8px,
+                                    #00ddfb 10px,
+                                    transparent 10px
+                                ),
+                                linear-gradient(to left, #00ddfb, #00ddfb),
+                                radial-gradient(
+                                    circle at 100% 0%,
+                                    transparent 8px,
+                                    #00ddfb 8px,
+                                    #00ddfb 10px,
+                                    transparent 10px
+                                ),
+                                linear-gradient(to top, #00ddfb, #186ffc);
+                            background-size: 10px 10px, calc(100% - 18px) 2px, 10px 10px, 2px calc(100% - 18px);
+                            background-position: top left, top center, top right, center right, bottom right,
+                                bottom center, bottom left, center left;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
