@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
   const dispatch = useDispatch();
   const isMobile = useMediaquerry(SCREENS.mobile);
   return (
-    <div className={styles.main}>
+    <div className="page mainPage">
       <Header />
       <Portal />
       {!isMobile ? (
