@@ -7,6 +7,11 @@
     position: sticky;
     top: 0;
     z-index: 3;
+    [class="container"] {
+        max-width: 100%;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
     .nav {
         @include flex-center-vert;
         .headerMenu {
@@ -22,24 +27,52 @@
                         opacity: 0;
                         position: absolute;
                         top: 130%;
-                        left: 0;
+                        right: 0;
                         width: 100%;
-                        min-width: 150px;
-                        background-color: red;
+                        min-width: 130px;
                         list-style-type: none;
                         transition: 0.3s;
+                        background: rgba(41, 52, 139, 0.24);
+                        box-shadow: 4px 8px 24px rgba(19, 20, 38, 0.16);
+                        backdrop-filter: blur(16px);
+                        border-radius: 8px;
+                        padding: 23px 35px;
+                        li {
+                            padding: 0;
+                            margin-left: 0;
+                            &:not(:first-child) {
+                                margin-top: 24px;
+                            }
+                        }
+                        .langSubListLink {
+                            display: block;
+                            text-align: center;
+                            @include fontRem(16, 400);
+                            color: rgba(227, 230, 234, 0.32);
+                            transition: 0.3s;
+                            line-height: 22px;
+                            text-decoration: none;
+                            
+                            &:hover {
+                                color: $white;
+                            }
+                            &.selected {
+                                color: $white;
+                            }
+                        }
                     }
-                    &:hover  {
-                       .langSubList {
-                           top: 100%;
-                           opacity: 1;
-                           visibility: visible;
-                       } 
+                    &:hover {
+                        span {
+                            transform: rotate(180deg);
+                        }
+                        .langSubList {
+                            top: 100%;
+                            opacity: 1;
+                            visibility: visible;
+                        }
                     }
                     &:not(:first-child) {
-                        .headerMenuLink {
-                            margin-left: 40px;
-                        }
+                        margin-left: 40px;
                     }
                     .headerMenuLink {
                         @include flex-center-vert;
@@ -51,9 +84,10 @@
                         padding-bottom: 12px;
                         span {
                             margin-left: 12px;
+                            transition: 0.3s;
                         }
                         &.headerSignIn {
-                            margin-left: 65px;
+                            margin-left: 24px;
                         }
                         &.headerSignUp {
                             display: inline-flex;

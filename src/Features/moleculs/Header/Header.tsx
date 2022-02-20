@@ -50,10 +50,19 @@ const Header: React.FC = () => {
                 </a>
                 <ul className={styles.langSubList}>
                   <li>
-                    <a href="">fr</a>
+                    <a className={`${styles.langSubListLink} ${styles.selected}`} href="">
+                      English
+                    </a>
                   </li>
                   <li>
-                    <a href="">ger</a>
+                    <a className={styles.langSubListLink} href="">
+                      German
+                    </a>
+                  </li>
+                  <li>
+                    <a className={styles.langSubListLink} href="">
+                      French
+                    </a>
                   </li>
                 </ul>
               </li>
