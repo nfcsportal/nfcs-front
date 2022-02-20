@@ -10,7 +10,11 @@ body {
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
 }
+#root {
+    height: 100%;
+}
 .page {
+    @include flex-column;
     min-height: 100%;
     main.main {
         flex: 1 0 auto;
@@ -66,4 +70,8 @@ img {
     padding-right: 10px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.mainPage {
+    background: linear-gradient(170.79deg, #181D2F 0.37%, #221B37 93.02%);
 }
