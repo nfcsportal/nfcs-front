@@ -19,6 +19,7 @@ const HomePage: React.FC = () => {
       <Header />
       <HomeMainContent />
       <Portal />
+
       {!isMobile ? (
         <Typography
           value="world"
