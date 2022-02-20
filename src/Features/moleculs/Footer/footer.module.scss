@@ -5,6 +5,11 @@
     margin-top: auto;
     padding: 64px 0 46px;
     background: linear-gradient(180deg, rgba(18, 13, 31, 0.32) 0%, #120d1f 100%);
+    [class="container"] {
+        max-width: 100%;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
     .footerTop {
         padding-top: 37px;
         @include flex-center-column;
