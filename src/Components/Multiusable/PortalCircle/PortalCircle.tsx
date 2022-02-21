@@ -8,8 +8,6 @@ interface IPortalCircleProps {
 }
 
 const PortalCircle: React.FC<IPortalCircleProps> = ({ Icon, title }) => {
-  console.log(Icon, title);
-
   return (
     <div className={styles.blinkerWrapper}>
       <div className={styles.main}>

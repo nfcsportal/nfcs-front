@@ -1,69 +1,71 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import ArrowSvg from '../../../Assets/Icons/ArrowSvg';
 import LogoSvg from '../../../Assets/Icons/LogoSvg';
+import { ROUTES } from '../../../Constants/Routes';
+import { usePositions } from '../../../Hooks/usePositions';
+import { getCurrentLocale } from '../../../Store/Selectors/main';
+import { setLocale } from '../../../Store/Slices/mainSlice';
+import Typography from '../../atoms/Typography';
+import { LANGUAGES, NAV_BAR } from '../conastantsMolecul';
+import { TLanguages, TNavBar } from '../typesMolecules';
 import styles from './header.module.scss';
 
 const Header: React.FC = () => {
+  const currentLocalce = useSelector(getCurrentLocale);
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { currentRef, scrollPosition } = usePositions();
   return (
-    <header className={`${styles.header} ${styles.scrolled}`}>
+    <header
+      ref={currentRef}
+      className={`${styles.header} ${scrollPosition > 0 && styles.scrolled}`}
+    >
       <div className="container">
         <nav className={styles.nav}>
-          <div className={styles.headerLogo}>
-            <a href="#">
-              <LogoSvg />
-            </a>
+          <div className={styles.headerLogo} onClick={() => history.push(ROUTES.HOME)}>
+            <LogoSvg />
           </div>
           <menu className={styles.headerMenu}>
             <ul className={styles.headerMenuList}>
+              {NAV_BAR.map((currentItem: TNavBar) => {
+                return (
+                  <li key={currentItem.path}>
+                    <Typography
+                      onClick={() => history.push(currentItem.path)}
+                      component={'span'}
+                      className={`${styles.headerMenuLink} ${
+                        currentItem.className && styles[currentItem.className]
+                      }`}
+                      id={currentItem.id}
+                    />
+                  </li>
+                );
+              })}
               <li>
-                <a className={styles.headerMenuLink} href="#">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a className={styles.headerMenuLink} href="#">
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a className={styles.headerMenuLink} href="#">
-                  How it workes
-                </a>
-              </li>
-              <li>
-                <a className={`${styles.headerMenuLink} ${styles.headerSignIn}`} href="#">
-                  Sign In
-                </a>
-              </li>
-              <li>
-                <a className={`${styles.headerMenuLink} ${styles.headerSignUp}`} href="#">
-                  Sign Up
-                </a>
-              </li>
-              <li>
-                <a className={styles.headerMenuLink} href="#">
-                  EN{' '}
-                  <span>
+                <span className={styles.headerMenuLink}>
+                  {currentLocalce.toLocaleUpperCase()}
+                  <span className={styles.iconWrapper}>
                     <ArrowSvg />
                   </span>
-                </a>
+                </span>
                 <ul className={styles.langSubList}>
-                  <li>
-                    <a className={`${styles.langSubListLink} ${styles.selected}`} href="">
-                      English
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.langSubListLink} href="">
-                      German
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.langSubListLink} href="">
-                      French
-                    </a>
-                  </li>
+                  {LANGUAGES.map((currentLang: TLanguages) => {
+                    return (
+                      <li key={currentLang.code}>
+                        <Typography
+                          onClick={() => dispatch(setLocale(currentLang.code))}
+                          component={'span'}
+                          className={`${styles.langSubListLink} ${
+                            currentLocalce === currentLang.code && styles.selected
+                          }`}
+                          defaultMessage={currentLang.title}
+                        />
+                      </li>
+                    );
+                  })}
                 </ul>
               </li>
             </ul>

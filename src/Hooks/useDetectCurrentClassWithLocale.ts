@@ -6,7 +6,7 @@ import { getCurrentLocale } from '../Store/Selectors/main';
 
 const LocaleClassPrefixes: { [propery: string]: string } = {
   ['en']: 'ENL',
-  ['de']: 'DEL',
+  ['ge']: 'DEL',
   ['fr']: 'FRL',
 };
 
@@ -28,8 +28,8 @@ export const useDetectCurrentClassWithLocale = (classNamesArr: string[]) => {
     if (currentLocale === 'en') {
       setCurrentClass(searchCurrentClass('en'));
     }
-    if (currentLocale === 'de') {
-      setCurrentClass(searchCurrentClass('de'));
+    if (currentLocale === 'ge') {
+      setCurrentClass(searchCurrentClass('ge'));
     }
     if (currentLocale === 'fr') {
       setCurrentClass(searchCurrentClass('fr'));
