@@ -6,7 +6,7 @@ import styles from './header.module.scss';
 
 const Header: React.FC = () => {
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${styles.scrolled}`}>
       <div className="container">
         <nav className={styles.nav}>
           <div className={styles.headerLogo}>
