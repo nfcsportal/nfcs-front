@@ -7,7 +7,7 @@ import { ITypographyProps } from './Typography.types';
 const Typography: React.FC<ITypographyProps> = ({
   component,
   className,
-  id,
+  id = '#',
   defaultMessage,
   value,
   valueMessage,

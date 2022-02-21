@@ -7,7 +7,7 @@ import { setLocale } from '../../../Store/Slices/mainSlice';
 import Typography from '../../atoms/Typography';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
-import HomeMainContent from '../../organisms/HomeMainContent';
+import MainContent from '../../organisms/MainContent';
 import Portal from '../../organisms/Portal';
 import styles from './HomePage.module.scss';
 
@@ -17,7 +17,9 @@ const HomePage: React.FC = () => {
   return (
     <div className="page mainPage">
       <Header />
-      <HomeMainContent />
+      <MainContent>
+        <div>STEX MAIN INCH DNES KGNA</div>
+      </MainContent>
       <Portal />
 
       {!isMobile ? (
