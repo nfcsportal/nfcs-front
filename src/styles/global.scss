@@ -1,3 +1,4 @@
+@import "./vars";
 @import "./_mixins";
 
 html,
@@ -62,7 +63,6 @@ img {
     max-width: 100%;
 }
 
-
 .container {
     max-width: 1460px;
     width: 100%;
@@ -73,5 +73,26 @@ img {
 }
 
 .mainPage {
-    background: linear-gradient(170.79deg, #181D2F 0.37%, #221B37 93.02%);
+    background: linear-gradient(170.79deg, #181d2f 0.37%, #221b37 93.02%);
+    section  {
+        padding-bottom: 180px;
+    }
+}
+
+.title {
+    @include fontRem(44, 700);
+    line-height: 54px;
+    letter-spacing: 0.055em;
+    color: $titleColor;
+    text-align: center;
+    margin-bottom: 32px;
+}
+.subTitle {
+    @include fontRem(18, 400);
+    line-height: 24px;
+    text-align: center;
+    color: $titleColor;
+    max-width: 752px;
+    margin-left: auto;
+    margin-right: auto;
 }
