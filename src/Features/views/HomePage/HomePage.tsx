@@ -1,5 +1,10 @@
 import React from 'react';
 
+import BinanceFutureSvg from '../../../Assets/Icons/cards/BinanceFutureSvg';
+import CryptoSvg from '../../../Assets/Icons/cards/CryptoSvg';
+import NftSvg from '../../../Assets/Icons/cards/NftSvg';
+import StockSvg from '../../../Assets/Icons/cards/StockSvg';
+import TooltipSvg from '../../../Assets/Icons/cards/TooltipSvg';
 import ShieldLockSvg from '../../../Assets/Icons/why-we/ShieldLockSvg';
 // import { useDispatch } from 'react-redux';
 // import useMediaquerry from 'react-use-media-query-hook';
@@ -67,6 +72,108 @@ const HomePage: React.FC = () => {
                       At NFCS, we don’t provide static forecasts. All forecasts that you purchase
                       are unique for you.
                     </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className={styles.cardsSection}>
+          <div className="container">
+            <h2 className="title">You have the ability to customize your unique analytics</h2>
+            <p className="subTitle">Text about discount- 50 %.</p>
+            <div className={styles.cardItems}>
+              <div className={styles.cardRow}>
+                <div className={`${styles.cardsCol_25} col_25`}>
+                  <div className={`${styles.cardItem} ${styles.cardItemBinance}`}>
+                    <div className={styles.cardTooltip}>
+                      <button type="button">
+                        <TooltipSvg />
+                      </button>
+                    </div>
+                    <div className={styles.cardIcon}>
+                      <BinanceFutureSvg />
+                    </div>
+                    <h2 className={styles.cardTitle}>Binance Futures</h2>
+                    <p className={styles.cardText}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <div className={styles.cardPrice}>
+                      <s>1500 $</s>
+                      <p>750$</p>
+                    </div>
+                    <button type="button" className={styles.cardButton}>
+                      Buy Forecast
+                    </button>
+                  </div>
+                </div>
+                <div className={`${styles.cardsCol_25} col_25`}>
+                  <div className={`${styles.cardItem} ${styles.cardItemNft}`}>
+                    <div className={styles.cardTooltip}>
+                      <button type="button">
+                        <TooltipSvg />
+                      </button>
+                    </div>
+                    <div className={styles.cardIcon}>
+                      <NftSvg />
+                    </div>
+                    <h2 className={styles.cardTitle}>NFT</h2>
+                    <p className={styles.cardText}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <div className={styles.cardPrice}>
+                      <s>1200 $</s>
+                      <p>600$</p>
+                    </div>
+                    <button type="button" className={styles.cardButton}>
+                      Buy Forecast
+                    </button>
+                  </div>
+                </div>
+                <div className={`${styles.cardsCol_25} col_25`}>
+                  <div className={`${styles.cardItem} ${styles.cardItemStock}`}>
+                    <div className={styles.cardTooltip}>
+                      <button type="button">
+                        <TooltipSvg />
+                      </button>
+                    </div>
+                    <div className={styles.cardIcon}>
+                      <StockSvg />
+                    </div>
+                    <h2 className={styles.cardTitle}>Stock</h2>
+                    <p className={styles.cardText}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <div className={styles.cardPrice}>
+                      <s>800 $ </s>
+                      <p>400$</p>
+                    </div>
+                    <button type="button" className={styles.cardButton}>
+                      Buy Forecast
+                    </button>
+                  </div>
+                </div>
+                <div className={`${styles.cardsCol_25} col_25`}>
+                  <div className={`${styles.cardItem} ${styles.cardItemCrypto}`}>
+                    <div className={styles.cardTooltip}>
+                      <button type="button">
+                        <TooltipSvg />
+                      </button>
+                    </div>
+                    <div className={styles.cardIcon}>
+                      <CryptoSvg />
+                    </div>
+                    <h2 className={styles.cardTitle}>Crypto</h2>
+                    <p className={styles.cardText}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <div className={styles.cardPrice}>
+                      <s>1500 $</s>
+                      <p>750$</p>
+                    </div>
+                    <button type="button" className={styles.cardButton}>
+                      Buy Forecast
+                    </button>
                   </div>
                 </div>
               </div>

@@ -127,7 +127,15 @@
   }
 }
 // absolute positing end
-
+// Button Nulled 
+@mixin buttonNulled {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+// Button Nulled end
 // Border Arrow
 @mixin arrow($direction: down, $size: 5px, $color: #555) {
   width: 0;
