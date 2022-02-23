@@ -74,7 +74,7 @@ img {
 
 .mainPage {
     background: linear-gradient(170.79deg, #181d2f 0.37%, #221b37 93.02%);
-    section  {
+    section {
         padding-bottom: 180px;
     }
 }
@@ -86,6 +86,10 @@ img {
     color: $titleColor;
     text-align: center;
     margin-bottom: 32px;
+    max-width: 952px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .subTitle {
     @include fontRem(18, 400);
