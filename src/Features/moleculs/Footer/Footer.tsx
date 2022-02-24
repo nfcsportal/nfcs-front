@@ -1,12 +1,13 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import CopyRightSvg from '../../../Assets/Icons/CopyRightSvg';
-import EnvelopeSvg from '../../../Assets/Icons/EnvelopeSvg';
 import LocationSvg from '../../../Assets/Icons/LocationSvg';
 import LogoSvg from '../../../Assets/Icons/LogoSvg';
 import PhoneSvg from '../../../Assets/Icons/PhoneSvg';
-import TelegramSvg from '../../../Assets/Icons/TelegramSvg';
-import WhatsAppSvg from '../../../Assets/Icons/WhatsAppSvg';
+import Typography from '../../atoms/Typography';
+import { FOOTER_ICONS, FOOTER_MENU } from '../conastantsMolecul';
+import { TFooterIcon } from '../typesMolecules';
 import styles from './footer.module.scss';
 
 const Footer: React.FC = () => {
@@ -19,21 +20,16 @@ const Footer: React.FC = () => {
           </div>
           <div className={styles.footerSoccial}>
             <ul className={styles.footerSocialList}>
-              <li>
-                <a href="#" target="_blank" rel="noopener noreferrer nofollow">
-                  <TelegramSvg />
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank" rel="noopener noreferrer nofollow">
-                  <WhatsAppSvg />
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank" rel="noopener noreferrer nofollow">
-                  <EnvelopeSvg />
-                </a>
-              </li>
+              {FOOTER_ICONS.map((currentIcon: TFooterIcon) => {
+                const IconComponent = currentIcon.icon;
+                return (
+                  <li key={currentIcon.href}>
+                    <span>
+                      <IconComponent />
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className={styles.footerContact}>
@@ -56,18 +52,19 @@ const Footer: React.FC = () => {
             <span>
               <CopyRightSvg />
             </span>
-            Copyright
+            <FormattedMessage id="footer.copyright" />
           </p>
           <menu className={styles.footerMenu}>
-            <a href="#" className={styles.footerMenuLink}>
-              Privacy Policy
-            </a>
-            <a href="#" className={styles.footerMenuLink}>
-              Some Info
-            </a>
-            <a href="#" className={styles.footerMenuLink}>
-              Support
-            </a>
+            {FOOTER_MENU.map((currentMenuItem: Record<string, string>) => {
+              return (
+                <Typography
+                  key={currentMenuItem.id}
+                  id={currentMenuItem.id}
+                  className={styles.footerMenuLink}
+                  component={'span'}
+                />
+              );
+            })}
           </menu>
         </div>
       </div>

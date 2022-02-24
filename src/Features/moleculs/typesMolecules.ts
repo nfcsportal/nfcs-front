@@ -9,3 +9,8 @@ export type TLanguages = {
   title: string;
   code: string;
 };
+
+export type TFooterIcon = {
+  href: string;
+  icon: any;
+};
