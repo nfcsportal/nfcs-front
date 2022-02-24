@@ -10,7 +10,7 @@ const Routes: React.FC = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/login">
+        <Route path="/sign-in">
           <LogIn />
         </Route>
         <Route path="/user/:id">

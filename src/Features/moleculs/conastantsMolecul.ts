@@ -1,5 +1,8 @@
+import EnvelopeSvg from '../../Assets/Icons/EnvelopeSvg';
+import TelegramSvg from '../../Assets/Icons/TelegramSvg';
+import WhatsAppSvg from '../../Assets/Icons/WhatsAppSvg';
 import { ROUTES } from '../../Constants/Routes';
-import { TLanguages, TNavBar } from './typesMolecules';
+import { TFooterIcon, TLanguages, TNavBar } from './typesMolecules';
 
 export const NAV_BAR: TNavBar[] = [
   {
@@ -43,5 +46,35 @@ export const LANGUAGES: TLanguages[] = [
   {
     title: 'French',
     code: 'fr',
+  },
+];
+
+export const FOOTER_ICONS: TFooterIcon[] = [
+  {
+    href: 'tg',
+    icon: TelegramSvg,
+  },
+  {
+    href: 'wp',
+    icon: WhatsAppSvg,
+  },
+  {
+    href: 'mail',
+    icon: EnvelopeSvg,
+  },
+];
+
+export const FOOTER_MENU: Record<string, string>[] = [
+  {
+    href: 'href',
+    id: 'footer.menu.policy',
+  },
+  {
+    href: 'href',
+    id: 'footer.menu.terms',
+  },
+  {
+    href: 'href',
+    id: 'footer.menu.contactus',
   },
 ];

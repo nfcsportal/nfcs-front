@@ -4,5 +4,9 @@
     "navbar.contactus": "Contact Us",
     "navbar.howitworks": "How it works",
     "navbar.signin": "Sign In",
-    "navbar.signup": "Sign Up"
+    "navbar.signup": "Sign Up",
+    "footer.menu.policy": "Privacy Policy",
+    "footer.menu.terms": "Terms of Use",
+    "footer.menu.contactus": "Contact Us",
+    "footer.copyright": "Copyright"
 }

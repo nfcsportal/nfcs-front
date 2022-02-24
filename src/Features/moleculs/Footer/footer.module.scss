@@ -26,8 +26,9 @@
                     &:not(:first-child) {
                         margin-left: 24px;
                     }
-                    a {
+                    span {
                         background: rgba(41, 52, 139, 0.32);
+                        cursor: pointer;
                         @include flex-center;
                         width: 32px;
                         height: 32px;
@@ -69,6 +70,7 @@
         .footerMenu {
             margin-left: auto;
             .footerMenuLink {
+                cursor: pointer;
                 @include fontRem(18, 400);
                 line-height: 21px;
                 text-decoration: none;

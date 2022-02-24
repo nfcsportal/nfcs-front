@@ -10,22 +10,14 @@ import FindSvg from '../../../Assets/Icons/how-it-works/FindSvg';
 import OrderSvg from '../../../Assets/Icons/how-it-works/OrderSvg';
 import TimelineSvg from '../../../Assets/Icons/how-it-works/TimelineSvg';
 import ShieldLockSvg from '../../../Assets/Icons/why-we/ShieldLockSvg';
-// import { useDispatch } from 'react-redux';
-// import useMediaquerry from 'react-use-media-query-hook';
 import ShieldQuality from '../../../Assets/Icons/why-we/ShieldQuality';
 import ShieldReliability from '../../../Assets/Icons/why-we/ShieldReliability';
-// import { SCREENS } from '../../../Constants/ScreenResolutions';
-// import { setLocale } from '../../../Store/Slices/mainSlice';
-// import Typography from '../../atoms/Typography';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
 import MainContent from '../../organisms/MainContent';
-// import Portal from '../../organisms/Portal';
 import styles from './HomePage.module.scss';
 
 const HomePage: React.FC = () => {
-  // const dispatch = useDispatch();
-  // const isMobile = useMediaquerry(SCREENS.mobile);
   return (
     <div className="page mainPage">
       <Header />
@@ -237,29 +229,6 @@ const HomePage: React.FC = () => {
           </div>
         </section>
       </MainContent>
-      {/* <Portal /> */}
-
-      {/* {!isMobile ? (
-        // <Typography
-        //   value="world"
-        //   valueMessage="World"
-        //   component={'span'}
-        //   multyLangClasses={[styles.FRL_main, styles.DEL_main, styles.ENL_main]}
-        //   className={styles.typo}
-        //   id="hello"
-        //   onClick={() => dispatch(setLocale('fr'))}
-        // />
-      ) : (
-        <Typography
-          value="world"
-          valueMessage="Mobile World"
-          component={'span'}
-          multyLangClasses={[styles.FRL_main, styles.DEL_main, styles.ENL_main]}
-          className={styles.typo}
-          id="hello"
-          onClick={() => dispatch(setLocale('fr'))}
-        />
-      )} */}
       <Footer />
     </div>
   );
