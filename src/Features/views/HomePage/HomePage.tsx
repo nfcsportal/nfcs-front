@@ -5,6 +5,10 @@ import CryptoSvg from '../../../Assets/Icons/cards/CryptoSvg';
 import NftSvg from '../../../Assets/Icons/cards/NftSvg';
 import StockSvg from '../../../Assets/Icons/cards/StockSvg';
 import TooltipSvg from '../../../Assets/Icons/cards/TooltipSvg';
+import CheckPaperSvg from '../../../Assets/Icons/how-it-works/CheckPaperSvg';
+import FindSvg from '../../../Assets/Icons/how-it-works/FindSvg';
+import OrderSvg from '../../../Assets/Icons/how-it-works/OrderSvg';
+import TimelineSvg from '../../../Assets/Icons/how-it-works/TimelineSvg';
 import ShieldLockSvg from '../../../Assets/Icons/why-we/ShieldLockSvg';
 // import { useDispatch } from 'react-redux';
 // import useMediaquerry from 'react-use-media-query-hook';
@@ -174,6 +178,58 @@ const HomePage: React.FC = () => {
                     <button type="button" className={styles.cardButton}>
                       Buy Forecast
                     </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className={styles.howItWorksSection}>
+          <div className="container">
+            <h2 className="title">How It Works?</h2>
+            <p className="subTitle">
+              Here is an introduction how to orient NFCS portal step by step
+            </p>
+            <div className={styles.howWorksItems}>
+              <div className={styles.howRow}>
+                <div className={`${styles.col_25} col_25`}>
+                  <div className={styles.howWorksItem}>
+                    <div className={styles.howWorksIcon}>
+                      <FindSvg />
+                    </div>
+                    <div className={styles.howWorkstext}>
+                      <p>Find a suitable area for investment and customize.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className={`${styles.col_25} col_25`}>
+                  <div className={styles.howWorksItem}>
+                    <div className={styles.howWorksIcon}>
+                      <OrderSvg />
+                    </div>
+                    <div className={styles.howWorkstext}>
+                      <p>Order the unique forecast which will be developed for you.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className={`${styles.col_25} col_25`}>
+                  <div className={styles.howWorksItem}>
+                    <div className={styles.howWorksIcon}>
+                      <TimelineSvg />
+                    </div>
+                    <div className={styles.howWorkstext}>
+                      <p>Look forward to the analysts coming up with a unique forecast for you.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className={`${styles.col_25} col_25`}>
+                  <div className={styles.howWorksItem}>
+                    <div className={styles.howWorksIcon}>
+                      <CheckPaperSvg />
+                    </div>
+                    <div className={styles.howWorkstext}>
+                      <p>Purchase the forecast with the way comfortable for you.</p>
+                    </div>
                   </div>
                 </div>
               </div>
