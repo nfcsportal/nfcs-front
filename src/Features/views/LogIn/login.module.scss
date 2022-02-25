@@ -1,0 +1,176 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.loginPage {
+    width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 84px;
+    background-image: url("../../../Assets/images/login-bg.png"),
+        linear-gradient(170.79deg, #151a2c 0.37%, #120d20 93.02%);
+
+    .loginHeader {
+        background: rgba(20, 21, 39, 0.24);
+        backdrop-filter: blur(12px);
+        min-height: 94px;
+        @include flex-center-vert;
+        padding-left: 80px;
+        padding-right: 80px;
+        margin-bottom: 84px;
+    }
+    .loginSection {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        .loginForm {
+            margin: auto;
+            max-width: 34.375%;
+            width: 100%;
+            background: rgba(41, 52, 139, 0.24);
+            backdrop-filter: blur(16px);
+            overflow: hidden;
+            border-radius: 8px;
+            padding: 56px 64px 26px;
+        }
+        .loginTitle {
+            @include fontRem(44, 700);
+            line-height: 54px;
+            letter-spacing: 0.055em;
+            color: $titleColor;
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .formItems {
+            .formItem {
+                label {
+                    @include fontRem(16, 500);
+                    line-height: 20px;
+                    margin-bottom: 16px;
+                    display: block;
+                    color: $titleColor;
+                }
+                input {
+                    width: 100%;
+                    background: rgba(41, 52, 139, 0.4);
+                    border: 1px solid rgba(178, 186, 215, 0.48);
+                    border-radius: 8px;
+                    transition: 0.3s;
+                    height: 64px;
+                    padding-left: 16px;
+                    @include fontRem(16, 500);
+                    line-height: 20px;
+                    color: $titleColor;
+                    &::placeholder {
+                        font-family: inherit;
+                        color: rgba(227, 230, 234, 0.32);
+                    }
+                    &:focus {
+                        border-color: $blue;
+                    }
+                }
+                .addonInput {
+                    position: relative;
+                    button {
+                        @include buttonNulled;
+                        @include flex-center-vert;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 23px;
+                    }
+                    input {
+                        padding-right: 55px;
+                    }
+                }
+                &:not(:last-child) {
+                    margin-bottom: 48px;
+                }
+            }
+        }
+        .forgotBtn {
+            margin-top: 24px;
+            a {
+                color: $blue;
+                display: inline-block;
+                @include fontRem(18, 500);
+                line-height: 22px;
+                transition: 0.3s;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+                &:active {
+                    text-decoration: underline;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-image: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+                }
+            }
+        }
+        .loginBtn {
+            margin-top: 72px;
+            button {
+                width: 100%;
+                @include flex-center;
+                background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+                border-radius: 8px;
+                border: none;
+                padding: 20px 30px;
+                @include fontRem(18, 500);
+                color: $titleColor;
+                border: none;
+                transition: 0.3s;
+                &:hover {
+                    background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+                    box-shadow: 0px 4px 36px rgba(4, 203, 251, 0.4);
+                }
+                &:active {
+                    box-shadow: none;
+                    background: linear-gradient(
+                        229.09deg,
+                        rgba(24, 117, 252, 0.32) 3.76%,
+                        rgba(0, 221, 251, 0.32) 115.42%
+                    );
+                }
+                &:disabled {
+                    cursor: not-allowed;
+                    background: linear-gradient(
+                        229.09deg,
+                        rgba(173, 179, 189, 0.32) 3.76%,
+                        rgba(104, 115, 117, 0.32) 115.42%
+                    );
+                }
+            }
+        }
+        .dontHaveAccount {
+            margin-top: 72px;
+            a {
+                color: $blue;
+                display: inline-block;
+                @include fontRem(18, 500);
+                line-height: 22px;
+                transition: 0.3s;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+                &:active {
+                    text-decoration: underline;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-image: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+                }
+            }
+            p {
+                text-align: center;
+                color: rgba(227, 230, 234, 0.32);
+                @include fontRem(18, 400);
+                line-height: 22px;
+            }
+        }
+    }
+}
