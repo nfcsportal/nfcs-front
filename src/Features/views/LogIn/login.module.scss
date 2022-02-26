@@ -113,38 +113,6 @@
         }
         .loginBtn {
             margin-top: 72px;
-            button {
-                width: 100%;
-                @include flex-center;
-                background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
-                border-radius: 8px;
-                border: none;
-                padding: 20px 30px;
-                @include fontRem(18, 500);
-                color: $titleColor;
-                border: none;
-                transition: 0.3s;
-                &:hover {
-                    background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
-                    box-shadow: 0px 4px 36px rgba(4, 203, 251, 0.4);
-                }
-                &:active {
-                    box-shadow: none;
-                    background: linear-gradient(
-                        229.09deg,
-                        rgba(24, 117, 252, 0.32) 3.76%,
-                        rgba(0, 221, 251, 0.32) 115.42%
-                    );
-                }
-                &:disabled {
-                    cursor: not-allowed;
-                    background: linear-gradient(
-                        229.09deg,
-                        rgba(173, 179, 189, 0.32) 3.76%,
-                        rgba(104, 115, 117, 0.32) 115.42%
-                    );
-                }
-            }
         }
         .dontHaveAccount {
             margin-top: 72px;

@@ -7,6 +7,7 @@ import ClosedEyeSvg from '../../../Assets/Icons/ClosedEyeSvg';
 import LogoSvg from '../../../Assets/Icons/LogoSvg';
 import { getAuthStatus, getCurrentUser } from '../../../Store/Selectors/auth';
 import { login, registration, users } from '../../../Store/Slices/auth';
+import Button from '../../atoms/Button';
 import MainContent from '../../organisms/MainContent';
 import styles from './login.module.scss';
 
@@ -64,9 +65,12 @@ const LogIn: React.FC = () => {
               <div className={styles.forgotBtn}>
                 <a href="#">Forgot Password?</a>
               </div>
-              <div className={styles.loginBtn}>
-                <button>Sign in</button>
-              </div>
+              <Button
+                customClass={styles.loginBtn}
+                submit
+                type="primary"
+                defaultMessage="Sign in"
+              />
             </form>
             <div className={styles.dontHaveAccount}>
               <p>

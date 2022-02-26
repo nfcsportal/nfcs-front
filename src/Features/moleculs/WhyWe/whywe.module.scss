@@ -1,0 +1,14 @@
+@use "sass:math";
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.whyWeItems {
+    position: relative;
+    z-index: 2;
+    margin-top: 150px;
+    .row {
+        @include flexRow(math.div(85, 2), 3);
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+}

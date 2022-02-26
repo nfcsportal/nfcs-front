@@ -8,6 +8,7 @@ import { ROUTES } from '../../../Constants/Routes';
 import { usePositions } from '../../../Hooks/usePositions';
 import { getCurrentLocale } from '../../../Store/Selectors/main';
 import { setLocale } from '../../../Store/Slices/mainSlice';
+import Button from '../../atoms/Button';
 import Typography from '../../atoms/Typography';
 import { LANGUAGES, NAV_BAR } from '../conastantsMolecul';
 import { TLanguages, TNavBar } from '../typesMolecules';
@@ -44,6 +45,14 @@ const Header: React.FC = () => {
                   </li>
                 );
               })}
+              <li>
+                <Button
+                  type="secondary"
+                  id="navbar.signup"
+                  className={styles.headerMenuLink}
+                  onClick={() => history.push(ROUTES.SIGN_IN)}
+                />
+              </li>
               <li>
                 <span className={styles.headerMenuLink}>
                   {currentLocalce.toLocaleUpperCase()}

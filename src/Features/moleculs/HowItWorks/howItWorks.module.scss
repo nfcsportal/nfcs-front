@@ -1,0 +1,18 @@
+@use "sass:math";
+@import "/src/styles/mixins";
+
+.howWorksItems {
+    margin-top: 140px;
+    position: relative;
+    z-index: 2;
+    .howRow {
+      @include flexRow(math.div(24, 2), 4);
+      > .col_25 {
+        &:nth-child(even) {
+          >div {
+            margin-top: 60px;
+          }
+        }
+      }
+    }
+}

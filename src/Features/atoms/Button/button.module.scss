@@ -1,0 +1,87 @@
+@import "/src/styles/mixins";
+@import "/src/styles/vars";
+
+.primary {
+     margin-top: 42px;
+     cursor: pointer;
+        width: 100%;
+        @include flex-center;
+        background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+        border-radius: 8px;
+        border: none;
+        position: relative;
+        padding: 20px 30px;
+        @include fontRem(18, 500);
+        color: $titleColor;
+        border: none;
+        transition: 0.3s;
+        &:hover {
+            background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+            box-shadow: 0px 4px 36px rgba(4, 203, 251, 0.4);
+        }
+        &:active {
+            box-shadow: none;
+            background: linear-gradient(
+                229.09deg,
+                rgba(24, 117, 252, 0.32) 3.76%,
+                rgba(0, 221, 251, 0.32) 115.42%
+            );
+        }
+        &:disabled {
+            cursor: not-allowed;
+            background: linear-gradient(
+                229.09deg,
+                rgba(173, 179, 189, 0.32) 3.76%,
+                rgba(104, 115, 117, 0.32) 115.42%
+            );
+        }
+
+    }
+  .secondary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 12px 44px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    height: 48px;
+    background-image: radial-gradient(
+            circle at 100% 100%,
+            transparent 8px,
+            #186ffc 8px,
+            #186ffc 10px,
+            transparent 10px
+        ),
+        linear-gradient(to right, #186ffc, #186ffc),
+        radial-gradient(
+            circle at 0% 100%,
+            transparent 8px,
+            #186ffc 8px,
+            #186ffc 10px,
+            transparent 10px
+        ),
+        linear-gradient(to bottom, #186ffc, #00ddfb),
+        radial-gradient(
+            circle at 0% 0%,
+            transparent 8px,
+            #00ddfb 8px,
+            #00ddfb 10px,
+            transparent 10px
+        ),
+        linear-gradient(to left, #00ddfb, #00ddfb),
+        radial-gradient(
+            circle at 100% 0%,
+            transparent 8px,
+            #00ddfb 8px,
+            #00ddfb 10px,
+            transparent 10px
+        ),
+        linear-gradient(to top, #00ddfb, #186ffc);
+    background-size: 10px 10px, calc(100% - 18px) 2px, 10px 10px, 2px calc(100% - 18px);
+    background-position: top left, top center, top right, center right, bottom right,
+        bottom center, bottom left, center left;
+    background-repeat: no-repeat;
+}
