@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type TNavBar = {
   title: string;
   path: string;
@@ -12,5 +14,16 @@ export type TLanguages = {
 
 export type TFooterIcon = {
   href: string;
-  icon: any;
+  icon: React.FC;
+};
+
+export type TWhyWe = {
+  icon: React.FC;
+  title: string;
+  info: string;
+};
+
+export type THowItWorks = {
+  icon: React.FC;
+  info: string;
 };

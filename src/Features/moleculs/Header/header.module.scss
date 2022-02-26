@@ -104,51 +104,6 @@
                         &.headerSignIn {
                             margin-left: 24px;
                         }
-                        &.headerSignUp {
-                            display: inline-flex;
-                            justify-content: center;
-                            align-items: center;
-                            position: relative;
-                            padding: 12px 44px;
-                            border-radius: 8px;
-                            height: 48px;
-                            background-image: radial-gradient(
-                                    circle at 100% 100%,
-                                    transparent 8px,
-                                    #186ffc 8px,
-                                    #186ffc 10px,
-                                    transparent 10px
-                                ),
-                                linear-gradient(to right, #186ffc, #186ffc),
-                                radial-gradient(
-                                    circle at 0% 100%,
-                                    transparent 8px,
-                                    #186ffc 8px,
-                                    #186ffc 10px,
-                                    transparent 10px
-                                ),
-                                linear-gradient(to bottom, #186ffc, #00ddfb),
-                                radial-gradient(
-                                    circle at 0% 0%,
-                                    transparent 8px,
-                                    #00ddfb 8px,
-                                    #00ddfb 10px,
-                                    transparent 10px
-                                ),
-                                linear-gradient(to left, #00ddfb, #00ddfb),
-                                radial-gradient(
-                                    circle at 100% 0%,
-                                    transparent 8px,
-                                    #00ddfb 8px,
-                                    #00ddfb 10px,
-                                    transparent 10px
-                                ),
-                                linear-gradient(to top, #00ddfb, #186ffc);
-                            background-size: 10px 10px, calc(100% - 18px) 2px, 10px 10px, 2px calc(100% - 18px);
-                            background-position: top left, top center, top right, center right, bottom right,
-                                bottom center, bottom left, center left;
-                            background-repeat: no-repeat;
-                        }
                     }
                 }
             }

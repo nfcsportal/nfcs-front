@@ -1,8 +1,15 @@
 import EnvelopeSvg from '../../Assets/Icons/EnvelopeSvg';
+import CheckPaperSvg from '../../Assets/Icons/how-it-works/CheckPaperSvg';
+import FindSvg from '../../Assets/Icons/how-it-works/FindSvg';
+import OrderSvg from '../../Assets/Icons/how-it-works/OrderSvg';
+import TimelineSvg from '../../Assets/Icons/how-it-works/TimelineSvg';
 import TelegramSvg from '../../Assets/Icons/TelegramSvg';
 import WhatsAppSvg from '../../Assets/Icons/WhatsAppSvg';
+import ShieldLockSvg from '../../Assets/Icons/why-we/ShieldLockSvg';
+import ShieldQuality from '../../Assets/Icons/why-we/ShieldQuality';
+import ShieldReliability from '../../Assets/Icons/why-we/ShieldReliability';
 import { ROUTES } from '../../Constants/Routes';
-import { TFooterIcon, TLanguages, TNavBar } from './typesMolecules';
+import { TFooterIcon, THowItWorks, TLanguages, TNavBar, TWhyWe } from './typesMolecules';
 
 export const NAV_BAR: TNavBar[] = [
   {
@@ -25,12 +32,6 @@ export const NAV_BAR: TNavBar[] = [
     path: ROUTES.SIGN_IN,
     className: 'headerSignIn',
     id: 'navbar.signin',
-  },
-  {
-    title: 'Sign Un',
-    path: ROUTES.SIGN_UP,
-    className: 'headerSignUp',
-    id: 'navbar.signup',
   },
 ];
 
@@ -76,5 +77,42 @@ export const FOOTER_MENU: Record<string, string>[] = [
   {
     href: 'href',
     id: 'footer.menu.contactus',
+  },
+];
+
+export const WHY_WE: TWhyWe[] = [
+  {
+    icon: ShieldQuality,
+    title: 'home.whywe.quality',
+    info: 'home.whywe.quality.content',
+  },
+  {
+    icon: ShieldLockSvg,
+    title: 'home.whywe.confidence',
+    info: 'home.whywe.confidence.content',
+  },
+  {
+    icon: ShieldReliability,
+    title: 'home.whywe.reliability',
+    info: 'home.whywe.reliability.content',
+  },
+];
+
+export const HOW_IT_WORKS: THowItWorks[] = [
+  {
+    icon: FindSvg,
+    info: 'home.howitworks.find',
+  },
+  {
+    icon: OrderSvg,
+    info: 'home.howitworks.order',
+  },
+  {
+    icon: TimelineSvg,
+    info: 'home.howitworks.timeline',
+  },
+  {
+    icon: CheckPaperSvg,
+    info: 'home.howitworks.purchase',
   },
 ];

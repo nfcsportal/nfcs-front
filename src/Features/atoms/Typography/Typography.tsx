@@ -5,7 +5,7 @@ import { useDetectCurrentClassWithLocale } from '../../../Hooks/useDetectCurrent
 import { ITypographyProps } from './Typography.types';
 
 const Typography: React.FC<ITypographyProps> = ({
-  component,
+  component = 'div',
   className,
   id = '#',
   defaultMessage,
