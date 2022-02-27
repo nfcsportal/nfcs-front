@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Button from '../../atoms/Button';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
 import HowItWorks from '../../moleculs/HowItWorks';
@@ -18,6 +19,26 @@ const HomePage: React.FC = () => {
         </section>
         <section className={styles.cardsSection}>
           <HomeCards />
+        </section>
+        <section className={styles.discountSection}>
+          <div className="container">
+            <div className={styles.discountMain}>
+              <div className={styles.discrountItem}>
+                <h2 className={`${styles.discountTitle} title`}>
+                  <span>50%</span> Discount!
+                </h2>
+                <p className={styles.discountText}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. At lorem enim massa quis
+                  vivamus sed enim, commodo. Suspendisse lectus lobortis augue tellus.{' '}
+                </p>
+                <Button
+                  type="primary"
+                  customClass={styles.discountBtn}
+                  defaultMessage=" Buy Forecast"
+                />
+              </div>
+            </div>
+          </div>
         </section>
         <section className={styles.howItWorksSection}>
           <HowItWorks />

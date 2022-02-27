@@ -38,7 +38,7 @@ const Card: React.FC<ICard> = ({
           <s>{saledPrice}$</s>
           <p>{price}$</p>
         </div>
-        <Button type="primary" id={buttonText} />
+        <Button type="primary" customClass={styles.cardBtn} id={buttonText} />
       </div>
     </div>
   );
