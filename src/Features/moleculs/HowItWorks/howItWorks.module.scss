@@ -7,6 +7,9 @@
     z-index: 2;
     .howRow {
       @include flexRow(math.div(24, 2), 4);
+      @media all and (max-width: 1600px) {
+        @include flexRow(math.div(16, 2), 4);
+      }
       > .col_25 {
         &:nth-child(even) {
           >div {

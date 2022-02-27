@@ -25,7 +25,7 @@ const Card: React.FC<ICard> = ({
     <div className={`${styles.cardsCol_25} col_25`}>
       <div className={`${styles.cardItem} ${styles.cardItemBinance}`}>
         <div className={styles.cardTooltip}>
-          <button type="button">
+          <button type="button" aria-label="tooltip">
             <TooltipSvg />
           </button>
         </div>

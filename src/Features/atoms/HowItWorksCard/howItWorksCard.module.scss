@@ -12,6 +12,9 @@
     text-align: center;
     padding: 0 16px;
     height: 230px;
+    @media all and (max-width: 1600px) {
+     padding: 0 11px;
+    }
     @supports (
       mask: linear-gradient(#fff 0 0) content-box,
       linear-gradient(

@@ -21,6 +21,10 @@
         padding-left: 80px;
         padding-right: 80px;
         margin-bottom: 84px;
+        @media all and (max-width: 1600px) {
+            padding-left: 56px;
+            padding-right: 56px;
+        }
     }
     .loginSection {
         background-repeat: no-repeat;
