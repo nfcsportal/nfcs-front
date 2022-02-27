@@ -19,7 +19,6 @@ const Card: React.FC<ICard> = ({
   info,
   buttonText,
 }) => {
-  console.log(saleMode, title);
   const Component = icon;
   return (
     <div className={`${styles.cardsCol_25} col_25`}>
@@ -35,7 +34,7 @@ const Card: React.FC<ICard> = ({
         <Typography className={styles.cardTitle} component="h2" id={title} />
         <Typography className={styles.cardText} component="p" id={info} />
         <div className={styles.cardPrice}>
-          <s>{saledPrice}$</s>
+          {saleMode && <s>{saledPrice}$</s>}
           <p>{price}$</p>
         </div>
         <Button type="primary" id={buttonText} />
