@@ -3,8 +3,14 @@
 @import "/src/styles/mixins";
 
 .cardItems {
-    margin-top: 100px; 
+    margin-top: 100px;
+    @media all and (max-width: 1600px) {
+        margin-top: 80px;
+    }
 }
 .cardRow {
-    @include flexRow(math.div(24, 2), 4); 
+    @include flexRow(math.div(24, 2), 4);
+    @media all and (max-width: 1600px) {
+        @include flexRow(math.div(16, 2), 4);
+    }
 }

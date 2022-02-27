@@ -6,9 +6,15 @@
     position: relative;
     z-index: 2;
     margin-top: 150px;
+    @media all and (max-width: 1600px) {
+        margin-top: 130px;
+    }
     .row {
         @include flexRow(math.div(85, 2), 3);
         justify-content: space-around;
         align-items: flex-start;
+        @media all and (max-width: 1600px) {
+            @include flexRow(math.div(80, 2), 3);
+        }
     }
 }

@@ -17,6 +17,10 @@
         max-width: 100%;
         padding-left: 80px;
         padding-right: 80px;
+        @media all and (max-width: 1600px) {
+            padding-left: 56px;
+            padding-right: 56px;
+        }
     }
     .headerLogo{
         
@@ -87,6 +91,9 @@
                     }
                     &:not(:first-child) {
                         margin-left: 40px;
+                        @media all and (max-width: 1600px) {
+                            margin-left: 24px;
+                        }
                     }
                     .headerMenuLink {
                         @include flex-center-vert;
@@ -97,12 +104,24 @@
                         text-decoration: none;
                         padding-top: 12px;
                         padding-bottom: 12px;
+                        @media all and (max-width: 1600px) {
+                            @include fontRem(14, 400);
+                        }
                         .iconWrapper {
                             margin-left: 12px;
                             transition: 0.3s;
+                            svg {
+                                @media all and (max-width: 1600px) {
+                                   width: 12px;
+                                }
+                            }
+                            
                         }
                         &.headerSignIn {
                             margin-left: 24px;
+                            @media all and (max-width: 1600px) {
+                                margin-left: 18px;
+                            }
                         }
                     }
                 }

@@ -112,6 +112,10 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
         background-image: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+        @media all and (max-width: 1600px) {
+          @include fontRem(40, 700);
+          line-height: 48px;
+        }
       }
     }
     @supports (
