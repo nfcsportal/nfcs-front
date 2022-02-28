@@ -11,10 +11,10 @@ const Routes: React.FC = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/sign-up">
+        <Route path="/sign-in">
           <SignIn />
         </Route>
-        <Route path="/sign-in">
+        <Route path="/sign-up">
           <LogIn />
         </Route>
         <Route path="/user/:id">

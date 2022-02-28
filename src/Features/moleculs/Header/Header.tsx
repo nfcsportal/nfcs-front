@@ -50,7 +50,7 @@ const Header: React.FC = () => {
                   type="secondary"
                   id="navbar.signup"
                   className={styles.headerMenuLink}
-                  onClick={() => history.push(ROUTES.SIGN_IN)}
+                  onClick={() => history.push(ROUTES.SIGN_UP)}
                 />
               </li>
               <li>
