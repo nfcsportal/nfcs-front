@@ -14,6 +14,7 @@ const Typography: React.FC<ITypographyProps> = ({
   multyLangClasses,
   style = {},
   onClick,
+  htmlFor,
 }) => {
   const Component = component;
   const currentValue = value ? { [value]: valueMessage } : {};
@@ -22,6 +23,7 @@ const Typography: React.FC<ITypographyProps> = ({
   return (
     <Component
       onClick={onClick && onClick}
+      htmlFor={htmlFor}
       className={hasMultyClasss ? hasMultyClasss?.multylangClass : className}
       style={style}
     >

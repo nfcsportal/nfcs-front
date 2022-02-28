@@ -8,6 +8,7 @@ import LogoSvg from '../../../Assets/Icons/LogoSvg';
 import { getAuthStatus, getCurrentUser } from '../../../Store/Selectors/auth';
 import { login, registration, users } from '../../../Store/Slices/auth';
 import Button from '../../atoms/Button';
+import Input from '../../atoms/Input';
 import MainContent from '../../organisms/MainContent';
 import styles from './login.module.scss';
 
@@ -38,29 +39,28 @@ const LogIn: React.FC = () => {
             <form action="">
               <h2 className={styles.loginTitle}>Sign In</h2>
               <div className={styles.formItems}>
-                <div className={styles.formItem}>
-                  <label htmlFor="username">Username</label>
-                  <input
-                    type="text"
-                    onChange={(e: any) => setEmail(e.target.value)}
-                    value={email}
-                    placeholder="Enter email"
-                  />
-                </div>
-                <div className={styles.formItem}>
-                  <label htmlFor="username">Password</label>
-                  <div className={styles.addonInput}>
-                    <input
-                      type="text"
-                      onChange={(e: any) => setPass(e.target.value)}
-                      value={pass}
-                      placeholder="Enter password"
-                    />
-                    <button className={styles.passwordEye}>
-                      <ClosedEyeSvg />
-                    </button>
-                  </div>
-                </div>
+                <Input
+                  htmlFor="asaas"
+                  type="text"
+                  name="asdasd"
+                  isPassInput={true}
+                  placeHolder="asjkdaskld"
+                  label="asas"
+                  onChange={() => console.log('askjdkasd')}
+                  onClick={() => console.log('askjdkasd')}
+                  value="asldkal/sd"
+                />
+                <Input
+                  name="asdasd"
+                  onClick={() => console.log('askjdkasd')}
+                  htmlFor="asaas"
+                  type="text"
+                  isPassInput={true}
+                  placeHolder="asjkdaskld"
+                  label="asas"
+                  onChange={() => console.log('askjdkasd')}
+                  value="asldkal/sd"
+                />
               </div>
               <div className={styles.forgotBtn}>
                 <a href="#">Forgot Password?</a>

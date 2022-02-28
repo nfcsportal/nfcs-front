@@ -9,6 +9,7 @@ interface IButtonProps extends ITypographyProps {
   size?: 's' | 'l' | 'xl';
   customClass?: string;
   submit?: boolean;
+  disabeled?: boolean;
 }
 
 const Button: React.FC<IButtonProps> = ({
@@ -16,11 +17,16 @@ const Button: React.FC<IButtonProps> = ({
   size = 'l',
   customClass = '',
   submit = false,
+  disabeled = false,
   ...rest
 }) => {
   const buttonType = submit ? 'submit' : 'button';
   return (
-    <button type={buttonType} className={`${styles[type]} ${styles[size]} ${customClass}`}>
+    <button
+      disabled={disabeled}
+      type={buttonType}
+      className={`${styles[type]} ${styles[size]} ${customClass}`}
+    >
       <Typography {...rest} />
     </button>
   );
