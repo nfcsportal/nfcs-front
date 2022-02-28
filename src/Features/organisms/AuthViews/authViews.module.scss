@@ -25,6 +25,13 @@
             padding-left: 56px;
             padding-right: 56px;
         }
+        div {
+            cursor: pointer;
+            transition: 1s ease-out;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
     }
     .loginSection {
         background-repeat: no-repeat;
@@ -51,8 +58,9 @@
 
         .forgotBtn {
             margin-top: 24px;
-            a {
+            span {
                 color: $blue;
+                cursor: pointer;
                 display: inline-block;
                 @include fontRem(18, 500);
                 line-height: 22px;
@@ -74,8 +82,10 @@
         }
         .dontHaveAccount {
             margin-top: 72px;
-            a {
+            .linked {
+                cursor: pointer;
                 color: $blue;
+                margin-left: 10px;
                 display: inline-block;
                 @include fontRem(18, 500);
                 line-height: 22px;

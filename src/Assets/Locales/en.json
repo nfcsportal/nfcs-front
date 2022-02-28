@@ -28,5 +28,17 @@
     "home.cards.stock.title": "Stock",
     "home.cards.crypto.title": "Crypto",
     "home.cards.futures.text": "Lorem ipsum",
-    "home.cards.buttonText": "Order Analytics"
+    "home.cards.buttonText": "Order Analytics",
+    "validation.scheme.signin.email.invalid": "Email is not valid",
+    "validation.scheme.signin.email.requiere": "Email is required",
+    "validation.scheme.signin.pass.length": "Password should be of minimum 8 characters length",
+    "validation.scheme.signin.pass.requiere": "Password is required",
+    "signin.header": "Sign In",
+    "signin.forgot": "Forgot Password?",
+    "signin.donthaveaccount": "Don’t have an account?",
+    "signin.email.placeholder": "email address",
+    "signin.email.title": "Email",
+    "signin.password.placeholder": "password",
+    "signin.password.title": "Password",
+    "signin.signup": "Sign Up?"
 }

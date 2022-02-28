@@ -10,4 +10,5 @@ export interface ITypographyProps {
   style?: CSSProperties;
   multyLangClasses?: any[];
   onClick?: () => void;
+  htmlFor?: string;
 }

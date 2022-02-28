@@ -1,0 +1,58 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+
+.formItem {
+    &:not(:last-child) {
+        margin-bottom: 48px;
+    }
+}
+
+.label {
+    @include fontRem(16, 500);
+    line-height: 20px;
+    margin-bottom: 16px;
+    display: block;
+    color: $titleColor;
+}
+.input {
+    width: 100%;
+    background: rgba(41, 52, 139, 0.4);
+    border: 1px solid rgba(178, 186, 215, 0.48);
+    border-radius: 8px;
+    transition: 0.3s;
+    height: 64px;
+    padding-left: 16px;
+    @include fontRem(16, 500);
+    line-height: 20px;
+    color: $titleColor;
+    &::placeholder {
+        font-family: inherit;
+        color: rgba(227, 230, 234, 0.32);
+    }
+    &:focus {
+        border-color: $blue;
+    }
+}
+.addonInput {
+    position: relative;
+    button {
+        @include buttonNulled;
+        @include flex-center-vert;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 23px;
+    }
+    input {
+        padding-right: 55px;
+    }
+}
+
+.errorMessage{
+    font-family: Montserrat;
+    color: #981616;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px;
+}
