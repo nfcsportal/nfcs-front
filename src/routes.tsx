@@ -2,10 +2,12 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import AboutUs from './Features/views/AboutUs';
+import ChangePassword from './Features/views/AutohFlow/ChangePassword';
+import ForgotPassword from './Features/views/AutohFlow/ForgotPassword';
 import SignIn from './Features/views/AutohFlow/SignIn';
+import SignUp from './Features/views/AutohFlow/SignUp';
 import Dashboard from './Features/views/Dashboard';
 import HomePage from './Features/views/HomePage';
-import LogIn from './Features/views/LogIn';
 
 const Routes: React.FC = () => {
   return (
@@ -15,7 +17,13 @@ const Routes: React.FC = () => {
           <SignIn />
         </Route>
         <Route path="/sign-up">
-          <LogIn />
+          <SignUp />
+        </Route>
+        <Route path="/forgot-pass">
+          <ForgotPassword />
+        </Route>
+        <Route path="/change-pass">
+          <ChangePassword />
         </Route>
         <Route path="/user/:id">
           <Dashboard />

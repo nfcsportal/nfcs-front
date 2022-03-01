@@ -56,3 +56,14 @@
     font-weight: 500;
     margin-top: 10px;
 }
+
+.repeatMode{
+    width: 16px;
+    height: 16px;
+    background: red;
+    position: absolute;
+    right: -30px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
