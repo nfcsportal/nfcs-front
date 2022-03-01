@@ -16,7 +16,7 @@ const HomeCards: React.FC = () => {
             return (
               <Card
                 buttonText={current.buttonText}
-                key={current.info}
+                key={current.title}
                 icon={current.icon}
                 info={current.info}
                 title={current.title}
