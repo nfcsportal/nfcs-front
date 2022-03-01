@@ -6,6 +6,7 @@ import ChangePassword from './Features/views/AutohFlow/ChangePassword';
 import ForgotPassword from './Features/views/AutohFlow/ForgotPassword';
 import SignIn from './Features/views/AutohFlow/SignIn';
 import SignUp from './Features/views/AutohFlow/SignUp';
+import CurrentAnalytic from './Features/views/CurrentAnalytic';
 import Dashboard from './Features/views/Dashboard';
 import HomePage from './Features/views/HomePage';
 
@@ -30,6 +31,9 @@ const Routes: React.FC = () => {
         </Route>
         <Route path="/about">
           <AboutUs />
+        </Route>
+        <Route path="/current-analytic">
+          <CurrentAnalytic />
         </Route>
         <Route path="/">
           <HomePage />
