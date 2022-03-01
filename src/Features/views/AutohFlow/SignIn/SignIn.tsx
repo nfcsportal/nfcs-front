@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import React, { useState } from 'react';
 
 import { SIGN_IN_INITIAL } from '../../../../Constants/authFLow';
+import { ROUTES } from '../../../../Constants/Routes';
 import { useAllowSubmit } from '../../../../Hooks/useAllowSubmitForm';
 import { signInValidationSchema } from '../../../../Utils/validations';
 import Input from '../../../atoms/Input';
@@ -19,16 +20,15 @@ const SignIn: React.FC = () => {
     },
   });
   const allowSubmit = useAllowSubmit(formik, SIGN_IN_INITIAL);
-  console.log(formik.errors);
 
   return (
     <AuthView
       submitHandler={formik.handleSubmit}
       allowSubmit={allowSubmit}
       header="signin.header"
-      aboveButtonText={{ href: '/', title: 'signin.forgot' }}
+      aboveButtonText={{ href: ROUTES.FORGOT_PASS, title: 'signin.forgot' }}
       bottomText="signin.donthaveaccount"
-      bottomLinkedText={{ href: '/', title: 'signin.signup' }}
+      bottomLinkedText={{ href: ROUTES.SIGN_UP, title: 'signin.signup' }}
       buttonText="signin.header"
     >
       <Input

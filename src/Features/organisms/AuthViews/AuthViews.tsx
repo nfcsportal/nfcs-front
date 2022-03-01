@@ -17,7 +17,7 @@ interface IAuthViewProps {
   header: string;
   bottomText: string;
   bottomLinkedText: TLinkedText;
-  aboveButtonText: TLinkedText;
+  aboveButtonText?: TLinkedText;
   buttonText: string;
   submitHandler: () => void;
   allowSubmit: boolean;
@@ -46,13 +46,15 @@ const AuthView: React.FC<IAuthViewProps> = ({
             <form onSubmit={submitHandler} action="">
               <Typography className={styles.loginTitle} component="h2" id={header} />
               {children}
-              <div className={styles.forgotBtn}>
-                <Typography
-                  component="span"
-                  id={aboveButtonText.title}
-                  onClick={() => history.push(aboveButtonText.href)}
-                />
-              </div>
+              {aboveButtonText && (
+                <div className={styles.forgotBtn}>
+                  <Typography
+                    component="span"
+                    id={aboveButtonText.title}
+                    onClick={() => history.push(aboveButtonText.href)}
+                  />
+                </div>
+              )}
               <Button
                 customClass={styles.loginBtn}
                 submit

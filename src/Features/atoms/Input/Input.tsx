@@ -7,6 +7,11 @@ import OpenedEyeSvg from '../../../Assets/Icons/OpenedEyeSvg';
 import Typography from '../Typography';
 import styles from './input.module.scss';
 
+type isTruthyEqual = {
+  touched: boolean;
+  error: string;
+};
+
 interface IInputProps {
   type: 'text' | 'password';
   isPassInput?: boolean;
@@ -20,6 +25,8 @@ interface IInputProps {
   error?: any;
   passShowMode?: boolean;
   setPassShowMode?: (arg: boolean) => void;
+  repeatMode?: boolean;
+  isTruthyEqual?: isTruthyEqual;
 }
 
 const Input: React.FC<IInputProps> = ({
@@ -35,9 +42,10 @@ const Input: React.FC<IInputProps> = ({
   isPassInput = false,
   passShowMode = false,
   setPassShowMode,
+  repeatMode = false,
+  isTruthyEqual,
 }) => {
   const intl = useIntl();
-  console.log(error);
 
   return (
     <>
@@ -71,6 +79,12 @@ const Input: React.FC<IInputProps> = ({
               <button onClick={() => setPassShowMode(!passShowMode)} className={styles.passwordEye}>
                 {!passShowMode ? <ClosedEyeSvg /> : <OpenedEyeSvg />}
               </button>
+            )}
+            {repeatMode && isTruthyEqual?.touched && (
+              <div
+                style={{ background: `${isTruthyEqual.error !== '' ? '#981616' : '#2FAD4B'}` }}
+                className={styles.repeatMode}
+              />
             )}
           </div>
           {error && <Typography component="div" className={styles.errorMessage} id={error} />}
