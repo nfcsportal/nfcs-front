@@ -61,7 +61,7 @@ const Input: React.FC<IInputProps> = ({
             value={value}
             placeholder={intl.formatMessage({ id: placeHolder })}
           />
-          {error && <Typography component="div" className={styles.errorMessage} id={error} />}
+          {error && <Typography component="p" className={styles.errorMessage} id={error} />}
         </div>
       ) : (
         <div onClick={() => onClick(name)} className={styles.formItem}>
@@ -87,7 +87,7 @@ const Input: React.FC<IInputProps> = ({
               />
             )}
           </div>
-          {error && <Typography component="div" className={styles.errorMessage} id={error} />}
+          {error && <Typography component="p" className={styles.errorMessage} id={error} />}
         </div>
       )}
     </>

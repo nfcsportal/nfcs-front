@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import ArrowSvg from '../../../Assets/Icons/ArrowSvg';
-import LogoSvg from '../../../Assets/Icons/LogoSvg';
+import Logo from '../../../Assets/images/logo.svg';
 import { ROUTES } from '../../../Constants/Routes';
 import { usePositions } from '../../../Hooks/usePositions';
 import { getCurrentLocale } from '../../../Store/Selectors/main';
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
       <div className="container">
         <nav className={styles.nav}>
           <div className={styles.headerLogo} onClick={() => history.push(ROUTES.HOME)}>
-            <LogoSvg />
+            <img src={Logo} alt="Logo" />
           </div>
           <menu className={styles.headerMenu}>
             <ul className={styles.headerMenuList}>

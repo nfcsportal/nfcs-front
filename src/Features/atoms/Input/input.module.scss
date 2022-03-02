@@ -43,6 +43,19 @@
         top: 50%;
         transform: translateY(-50%);
         right: 23px;
+        svg {
+            path {
+                transition: 0.3s;
+            }
+        }
+        &:hover {
+            svg {
+                path {
+                    fill: $white;
+                    fill-opacity: 1;
+                }
+            }
+        }
     }
     input {
         padding-right: 55px;
@@ -50,10 +63,8 @@
 }
 
 .errorMessage{
-    font-family: Montserrat;
     color: #981616;
-    font-size: 14px;
-    font-weight: 500;
+    @include fontRem(14, 500);
     margin-top: 10px;
 }
 
@@ -62,7 +73,7 @@
     height: 16px;
     background: red;
     position: absolute;
-    right: -30px;
+    right: -28px;
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);

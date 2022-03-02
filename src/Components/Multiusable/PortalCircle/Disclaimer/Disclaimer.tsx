@@ -16,16 +16,21 @@ const Disclaimer: React.FC<IDisclaimer> = ({ onChange, name }) => {
     setChecked(!checked);
   };
   return (
-    <div className={styles.diclaimerWrapper}>
+    <div className={`${styles.diclaimerWrapper} defualtCheck`}>
       <input
         checked={checked}
         onChange={handleChange}
         name={name}
         className={styles.input}
         type="checkbox"
+        id="defaultCheck"
       />
-      <Typography component="span" className={styles.text} id="disclaimer.text" />
-      <Typography component="span" className={styles.linked} id="disclaimer.link" />
+      <label htmlFor="defaultCheck" className={styles.diclaimerLabel}>
+        By signing up, you agree to our
+        <a href="#" target="_blank">
+          privacy policy
+        </a>
+      </label>
     </div>
   );
 };

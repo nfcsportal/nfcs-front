@@ -3,8 +3,8 @@ import { FormattedMessage } from 'react-intl';
 
 import CopyRightSvg from '../../../Assets/Icons/CopyRightSvg';
 import LocationSvg from '../../../Assets/Icons/LocationSvg';
-import LogoSvg from '../../../Assets/Icons/LogoSvg';
 import PhoneSvg from '../../../Assets/Icons/PhoneSvg';
+import Logo from '../../../Assets/images/logo.svg';
 import Typography from '../../atoms/Typography';
 import { FOOTER_ICONS, FOOTER_MENU } from '../conastantsMolecul';
 import { TFooterIcon } from '../typesMolecules';
@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className={styles.footerTop}>
           <div className={styles.footerLogo}>
-            <LogoSvg />
+            <img src={Logo} alt="Logo" />
           </div>
           <div className={styles.footerSoccial}>
             <ul className={styles.footerSocialList}>

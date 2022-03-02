@@ -4,7 +4,7 @@
 .footer {
     margin-top: auto;
     padding: 0 0 46px;
-    
+
     background: linear-gradient(180deg, rgba(18, 13, 31, 0.32) 0%, #120d1f 100%);
     [class="container"] {
         max-width: 100%;
@@ -20,6 +20,9 @@
         @include flex-center-column;
         border-top: 4px solid rgba(182, 193, 255, 0.12);
         .footerLogo {
+            img {
+                width: 169px;
+            }
             margin-bottom: 68px;
         }
         .footerSoccial {
