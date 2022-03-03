@@ -17,7 +17,7 @@ const CurrentAnalytic: React.FC = () => {
               <div className={`${styles.analyticRightCol} col_right`}>
                 <div className={styles.rightInner}>
                   <div className={styles.rightItem}>
-                    <h3 className={styles.itemTitle}>Lorem Ipsum</h3>
+                    <h3 className={`${styles.itemTitle} title`}>Lorem Ipsum</h3>
                     <p className={styles.itemText}>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam ab mollitia
                       eaque distinctio ex repellat, voluptate sit ullam facilis nihil ipsum vitae

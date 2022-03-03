@@ -6,14 +6,14 @@
     position: relative;
     z-index: 2;
     margin-top: 150px;
-    @media all and (max-width: 1600px) {
+    @media all and (max-width: $normalDesktop) {
         margin-top: 130px;
     }
     .row {
         @include flexRow(math.div(85, 2), 3);
         justify-content: space-around;
         align-items: flex-start;
-        @media all and (max-width: 1600px) {
+        @media all and (max-width: $normalDesktop) {
             @include flexRow(math.div(80, 2), 3);
         }
     }

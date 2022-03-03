@@ -14,6 +14,7 @@
         color: $titleColor;
         border: none;
         transition: 0.3s;
+        z-index: 11;
         &:hover {
             background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
             box-shadow: 0px 4px 36px rgba(4, 203, 251, 0.4);
