@@ -16,7 +16,7 @@
   background-size: contain;
   z-index: 1;
   transition: 0.3s;
-  @media all and (max-width: 1600px) {
+  @media all and (max-width: $normalDesktop) {
     padding: 80px 16px 16px;
     background-position: center top;
   }
@@ -104,14 +104,14 @@
     line-height: 34px;
     color: $white;
     letter-spacing: 0.055em;
-    @media all and (max-width: 1600px) {
+    @media all and (max-width: $normalDesktop) {
       @include fontRem(22, 700);
       line-height: 26px;
       margin-top: 40px;
     }
   }
   .cardIcon {
-    @media all and (max-width: 1600px) {
+    @media all and (max-width: $normalDesktop) {
       svg {
         width: 104px;
         height: 104px;
@@ -127,7 +127,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    @media all and (max-width: 1600px) {
+    @media all and (max-width: $normalDesktop) {
      max-width: 242px;
     }
   }
@@ -152,7 +152,7 @@
   }
   .cardBtn {
     margin-top: 42px;
-    @media all and (max-width: 1600px) {
+    @media all and (max-width: $normalDesktop) {
      margin-top: 36px;
     }
   }

@@ -9,6 +9,7 @@ import SignUp from './Features/views/AutohFlow/SignUp';
 import CurrentAnalytic from './Features/views/CurrentAnalytic';
 import Dashboard from './Features/views/Dashboard';
 import HomePage from './Features/views/HomePage';
+import Privacy from './Features/views/Privacy';
 
 const Routes: React.FC = () => {
   return (
@@ -34,6 +35,9 @@ const Routes: React.FC = () => {
         </Route>
         <Route path="/current-analytic">
           <CurrentAnalytic />
+        </Route>
+        <Route path="/privacy">
+          <Privacy />
         </Route>
         <Route path="/">
           <HomePage />

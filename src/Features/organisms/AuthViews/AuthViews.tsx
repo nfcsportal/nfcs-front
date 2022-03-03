@@ -44,7 +44,7 @@ const AuthView: React.FC<IAuthViewProps> = ({
         <section className={styles.loginSection}>
           <div className={styles.loginForm}>
             <form onSubmit={submitHandler} action="">
-              <Typography className={styles.loginTitle} component="h2" id={header} />
+              <Typography className={`${styles.loginTitle} title`} component="h2" id={header} />
               {children}
               {aboveButtonText && (
                 <div className={styles.forgotBtn}>

@@ -26,6 +26,9 @@
     @include fontRem(16, 500);
     line-height: 20px;
     color: $titleColor;
+    @media all and (max-width: $tablet) {
+        height: 48px;
+    }
     &::placeholder {
         font-family: inherit;
         color: rgba(227, 230, 234, 0.32);

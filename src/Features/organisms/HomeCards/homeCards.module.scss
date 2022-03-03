@@ -4,13 +4,13 @@
 
 .cardItems {
     margin-top: 100px;
-    @media all and (max-width: 1600px) {
+    @media all and (max-width: $normalDesktop) {
         margin-top: 80px;
     }
 }
 .cardRow {
     @include flexRow(math.div(24, 2), 4);
-    @media all and (max-width: 1600px) {
+    @media all and (max-width: $normalDesktop) {
         @include flexRow(math.div(16, 2), 4);
     }
 }

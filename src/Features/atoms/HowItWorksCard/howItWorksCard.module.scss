@@ -12,7 +12,7 @@
     text-align: center;
     padding: 0 16px;
     height: 230px;
-    @media all and (max-width: 1600px) {
+    @media all and (max-width: $normalDesktop) {
      padding: 0 11px;
     }
     @supports (

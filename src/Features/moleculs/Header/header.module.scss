@@ -17,7 +17,7 @@
         max-width: 100%;
         padding-left: 80px;
         padding-right: 80px;
-        @media all and (max-width: 1600px) {
+        @media all and (max-width: $normalDesktop) {
             padding-left: 56px;
             padding-right: 56px;
         }
@@ -93,7 +93,7 @@
                     }
                     &:not(:first-child) {
                         margin-left: 40px;
-                        @media all and (max-width: 1600px) {
+                        @media all and (max-width: $normalDesktop) {
                             margin-left: 24px;
                         }
                     }
@@ -106,14 +106,14 @@
                         text-decoration: none;
                         padding-top: 12px;
                         padding-bottom: 12px;
-                        @media all and (max-width: 1600px) {
+                        @media all and (max-width: $normalDesktop) {
                             @include fontRem(14, 400);
                         }
                         .iconWrapper {
                             margin-left: 12px;
                             transition: 0.3s;
                             svg {
-                                @media all and (max-width: 1600px) {
+                                @media all and (max-width: $normalDesktop) {
                                    width: 12px;
                                 }
                             }
@@ -121,7 +121,7 @@
                         }
                         &.headerSignIn {
                             margin-left: 24px;
-                            @media all and (max-width: 1600px) {
+                            @media all and (max-width: $normalDesktop) {
                                 margin-left: 18px;
                             }
                         }
