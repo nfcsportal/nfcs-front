@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 
-import Typography from '../../../../Features/atoms/Typography';
 import styles from './disclaimer.module.scss';
 
 interface IDisclaimer {
