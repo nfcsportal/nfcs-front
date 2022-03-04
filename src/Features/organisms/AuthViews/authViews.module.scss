@@ -47,7 +47,7 @@
             border-radius: 8px;
             padding: 56px 64px 26px;
             @media all and (max-width: $tablet) {
-                padding: 40px 37px;
+                padding: 40px 37px 24px;
             } 
             
         }
@@ -84,10 +84,14 @@
             margin-top: 72px;
             @media all and (max-width: $tablet) {
                 height: 48px;
+                margin-top: 48px;
             } 
         }
         .dontHaveAccount {
             margin-top: 72px;
+            @media all and (max-width: $tablet) {
+                margin-top: 32px;
+            } 
             .linked {
                 cursor: pointer;
                 color: $blue;
