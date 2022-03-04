@@ -15,6 +15,7 @@ const HomeCards: React.FC = () => {
           {HOME_CARDS.map((current: THomeCards) => {
             return (
               <Card
+                hoverEffect={current.hoverEffect}
                 buttonText={current.buttonText}
                 key={current.title}
                 icon={current.icon}
