@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 
 import Disclaimer from '../../../../Components/Multiusable/PortalCircle/Disclaimer';
 import { SIGN_UP_INITIAL, TSignUpValues } from '../../../../Constants/authFLow';
@@ -13,6 +13,8 @@ const SignUp: React.FC = () => {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [showRepeatPass, setShowRepeatPass] = useState<boolean>(false);
   const formik = useFormik({
+    validateOnChange: true,
+    validateOnBlur: true,
     initialValues: {
       ...SIGN_UP_INITIAL,
     },
@@ -21,15 +23,8 @@ const SignUp: React.FC = () => {
       console.log(values);
     },
   });
-  const validationValues = useMemo(() => {
-    return {
-      email: SIGN_UP_INITIAL.email,
-      password: SIGN_UP_INITIAL.password,
-      passwordConfirmation: SIGN_UP_INITIAL.passwordConfirmation,
-    };
-  }, []);
 
-  const allowSubmit = useAllowSubmit(formik, validationValues);
+  const allowSubmit = useAllowSubmit(formik, SIGN_UP_INITIAL);
 
   return (
     <AuthView
@@ -43,6 +38,7 @@ const SignUp: React.FC = () => {
       <Input
         htmlFor="email"
         type="text"
+        onFocus={formik.setFieldTouched}
         name="email"
         placeHolder="signup.email.placeholder"
         label="signup.email.title"
@@ -61,8 +57,10 @@ const SignUp: React.FC = () => {
         isTruthyEqual={{
           touched: formik.touched.password || false,
           error: formik.errors.password || '',
+          value: formik.values.password,
         }}
         onClick={formik.setFieldTouched}
+        onFocus={formik.setFieldTouched}
         error={formik.touched.password && formik.errors.password}
         onChange={formik.handleChange}
         passShowMode={showPass}
@@ -81,15 +79,21 @@ const SignUp: React.FC = () => {
         isTruthyEqual={{
           touched: formik.touched.passwordConfirmation || false,
           error: formik.errors.passwordConfirmation || '',
+          value: formik.values.passwordConfirmation,
         }}
         onClick={formik.setFieldTouched}
+        onFocus={formik.setFieldTouched}
         error={formik.touched.passwordConfirmation && formik.errors.passwordConfirmation}
         onChange={formik.handleChange}
         passShowMode={showRepeatPass}
         setPassShowMode={setShowRepeatPass}
         value={formik.values.passwordConfirmation}
       />
-      <Disclaimer onChange={formik.setFieldValue} name="disclaimer" />
+      <Disclaimer
+        onChange={formik.setFieldValue}
+        onClick={formik.setFieldTouched}
+        name="disclaimer"
+      />
     </AuthView>
   );
 };

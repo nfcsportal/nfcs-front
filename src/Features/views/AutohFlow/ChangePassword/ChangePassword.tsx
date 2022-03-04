@@ -39,6 +39,7 @@ const ChangePassword: React.FC = () => {
         placeHolder="changePassword.oldpass.placeholder"
         label="changePassword.oldpass.title"
         onClick={formik.setFieldTouched}
+        onFocus={formik.setFieldTouched}
         error={formik.touched.oldPass && formik.errors.oldPass}
         onChange={formik.handleChange}
         passShowMode={showOldPass}
@@ -53,6 +54,7 @@ const ChangePassword: React.FC = () => {
         placeHolder="changePassword.newpass.placeholder"
         label="changePassword.newpass.title"
         onClick={formik.setFieldTouched}
+        onFocus={formik.setFieldTouched}
         error={formik.touched.newPass && formik.errors.newPass}
         onChange={formik.handleChange}
         passShowMode={showNewPass}

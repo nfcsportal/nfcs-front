@@ -12,6 +12,7 @@ export const HOME_CARDS: THomeCards[] = [
     price: 750,
     saledPrice: 1500,
     buttonText: 'home.cards.buttonText',
+    hoverEffect: 'cardItemBinance',
   },
   {
     icon: NftSvg,
@@ -20,6 +21,7 @@ export const HOME_CARDS: THomeCards[] = [
     price: 750,
     saledPrice: 1500,
     buttonText: 'home.cards.buttonText',
+    hoverEffect: 'cardItemNft',
   },
   {
     icon: StockSvg,
@@ -28,6 +30,7 @@ export const HOME_CARDS: THomeCards[] = [
     price: 750,
     saledPrice: 1500,
     buttonText: 'home.cards.buttonText',
+    hoverEffect: 'cardItemStock',
   },
   {
     icon: CryptoSvg,
@@ -36,5 +39,6 @@ export const HOME_CARDS: THomeCards[] = [
     price: 750,
     saledPrice: 1500,
     buttonText: 'home.cards.buttonText',
+    hoverEffect: 'cardItemCrypto',
   },
 ];

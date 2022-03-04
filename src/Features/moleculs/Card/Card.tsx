@@ -18,12 +18,12 @@ const Card: React.FC<ICard> = ({
   title,
   info,
   buttonText,
+  hoverEffect,
 }) => {
-  console.log(saleMode, title);
   const Component = icon;
   return (
     <div className={`${styles.cardsCol_25} col_25`}>
-      <div className={`${styles.cardItem} ${styles.cardItemBinance}`}>
+      <div className={`${styles.cardItem} ${styles[`${hoverEffect}`]}`}>
         <div className={styles.cardTooltip}>
           <button type="button" aria-label="tooltip">
             <TooltipSvg />
@@ -35,7 +35,7 @@ const Card: React.FC<ICard> = ({
         <Typography className={styles.cardTitle} component="h2" id={title} />
         <Typography className={styles.cardText} component="p" id={info} />
         <div className={styles.cardPrice}>
-          <s>{saledPrice}$</s>
+          {saleMode && <s>{saledPrice}$</s>}
           <p>{price}$</p>
         </div>
         <Button type="primary" customClass={styles.cardBtn} id={buttonText} />

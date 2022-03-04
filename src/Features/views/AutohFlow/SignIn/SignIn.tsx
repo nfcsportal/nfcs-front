@@ -37,6 +37,7 @@ const SignIn: React.FC = () => {
         name="email"
         placeHolder="signin.email.placeholder"
         label="signin.email.title"
+        onFocus={formik.setFieldTouched}
         error={formik.touched.email && formik.errors.email}
         onChange={formik.handleChange}
         value={formik.values.email}
@@ -50,6 +51,7 @@ const SignIn: React.FC = () => {
         placeHolder="signin.password.placeholder"
         label="signin.password.title"
         onClick={formik.setFieldTouched}
+        onFocus={formik.setFieldTouched}
         error={formik.touched.password && formik.errors.password}
         onChange={formik.handleChange}
         passShowMode={showPass}

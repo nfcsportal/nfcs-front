@@ -10,6 +10,7 @@ import styles from './input.module.scss';
 type isTruthyEqual = {
   touched: boolean;
   error: string;
+  value: string;
 };
 
 interface IInputProps {
@@ -21,6 +22,7 @@ interface IInputProps {
   value: string;
   name: string;
   onClick: (current: string) => void;
+  onFocus: (current: string) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: any;
   passShowMode?: boolean;
@@ -44,6 +46,7 @@ const Input: React.FC<IInputProps> = ({
   setPassShowMode,
   repeatMode = false,
   isTruthyEqual,
+  onFocus,
 }) => {
   const intl = useIntl();
 
@@ -54,6 +57,7 @@ const Input: React.FC<IInputProps> = ({
           <Typography className={styles.label} component="label" htmlFor={htmlFor} id={label} />
           <input
             name={name}
+            onFocus={() => onFocus(name)}
             className={styles.input}
             type={type}
             id={htmlFor}
@@ -69,6 +73,7 @@ const Input: React.FC<IInputProps> = ({
           <div className={styles.addonInput}>
             <input
               className={styles.input}
+              onFocus={() => onFocus(name)}
               type={passShowMode ? 'text' : 'password'}
               id={htmlFor}
               onChange={onChange}
@@ -80,7 +85,7 @@ const Input: React.FC<IInputProps> = ({
                 {!passShowMode ? <ClosedEyeSvg /> : <OpenedEyeSvg />}
               </button>
             )}
-            {repeatMode && isTruthyEqual?.touched && (
+            {repeatMode && isTruthyEqual?.touched && isTruthyEqual?.value && (
               <div
                 style={{ background: `${isTruthyEqual.error !== '' ? '#981616' : '#2FAD4B'}` }}
                 className={styles.repeatMode}

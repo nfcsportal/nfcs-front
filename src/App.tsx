@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { IntlProvider } from 'react-intl';
 import { useSelector } from 'react-redux';
 
@@ -12,7 +12,9 @@ const App: React.FC = () => {
   return (
     <>
       <IntlProvider locale={currentLocale} messages={LOCALES[currentLocale]}>
-        <Routes />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes />
+        </Suspense>
       </IntlProvider>
     </>
   );

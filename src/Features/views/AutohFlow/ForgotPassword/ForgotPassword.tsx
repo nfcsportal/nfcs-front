@@ -37,6 +37,7 @@ const ForgotPassword: React.FC = () => {
         label="forgotpass.email.title"
         error={formik.touched.email && formik.errors.email}
         onChange={formik.handleChange}
+        onFocus={formik.setFieldTouched}
         value={formik.values.email}
         onClick={formik.setFieldTouched}
       />
