@@ -1,6 +1,5 @@
 import React from 'react';
 
-import animatingPortal from '../../../Assets/AnimatingSvg/portalMain.json';
 import styles from './portal.module.scss';
 
 const Portal: React.FC = () => {
@@ -11,9 +10,7 @@ const Portal: React.FC = () => {
         <div className={styles.portal2} />
         <div className={styles.portal3} />
         <div className={styles.portal4} />
-        <img
-          src={`${animatingPortal.portal1}${animatingPortal.portal2}${animatingPortal.portal3}`}
-        />
+        <img src={'portal'} alt="portal" />
       </div>
     </div>
   );
