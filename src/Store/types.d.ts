@@ -7,6 +7,7 @@ declare interface IAuthSlice {
   authLoader: boolean;
   currentUser: any;
 }
+
 declare type TState = {
   main: IMainSliceState;
   auth: IAuthSlice;

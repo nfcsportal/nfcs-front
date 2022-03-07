@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Portal from '../../../Components/Dumb/Portal';
 import Button from '../../atoms/Button';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
@@ -8,8 +9,6 @@ import WhyWe from '../../moleculs/WhyWe';
 import HomeCards from '../../organisms/HomeCards';
 import MainContent from '../../organisms/MainContent';
 import styles from './HomePage.module.scss';
-
-const Portal = React.lazy(() => import('../../../Components/Dumb/Portal'));
 
 const HomePage: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
 
-import Disclaimer from '../../../../Components/Multiusable/PortalCircle/Disclaimer';
+import Disclaimer from '../../../../Components/Multiusable/Disclaimer';
 import { SIGN_UP_INITIAL, TSignUpValues } from '../../../../Constants/authFLow';
 import { ROUTES } from '../../../../Constants/Routes';
 import { useAllowSubmit } from '../../../../Hooks/useAllowSubmitForm';
