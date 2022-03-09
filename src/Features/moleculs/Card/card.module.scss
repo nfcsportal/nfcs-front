@@ -37,7 +37,7 @@
     background-color: rgba(24, 37, 74, 0.24);
     &:hover {
       &::after {
-        background: url("../../../Assets/images/card-hover/binance-bg.png"), rgba(33, 90, 231, 0.24);
+        background: rgba(33, 90, 231, 0.24);
       }
     }
   }
@@ -46,7 +46,7 @@
     background-color: rgba(27, 58, 83, 0.24);
     &:hover {
       &::after {
-        background: url("../../../Assets/images/card-hover/nft-bg.png"), rgba(0, 242, 251, 0.24);
+        background: rgba(0, 242, 251, 0.24);
       }
     }
   }
@@ -55,7 +55,7 @@
     background-color: rgba(36, 29, 72, 0.24);
     &:hover {
       &::after {
-        background: url("../../../Assets/images/card-hover/stock-bg.png"), rgba(36, 29, 72, 0.24);
+        background:  rgba(123, 67, 228, 0.24);
       }
     }
   }
@@ -64,7 +64,7 @@
     background-color: rgba(9, 37, 60, 0.24);
     &:hover {
       &::after {
-        background: url("../../../Assets/images/card-hover/crypto-bg.png"), rgba(24, 170, 252, 0.24);
+        background: rgba(24, 170, 252, 0.24);
       }
     }
   }

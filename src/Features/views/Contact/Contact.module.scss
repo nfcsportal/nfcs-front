@@ -1,0 +1,19 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.contactSection {
+    padding: 100px 0;
+    .contactRow {
+        @include flexRow(50, 2, flex-start);
+        .contactInfo {
+            [class*="title"] {
+                text-align: left;
+            }
+            [class*="subTitle"] {
+                text-align: left;
+                max-width: 514px;
+                margin-left: 0;
+            }
+        }
+    }
+}
