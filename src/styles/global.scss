@@ -87,7 +87,7 @@ img {
     background: linear-gradient(170.79deg, #151a2c 0.37%, #120d20 93.02%), url('../Assets/images/full-bg.png');
     background-position: top left;
     background-size: cover;
-    background-blend-mode: lighten;
+    background-blend-mode: color-dodge;
 }
 .title {
     @include fontRem(44, 700);
