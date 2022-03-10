@@ -1,19 +1,31 @@
 @import "/src/styles/vars";
 @import "/src/styles/mixins";
-
+.aboutPage {
+    width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 84px;
+    background-position: center;
+    background-image: url("../../../Assets/images/contact-about-bg.png"),
+        linear-gradient(170.79deg, #151a2c 0.37%, #120d20 93.02%);
+}
 .aboutUsSection {
-    background-color: $white;
     padding: 100px 0;
     .aboutUsRow {
-        @include flexRow(50, 2, center);
+        @include flexRow(50, 2, flex-start);
         .aboutUsInfo {
+            margin-top: 60px;
             [class="title"] {
                 text-align: left;
             }
             [class="subTitle"] {
                 text-align: left;
-                max-width: unset;
+                max-width: 520px;
                 margin-bottom: 40px;
+                margin-left: 0;
+                margin-right: 0;
+                @include fontRem(16, 400);
             }
             .aboutUsContactContainer {
                 .aboutUsContact {
@@ -107,14 +119,14 @@
                             border-radius: 18px;
                         }
                     }
-                    
+
                     &:nth-child(even) {
                         float: right;
                         text-align: left;
                         clear: both;
                         padding: 0 0 0 64px;
                         margin-bottom: 100px;
-                        
+
                         &::after {
                             content: "";
                             position: absolute;

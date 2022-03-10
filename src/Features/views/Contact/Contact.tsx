@@ -7,7 +7,7 @@ import styles from './Contact.module.scss';
 
 const Contact = () => {
   return (
-    <div className="page contact-page">
+    <div className={`${styles.contactPage} page contact-page`}>
       <Header />
       <MainContent>
         <section className={styles.contactSection}>
@@ -24,7 +24,25 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              <div className={`${styles.col_right} col_item`}></div>
+              <div className={`${styles.col_right} col_item`}>
+                <div className={styles.contactPageForm}>
+                  <form action="">
+                    <div className={`${styles.formItem} ${styles.selectItem}`}>
+                      <ul className={styles.selectParent}>
+                        <li className={`${styles.selectItem}`}>
+                          {/* <li className={`${styles.selectItem} ${styles.active}`}> */}
+                          <p>Select</p>
+                          <ul className={styles.selectList}>
+                            <li className={styles.selectOption}>1</li>
+                            <li className={styles.selectOption}>2</li>
+                            <li className={styles.selectOption}>3</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </section>
