@@ -12,7 +12,7 @@ import styles from './AboutUs.module.scss';
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="about-us-page page">
+    <div className={`${styles.aboutPage} about-us-page page`}>
       <Header />
       <MainContent>
         <section className={styles.aboutUsSection}>
