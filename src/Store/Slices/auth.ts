@@ -1,7 +1,8 @@
 import { createSlice, Dispatch } from '@reduxjs/toolkit';
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 
-import $api, { API_URL } from '../../Service/api/intercepter';
+import { ROUTES } from '../../Constants/Routes';
+import $api, { $refreshApi, API_URL } from '../../Service/api/intercepter';
 import { AuthResponse } from '../../Service/api/types';
 
 interface IAuthUserResponse extends AuthResponse {
@@ -37,41 +38,45 @@ export const authSlice = createSlice({
     },
   },
 });
+export const registration =
+  (email: string, password: string, history: any) => (dispatch: Dispatch) => {
+    dispatch(setAuthLoader(true));
+    $api
+      .post('/registration', {
+        email,
+        password,
+      })
+      .then(async (response: AxiosResponse<IAuthUserResponse>) => {
+        if (response) {
+          await localStorage.setItem('token', response.data.accessToken);
+          await localStorage.setItem('refresh', response.data.refreshToken);
+          dispatch(setCurrentUser(response.data.user));
+          dispatch(setAuth(true));
+          dispatch(setAuthLoader(false));
+          history.push(ROUTES.DASHBOARD);
+        }
+      })
+      .catch((e) => {
+        dispatch(setAuthLoader(false));
+        console.log(e);
+      });
+  };
 
-export const login = (email: string, password: string) => (dispatch: Dispatch) => {
+export const signIn = (email: string, password: string, history: any) => (dispatch: Dispatch) => {
   dispatch(setAuthLoader(true));
   $api
     .post('/login', {
       email,
       password,
     })
-    .then((response: AxiosResponse<IAuthUserResponse>) => {
+    .then(async (response: AxiosResponse<IAuthUserResponse>) => {
       if (response) {
-        localStorage.setItem('token', response.data.accessToken);
-        dispatch(setAuth(true));
-        dispatch(setCurrentUser(response.data.user));
-        dispatch(setAuthLoader(false));
-      }
-    })
-    .catch((e) => {
-      dispatch(setAuthLoader(false));
-      console.log(e);
-    });
-};
-
-export const registration = (email: string, password: string) => (dispatch: Dispatch) => {
-  dispatch(setAuthLoader(true));
-  $api
-    .post('/registration', {
-      email,
-      password,
-    })
-    .then((response: AxiosResponse<IAuthUserResponse>) => {
-      if (response) {
-        localStorage.setItem('token', response.data.accessToken);
+        await localStorage.setItem('token', response.data.accessToken);
+        await localStorage.setItem('refresh', response.data.refreshToken);
         dispatch(setCurrentUser(response.data.user));
         dispatch(setAuth(true));
         dispatch(setAuthLoader(false));
+        history.push(ROUTES.DASHBOARD);
       }
     })
     .catch((e) => {
@@ -97,26 +102,28 @@ export const logout = () => (dispatch: Dispatch) => {
     });
 };
 
-export const users = () => (dispatch: Dispatch) => {
+export const users = (id: string) => (dispatch: Dispatch) => {
   dispatch(setAuthLoader(true));
-  $api.get('/users').then((response: AxiosResponse<IAuthUserResponse>) => {
+  $api.get(`/user/${id}`).then((response: AxiosResponse<IAuthUserResponse>) => {
     console.log(response);
   });
 };
 
-export const checkAuth = () => (dispatch: Dispatch) => {
+export const checkAuth = (history: any) => (dispatch: Dispatch) => {
   dispatch(setAuthLoader(true));
-  axios
+  $refreshApi
     .get(`${API_URL}/refresh`, { withCredentials: true })
-    .then((response: AxiosResponse<any>) => {
+    .then(async (response: AxiosResponse<any>) => {
       if (response) {
-        localStorage.setItem('token', response.data.accessToken);
+        await localStorage.setItem('token', response.data.accessToken);
+        await localStorage.setItem('refresh', response.data.refreshToken);
         dispatch(setCurrentUser(response.data.user));
         dispatch(setAuth(true));
         dispatch(setAuthLoader(false));
       }
     })
     .catch((e) => {
+      history.push(ROUTES.SIGN_IN);
       console.log(e);
     });
 };

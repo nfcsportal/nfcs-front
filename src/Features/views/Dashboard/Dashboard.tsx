@@ -10,28 +10,27 @@ const Dashboard: React.FC = () => {
   const user = useSelector(getCurrentUser);
   const auth = useSelector(getAuthStatus);
   const history = useHistory();
-
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
-      dispatch(checkAuth());
-    }
-  }, []);
+  console.log(user);
 
   const logoutF = () => {
     dispatch(logout());
     dispatch(setCurrentUser({}));
     history.push('/login');
   };
+  useEffect(() => {
+    if (!auth) {
+      dispatch(checkAuth(history));
+    }
+  }, []);
 
-  const getUserF = () => {
-    dispatch(users());
-  };
+  useEffect(() => {
+    if (Object.entries(user).length) {
+      dispatch(users(user.id));
+    }
+  }, [user]);
 
   return (
     <>
-      <button onClick={getUserF} style={{ width: '100vw', height: '50px' }}>
-        GET USERS
-      </button>
       {user.isActivated ? (
         <>
           <button onClick={logoutF} style={{ width: '100vw', height: '50px' }}>
@@ -50,7 +49,12 @@ const Dashboard: React.FC = () => {
           </div>
         </>
       ) : (
-        <div>Please activatge your account </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div>
+            <h1>{user.email}</h1>
+            <h1>{user.id}</h1>
+          </div>
+        </div>
       )}
     </>
   );

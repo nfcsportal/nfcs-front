@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-export const API_URL = 'http://localhost:5000/api';
+export const API_URL = 'http://18.233.167.133:8080/api';
 const $api = axios.create({
   withCredentials: true,
   baseURL: API_URL,
@@ -10,6 +10,19 @@ $api.interceptors.request.use((config: AxiosRequestConfig) => {
   const tokent = localStorage.getItem('token');
   if (config && config.headers) {
     config.headers.Authorization = `Bearer ${tokent}`;
+    return config;
+  }
+});
+
+export const $refreshApi = axios.create({
+  withCredentials: true,
+  baseURL: API_URL,
+});
+
+$refreshApi.interceptors.request.use(async (config: AxiosRequestConfig) => {
+  const tokent = await localStorage.getItem('refresh');
+  if (config && config.headers) {
+    config.headers.refreshToken = `${tokent}`;
     return config;
   }
 });

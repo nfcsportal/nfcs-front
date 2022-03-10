@@ -1,10 +1,13 @@
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import Disclaimer from '../../../../Components/Multiusable/Disclaimer';
 import { SIGN_UP_INITIAL, TSignUpValues } from '../../../../Constants/authFLow';
 import { ROUTES } from '../../../../Constants/Routes';
 import { useAllowSubmit } from '../../../../Hooks/useAllowSubmitForm';
+import { registration } from '../../../../Store/Slices/auth';
 import { signUpValidationSchema } from '../../../../Utils/validations';
 import Input from '../../../atoms/Input';
 import AuthView from '../../../organisms/AuthViews';
@@ -12,6 +15,8 @@ import AuthView from '../../../organisms/AuthViews';
 const SignUp: React.FC = () => {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [showRepeatPass, setShowRepeatPass] = useState<boolean>(false);
+  const history = useHistory();
+  const dispatch = useDispatch();
   const formik = useFormik({
     validateOnChange: true,
     validateOnBlur: true,
@@ -20,7 +25,7 @@ const SignUp: React.FC = () => {
     },
     validationSchema: signUpValidationSchema,
     onSubmit: (values: TSignUpValues) => {
-      console.log(values);
+      dispatch(registration(values.email, values.password, history));
     },
   });
 
