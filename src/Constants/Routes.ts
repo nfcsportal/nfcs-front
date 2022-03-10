@@ -6,4 +6,5 @@ export const ROUTES: { [key: string]: string } = {
   SIGN_IN: '/sign-in',
   SIGN_UP: '/sign-up',
   FORGOT_PASS: '/forgot-pass',
+  DASHBOARD: '/dashboard',
 };

@@ -28,7 +28,7 @@ const Routes: React.FC = () => {
         <Route path="/change-pass">
           <ChangePassword />
         </Route>
-        <Route path="/user/:id">
+        <Route path="/dashboard">
           <Dashboard />
         </Route>
         <Route path="/about">

@@ -1,22 +1,27 @@
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { SIGN_IN_INITIAL } from '../../../../Constants/authFLow';
 import { ROUTES } from '../../../../Constants/Routes';
 import { useAllowSubmit } from '../../../../Hooks/useAllowSubmitForm';
+import { signIn } from '../../../../Store/Slices/auth';
 import { signInValidationSchema } from '../../../../Utils/validations';
 import Input from '../../../atoms/Input';
 import AuthView from '../../../organisms/AuthViews';
 
 const SignIn: React.FC = () => {
   const [showPass, setShowPass] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const history = useHistory();
   const formik = useFormik({
     initialValues: {
       ...SIGN_IN_INITIAL,
     },
     validationSchema: signInValidationSchema,
     onSubmit: (arg: any) => {
-      console.log(arg);
+      dispatch(signIn(arg.email, arg.password, history));
     },
   });
   const allowSubmit = useAllowSubmit(formik, SIGN_IN_INITIAL);
