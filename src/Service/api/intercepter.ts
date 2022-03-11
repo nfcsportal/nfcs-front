@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-export const API_URL = 'http://18.233.167.133:8080/api';
+export const API_URL = 'http://api.nfcsportal.com:8080/api';
 const $api = axios.create({
   withCredentials: true,
   baseURL: API_URL,
