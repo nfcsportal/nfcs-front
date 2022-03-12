@@ -3,20 +3,47 @@
 @import "/src/styles/mixins";
 
 .howWorksItems {
-    margin-top: 140px;
-    position: relative;
-    z-index: 2;
-    .howRow {
-      @include flexRow(math.div(24, 2), 4);
-      @media all and (max-width: $normalDesktop) {
-        @include flexRow(math.div(16, 2), 4);
+  margin-top: 140px;
+  position: relative;
+  z-index: 2;
+  @media all and (max-width: $normalDesktop) {
+    margin-top: 100px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .howRow {
+    @include flexRow(math.div(24, 2), 4);
+    @media all and (max-width: $normalDesktop) {
+      @include flexRow(math.div(16, 2), 4);
+    }
+    @media all and (max-width: $tablet) {
+      @include flexRow(math.div(16, 2), 2);
+    }
+    @media all and (max-width: $mobile) {
+      @include flexRow(math.div(16, 2), 1);
+    }
+    > .col_25 {
+      > div {
+        @media all and (max-width: $mobile) {
+          margin-bottom: 72px;
+         }
       }
-      > .col_25 {
-        &:nth-child(even) {
-          >div {
-            margin-top: 60px;
+      &:nth-child(even) {
+        > div {
+          @media all and (max-width: $tablet) {
+            margin-bottom: 32px;
+          }
+          
+          margin-top: 60px;
+          @media all and (max-width: $tablet) {
+            margin-top: 40px;
+          }
+          @media all and (max-width: $mobile) {
+            margin-top: 0;
+            margin-bottom: 72px;
           }
         }
       }
     }
+  }
 }

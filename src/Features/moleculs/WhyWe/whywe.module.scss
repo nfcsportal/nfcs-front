@@ -9,12 +9,22 @@
     @media all and (max-width: $normalDesktop) {
         margin-top: 130px;
     }
+    @media all and (max-width: $tablet) {
+        margin-top: 80px;
+    }
+    
     .row {
         @include flexRow(math.div(85, 2), 3);
         justify-content: space-around;
         align-items: flex-start;
         @media all and (max-width: $normalDesktop) {
             @include flexRow(math.div(80, 2), 3);
+        }
+        @media all and (max-width: $tablet) {
+            @include flexRow(math.div(20, 2), 3);
+        }
+        @media all and (max-width: $mobile) {
+            @include flexRow(math.div(20, 2), 1);
         }
     }
 }

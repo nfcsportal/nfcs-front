@@ -2,6 +2,12 @@
 @import "/src/styles/vars";
 @import "/src/styles/mixins";
 @import "../../../Assets/styles/locale.scss";
+
+.cardsCol_25 {
+  @media all and (max-width: $tablet) {
+    margin-bottom: 32px;
+  }
+}
 .cardItem {
   position: relative;
   padding: 75px 32px 22px;
@@ -19,6 +25,9 @@
   @media all and (max-width: $normalDesktop) {
     padding: 80px 16px 16px;
     background-position: center top;
+  }
+  @media all and (max-width: $tablet) {
+    padding: 40px 10px 32px;
   }
   &::after {
     content: "";
@@ -55,7 +64,7 @@
     background-color: rgba(36, 29, 72, 0.24);
     &:hover {
       &::after {
-        background:  rgba(123, 67, 228, 0.24);
+        background: rgba(123, 67, 228, 0.24);
       }
     }
   }
@@ -109,12 +118,33 @@
       line-height: 26px;
       margin-top: 40px;
     }
+    @media all and (max-width: $tablet) {
+      @include fontRem(24, 700);
+      line-height: 30px;
+      margin-top: 32px;
+    }
+    @media all and (max-width: $smallTablet) {
+      @include fontRem(20, 700);
+      line-height: 30px;
+      margin-top: 32px;
+    }
+    @media all and (max-width: $mobile) {
+      @include fontRem(24, 700);
+      line-height: 30px;
+      margin-top: 32px;
+    }
   }
   .cardIcon {
     @media all and (max-width: $normalDesktop) {
       svg {
         width: 104px;
         height: 104px;
+      }
+    }
+    @media all and (max-width: $tablet) {
+      svg {
+        width: 72px;
+        height: 72px;
       }
     }
   }
@@ -128,7 +158,12 @@
     margin-left: auto;
     margin-right: auto;
     @media all and (max-width: $normalDesktop) {
-     max-width: 242px;
+      max-width: 242px;
+    }
+    @media all and (max-width: $tablet) {
+      @include fontRem(16, 400);
+      margin-top: 16px;
+      line-height: 22px;
     }
   }
   .cardPrice {
@@ -136,6 +171,9 @@
     @include flex-center;
     margin-left: -16px;
     margin-right: -16px;
+    @media all and (max-width: $mobile) {
+      margin-top: 24px;
+    }
     s {
       padding-left: 16px;
       padding-right: 16px;
@@ -149,11 +187,42 @@
       color: $white;
       text-shadow: 4px 8px 24px rgba(19, 20, 38, 0.16);
     }
+    @media all and (max-width: $smallTablet) {
+      padding-left: 8px;
+      padding-right: 8px;
+      s {
+        @include fontRem(22, 400);
+        line-height: 22px;
+      }
+      p {
+        @include fontRem(32, 500);
+        line-height: 28px;
+      }
+    }
+    @media all and (max-width: $mobile) {
+      padding-left: 8px;
+      padding-right: 8px;
+      s {
+        @include fontRem(18, 400);
+        line-height: 24px;
+      }
+      p {
+        @include fontRem(28, 500);
+        line-height: 38px;
+      }
+    }
   }
   .cardBtn {
     margin-top: 42px;
     @media all and (max-width: $normalDesktop) {
-     margin-top: 36px;
+      margin-top: 36px;
+    }
+    @media all and (max-width: $mobile) {
+      margin-top: 32px;
+      margin-left: 28px;
+      margin-right: 28px;
+      width: calc(100% - 52px);
+      padding: 15px 20px;
     }
   }
 }

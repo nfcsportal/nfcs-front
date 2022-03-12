@@ -35,6 +35,11 @@
                 rgba(173, 179, 189, 0.32) 3.76%,
                 rgba(104, 115, 117, 0.32) 115.42%
             );
+            @media all and (max-width: $mobile) {
+                padding-top: 13px;
+                padding-bottom: 13px;
+                height: 22px;
+            } 
         }
 
     }

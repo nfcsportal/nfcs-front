@@ -10,6 +10,11 @@
         color: rgba(227, 230, 234, 0.32);
         @include fontRem(18, 400);
         line-height: 22px;
+        @media all and (max-width: $tablet) {
+            @include fontRem(12, 400);
+            text-align: left;
+            line-height: 1;
+        }
         a {
             cursor: pointer;
             color: $blue;
@@ -27,6 +32,11 @@
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-image: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+            }
+            @media all and (max-width: $tablet) {
+                @include fontRem(14, 400);
+                text-align: left;
+                margin-left: 0;
             }
         }
     }

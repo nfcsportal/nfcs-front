@@ -7,10 +7,23 @@
     @media all and (max-width: $normalDesktop) {
         margin-top: 80px;
     }
+    @media all and (max-width: $tablet) {
+        margin-top: 42px;
+    }
+    @media all and (max-width: $tablet) {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
 }
 .cardRow {
     @include flexRow(math.div(24, 2), 4);
     @media all and (max-width: $normalDesktop) {
         @include flexRow(math.div(16, 2), 4);
+    }
+    @media all and (max-width: $tablet) {
+        @include flexRow(math.div(20, 2), 2);
+    }
+    @media all and (max-width: $mobile) {
+        @include flexRow(math.div(20, 2), 1);
     }
 }

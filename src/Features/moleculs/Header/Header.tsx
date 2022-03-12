@@ -49,7 +49,7 @@ const Header: React.FC = () => {
                 <Button
                   type="secondary"
                   id="navbar.signup"
-                  className={styles.headerMenuLink}
+                  className={`${styles.headerMenuLink} ${styles.signupBtn}`}
                   onClick={() => history.push(ROUTES.SIGN_UP)}
                 />
               </li>
@@ -79,6 +79,9 @@ const Header: React.FC = () => {
               </li>
             </ul>
           </menu>
+          <div className={`${styles.headerBurger}`}>
+            <div className={styles.burgerIcon} />
+          </div>
         </nav>
       </div>
     </header>
