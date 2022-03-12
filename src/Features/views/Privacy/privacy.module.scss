@@ -11,6 +11,10 @@
     @media all and (max-width: $normalDesktop) {
         padding: 64px 0;         
     }
+    @media all and (max-width: $tablet) {
+        padding-left: 10px;
+        padding-right: 10px;       
+    }
     
     @include flex-center;
     .privacyItem {
@@ -20,6 +24,9 @@
         padding: 50px 100px;
         @media all and (max-width: $normalDesktop) {
             padding: 20px 30px;
+        }
+        @media all and (max-width: $tablet) {
+            padding: 32px 8px;     
         }
         .privacyTitle {
             margin-left: 0;
@@ -31,6 +38,10 @@
             color: $white;
             @media all and (max-width: $normalDesktop) {
                 @include fontRem(16, 400);
+                line-height: 22px;
+            }
+            @media all and (max-width: $tablet) {
+                @include fontRem(14, 400);   
                 line-height: 22px;
             }
         }

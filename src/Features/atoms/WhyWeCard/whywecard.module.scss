@@ -3,6 +3,15 @@
 @import "/src/styles/mixins";
 @import "../../../Assets/styles/locale.scss";
 
+.col_33 {
+  @media all and (max-width: $tablet) {
+    &:not(:last-child) {
+      .whyWeItem {
+        margin-bottom: 72.5px;
+      }
+    }
+  }
+}
 .whyWeItem {
   position: relative;
   background: rgba(41, 52, 139, 0.24);
@@ -15,6 +24,15 @@
   padding-bottom: 56px;
   @media all and (max-width: $normalDesktop) {
     height: 312px;
+  }
+  @media all and (max-width: $tablet) {
+    height: 240px;
+  }
+  @media all and (max-width: $smallTablet) {
+    height: 312px;
+  }
+  @media all and (max-width: $mobile) {
+    height: 192px;
   }
   @supports (
     mask: linear-gradient(#fff 0 0) content-box,
@@ -46,6 +64,10 @@
     transform: translateY(-50%);
     svg {
       border-radius: 50%;
+      @media all and (max-width: $normalDesktop) {
+        width: 68px;
+        height: 68px;
+      }
     }
   }
   .wheyWeTitle {
@@ -55,6 +77,20 @@
     @media all and (max-width: $normalDesktop) {
       @include fontRem(24, 700);
       margin-top: -6px;
+    }
+    @media all and (max-width: $tablet) {
+      @include fontRem(24, 700);
+      line-height: 30px;
+      margin-top: -25px;
+      letter-spacing: 0.055em;
+      text-align: center;
+    }
+    @media all and (max-width: $smallTablet) {
+      @include fontRem(20, 700);
+      line-height: 30px;
+      margin-top: -25px;
+      letter-spacing: 0.055em;
+      text-align: center;
     }
   }
   .wheyWeText {
@@ -70,6 +106,12 @@
       @include fontRem(16, 400);
       margin-top: 24px;
       line-height: 22px;
+    }
+    @media all and (max-width: $tablet) {
+      @include fontRem(14, 400);
+      margin-top: 16px;
+      line-height: 19px;
+      max-width: 260px;
     }
   }
 }

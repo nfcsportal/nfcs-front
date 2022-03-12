@@ -1,3 +1,96 @@
-.root {
-    background-color: red;
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1055;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    margin: 0.5rem;
+    &::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+.modalClass {
+    max-width: 500px;
+    margin: 1.75rem auto;
+    min-height: calc(100% - 3.5rem);
+    display: flex;
+    outline: none;
+    @include flex-center;
+    position: relative;
+    z-index: 2;
+    
+    .modalInner {
+        position: relative;
+        max-width: 680px;
+        width: 100%;
+        background: rgba(41, 52, 139, 0.24);
+        backdrop-filter: blur(16px);
+        border-radius: 8px;
+        padding: 48px 64px 40px;
+        z-index: 3;
+        @supports (
+            mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(
+                #fff 0 0,
+            )
+        ) {
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: 16px;
+                padding: 1px;
+                background: linear-gradient(rgba(178, 186, 215, 0.24), rgba(157, 164, 189, 0.02));
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+            }
+        }
+        .modalCloser {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            cursor: pointer;
+        }
+        .modalBody {
+            text-align: center;
+            .modalTitle {
+                max-width: 502px;
+                margin-left: auto;
+                margin-right: auto;
+                @include fontRem(24, 700);
+                line-height: 42px;
+                letter-spacing: 0.055em;
+                color: $titleColor;
+                margin-bottom: 24px;
+            }
+            .modalSubTitle {
+                max-width: 502px;
+                margin-left: auto;
+                margin-right: auto;
+                @include fontRem(18, 400);
+                line-height: 24px;
+                color: $titleColor;
+                margin-bottom: 48px;
+
+            }
+        }
+    }
 }

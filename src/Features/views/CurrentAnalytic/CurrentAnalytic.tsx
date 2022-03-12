@@ -1,17 +1,29 @@
 import React from 'react';
+import useMediaQuery from 'react-use-media-query-hook';
 
+import LongArrow from '../../../Assets/Icons/LongArrow';
+import { SCREENS } from '../../../Constants/ScreenResolutions';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
 import MainContent from '../../organisms/MainContent';
 import styles from './currentAnalytic.module.scss';
 
 const CurrentAnalytic: React.FC = () => {
+  const isTablet = useMediaQuery(SCREENS.bigTablet);
   return (
     <div className={`${styles.analyticPage} current-analytic-page page`}>
       <Header />
       <MainContent>
         <section className={styles.analyticSeciton}>
           <div className="container">
+            <>
+              {isTablet && (
+                <div className={styles.goBackItem}>
+                  <LongArrow />
+                  <p>Back</p>
+                </div>
+              )}
+            </>
             <div className={`${styles.analyticRow} row`}>
               <div className={`${styles.analyticLeftCol} col_left`}></div>
               <div className={`${styles.analyticRightCol} col_right`}>

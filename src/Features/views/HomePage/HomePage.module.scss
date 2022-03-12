@@ -28,6 +28,11 @@
 .whyWeSection {
   position: relative;
   padding-top: 185px;
+  @media all and (max-width: $tablet) {
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -40,6 +45,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.5;
+    @media all and (max-width: $tablet) {
+      content: none;
+    }
   }
 }
 .howItWorksSection {
@@ -65,6 +73,10 @@
 .discountSection {
   position: relative;
   padding-top: 60px;
+  @media all and (max-width: $mobile) {
+   padding-left: 6px;
+   padding-right: 6px;
+  }
   .discountMain {
     background: rgba(41, 52, 139, 0.16);
     backdrop-filter: blur(34px);
@@ -141,12 +153,21 @@
     line-height: 24px;
     color: $titleColor;
     text-align: center;
+    @media all and (max-width: $mobile) {
+      margin-top: 16px;
+      @include fontRem(14, 400);
+      max-width: 320px;
+    }
   }
   .discountBtn {
     width: unset;
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
+    @media all and (max-width: $mobile) {
+      width: 212px;
+      height: 48px;
+    }
   }
 }
 .cardsSection {

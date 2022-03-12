@@ -5,6 +5,9 @@
 .formItem {
     &:not(:last-child) {
         margin-bottom: 48px;
+        @media all and (max-width: $tablet) {
+            margin-bottom: 32px;
+        }
     }
 }
 
@@ -14,6 +17,10 @@
     margin-bottom: 16px;
     display: block;
     color: $titleColor;
+    @media all and (max-width: $smallTablet) {
+        @include fontRem(14, 500);
+        margin-bottom: 8px;
+    }
 }
 .input {
     width: 100%;

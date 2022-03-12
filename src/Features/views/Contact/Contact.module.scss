@@ -12,11 +12,21 @@
 }
 .contactSection {
     padding: 100px 0;
+    @media all and (max-width: $tablet) {
+        padding: 50px 10px;
+
+    }
     .contactRow {
         @include flexRow(50, 2, flex-start);
+        @media all and (max-width: $tablet) {
+            @include flexRow(50, 1, flex-start);
+        } 
         .contactInfo {
             [class*="title"] {
                 text-align: left;
+                @media all and (max-width: $tablet) {
+                    margin-left: 0;
+                } 
             }
             [class*="subTitle"] {
                 text-align: left;
@@ -28,6 +38,10 @@
             background: rgba(41, 52, 139, 0.24);
             border-radius: 8px;
             padding: 56px 57px;
+            @media all and (max-width: $tablet) {
+                margin-top: 52px;
+                padding: 43px 8px;
+            }
             .formItem {
                 margin-bottom: 48px;
             }
