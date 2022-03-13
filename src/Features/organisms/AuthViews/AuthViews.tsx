@@ -1,8 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import LogoSvg from '../../../Assets/Icons/LogoSvg';
+import Loader from '../../../Components/Multiusable/Loader';
 import { ROUTES } from '../../../Constants/Routes';
+import { getAuthLoading } from '../../../Store/Selectors/auth';
 import Button from '../../atoms/Button';
 import Typography from '../../atoms/Typography';
 import MainContent from '../MainContent';
@@ -33,6 +36,8 @@ const AuthView: React.FC<IAuthViewProps> = ({
   submitHandler,
 }) => {
   const history = useHistory();
+  const loading = useSelector(getAuthLoading);
+
   return (
     <div className={`${styles.loginPage} page`}>
       <header className={styles.loginHeader}>
@@ -44,6 +49,7 @@ const AuthView: React.FC<IAuthViewProps> = ({
         <section className={styles.loginSection}>
           <div className={styles.loginForm}>
             <form onSubmit={submitHandler} action="">
+              {loading && <Loader type="auth" />}
               <Typography className={`${styles.loginTitle} title`} component="h2" id={header} />
               {children}
               {aboveButtonText && (

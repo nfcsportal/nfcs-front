@@ -1,31 +1,53 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-const ROOT_MODAL_CLASSS = 'ReactModalPortal';
+import { MODALS, TModalVariantsSuccess } from '../Constants/modals';
+import { ROUTES } from '../Constants/Routes';
+import { getModal } from '../Store/Selectors/modal';
+import { setModal } from '../Store/Slices/modal';
 
-export const useModal = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-  const root = document.getElementById('root');
+export const useCurrentButtonActions = () => {
+  const modal: TModalVariantsSuccess | '' = useSelector(getModal);
 
+  const [action, setAction] = useState<any>();
   useEffect(() => {
-    if (root && isOpen) {
-      root.style.overflow = 'hidden';
+    switch (modal) {
+      case 'change-password':
+        setAction(() => () => (window.location.pathname = ROUTES.SIGN_IN));
+        break;
+      case 'forgot-password-success':
+        setAction(() => () => (window.location.pathname = ROUTES.HOME));
+        break;
+      default:
+        setAction(null);
     }
-  }, [isOpen, root]);
+  }, [modal]);
+  return {
+    action,
+  };
+};
+export const useModal = () => {
+  const modal: TModalVariantsSuccess | '' = useSelector(getModal);
+  const dispatch = useDispatch();
+  const isOpen = useMemo(() => {
+    return !!modal;
+  }, [modal]);
 
-  useEffect(() => {
-    document.onclick = () => {
-      const nextElement = root?.nextElementSibling;
-      if (ROOT_MODAL_CLASSS === nextElement?.className) {
-        setIsOpen(false);
-        if (root) {
-          root.style.overflow = 'auto';
-        }
-      }
-    };
-  }, [document]);
+  const closeModal = () => {
+    if (currentModal && currentModal.outsideClose) {
+      dispatch(setModal(''));
+    }
+  };
+
+  const currentModal = useMemo(() => {
+    if (modal) {
+      return MODALS[modal];
+    }
+  }, [modal]);
 
   return {
     isOpen,
-    setIsOpen,
+    closeModal,
+    currentModal,
   };
 };

@@ -1,9 +1,11 @@
 import { createSlice, Dispatch } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 import { ROUTES } from '../../Constants/Routes';
 import $api, { $refreshApi, API_URL } from '../../Service/api/intercepter';
 import { AuthResponse } from '../../Service/api/types';
+import { setModal } from './modal';
 
 interface IAuthUserResponse extends AuthResponse {
   user: IUser;
@@ -125,6 +127,25 @@ export const checkAuth = (history: any) => (dispatch: Dispatch) => {
     .catch((e) => {
       history.push(ROUTES.SIGN_IN);
       console.log(e);
+    });
+};
+export const forgotPassword = (email: string) => (dispatch: Dispatch) => {
+  dispatch(setAuthLoader(true));
+  axios
+    .post(`${API_URL}/resetpasslink`, {
+      email,
+    })
+    .then(async (response: AxiosResponse<any>) => {
+      if (response) {
+        dispatch(setModal('forgot-password-success'));
+      }
+    })
+    .catch((e) => {
+      console.log(e);
+      dispatch(setModal('forgot-password-error'));
+    })
+    .finally(() => {
+      dispatch(setAuthLoader(false));
     });
 };
 

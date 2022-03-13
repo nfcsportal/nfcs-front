@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Dropdown from '../../atoms/Dropdown';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
 import MainContent from '../../organisms/MainContent';
@@ -27,19 +28,7 @@ const Contact = () => {
               <div className={`${styles.col_right} col_item`}>
                 <div className={styles.contactPageForm}>
                   <form action="">
-                    <div className={`${styles.formItem} ${styles.selectItem}`}>
-                      <ul className={styles.selectParent}>
-                        <li className={`${styles.selectItem}`}>
-                          {/* <li className={`${styles.selectItem} ${styles.active}`}> */}
-                          <p>Select</p>
-                          <ul className={styles.selectList}>
-                            <li className={styles.selectOption}>1</li>
-                            <li className={styles.selectOption}>2</li>
-                            <li className={styles.selectOption}>3</li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
+                    <Dropdown label="dropdown.label" />
                   </form>
                 </div>
               </div>
