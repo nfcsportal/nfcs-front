@@ -1,41 +1,58 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { useDispatch } from 'react-redux';
 
 import CloseSvg from '../../../Assets/Icons/CloseSvg';
+import ErrorSvg from '../../../Assets/Icons/ErrorSvg';
 import SuccesSvg from '../../../Assets/Icons/SuccesSvg';
 import Button from '../../../Features/atoms/Button';
-import { useModal } from '../../../Hooks/useModal';
+import Typography from '../../../Features/atoms/Typography';
+import { useCurrentButtonActions, useModal } from '../../../Hooks/useModal';
+import { setModal } from '../../../Store/Slices/modal';
 import styles from './modal.module.scss';
 
 Modal.setAppElement('#root');
 
 const Modals: React.FC = () => {
-  const { isOpen, setIsOpen } = useModal();
-  console.log(isOpen);
+  const { isOpen, closeModal, currentModal } = useModal();
+  const { action } = useCurrentButtonActions();
+  const dispatch = useDispatch();
 
-  console.log(styles);
+  const currentModalButtonAction = () => {
+    dispatch(setModal(''));
+    if (action) {
+      action();
+    }
+  };
 
   return (
     <Modal
       isOpen={isOpen}
-      id="asas"
-      onRequestClose={() => setIsOpen(false)}
-      contentLabel="Example Modal"
+      shouldCloseOnEsc={currentModal?.outsideClose}
+      id={currentModal?.id}
+      onRequestClose={closeModal}
       overlayClassName={styles.modalOverlay}
       className={styles.modalClass}
     >
       <div className={styles.modalInner}>
-        <div className={styles.modalCloser}>
-          <CloseSvg />
-        </div>
+        {currentModal?.outsideClose && (
+          <div onClick={closeModal} className={styles.modalCloser}>
+            <CloseSvg />
+          </div>
+        )}
         <div className={styles.modalBody}>
-          <h2 className={styles.modalTitle}>Password Changed Successfully!</h2>
-          <p className={styles.modalSubTitle}>Please login to your account again</p>
+          <Typography component="h2" id={currentModal?.title} className={styles.modalTitle} />
+          <Typography component="p" id={currentModal?.subtitle} className={styles.modalSubTitle} />
           <div className={styles.modalIcon}>
-            <SuccesSvg />
+            {currentModal?.type === 'error' ? <ErrorSvg /> : <SuccesSvg />}
           </div>
           <div className={styles.modalBtn}>
-            <Button type="primary" customClass={styles.cardBtn} id={'Login Now'} />
+            <Button
+              onClick={currentModalButtonAction}
+              type="primary"
+              customClass={styles.cardBtn}
+              id={currentModal?.buttonText}
+            />
           </div>
         </div>
       </div>

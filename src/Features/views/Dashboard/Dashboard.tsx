@@ -10,7 +10,6 @@ const Dashboard: React.FC = () => {
   const user = useSelector(getCurrentUser);
   const auth = useSelector(getAuthStatus);
   const history = useHistory();
-  console.log(user);
 
   const logoutF = () => {
     dispatch(logout());

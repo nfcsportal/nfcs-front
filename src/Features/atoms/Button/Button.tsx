@@ -18,11 +18,13 @@ const Button: React.FC<IButtonProps> = ({
   customClass = '',
   submit = false,
   disabeled = false,
+  onClick,
   ...rest
 }) => {
   const buttonType = submit ? 'submit' : 'button';
   return (
     <button
+      onClick={onClick}
       disabled={disabeled}
       type={buttonType}
       className={`${styles[type]} ${styles[size]} ${customClass}`}
