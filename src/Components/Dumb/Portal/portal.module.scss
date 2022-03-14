@@ -1,86 +1,125 @@
-.portal{
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.portalHeader {
+  padding-top: 140px;
+  @media all and (max-width: $tablet) {
+    padding-top: 80px;
+  } 
+  p {
+    max-width: 790px;
+    @include fontRem(24, 400);
+    line-height: 35px;
+    .portalHeaderLink {
+      cursor: pointer;
+      color: $blue;
+      transition: 0.3s;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:active {
+        text-decoration: underline;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+      }
+      
+    }
+    @media all and (max-width: $tablet) {
+      @include fontRem(14, 400);
+      line-height: 22px;
+      max-width: 288px;
+      margin-bottom: 50px;
+    } 
+  }
+}
+.portal {
+  @include flex-center;
+  .wrapperPortal {
+    width: 700px;
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
-    .wrapperPortal {
-      width: 700px;
-      height: 700px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      background-color: transparent;
-      img {
-        position: absolute;
-        top: 50%;
-        left: 55%;
-        transform: translate(-50%, -50%);
-        width: 700px;
-        height: 700px;
-      }
-      .portal1{
-        margin-top: 120px;
-        position: absolute;
-        cursor: pointer;
-        width: 100px;
-        height: 100px;
-        z-index: 1;
-        top: 0%;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: transparent;
-        &:hover {
-          box-shadow: inset 0px -28px 16px rgba(26, 183, 250, 0.16);
-      }
-      }
-      .portal2{
-        position: absolute;
-        margin-bottom: 120px;
-        cursor: pointer;
-        width: 100px;
-        height: 100px;
-        z-index: 1;
-        bottom: 0%;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: transparent;
-        &:hover {
-          box-shadow: inset 0px -28px 16px rgba(26, 183, 250, 0.16);
-      }
-      }
-      .portal3{
-        position: absolute;
-        margin-left: 120px;
-        cursor: pointer;
-        width: 100px;
-        z-index: 1;
-        height: 100px;
-        left: 0%;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: transparent;
-        &:hover {
-          box-shadow: inset 0px -28px 16px rgba(26, 183, 250, 0.16);
-      }
-      }
-      .portal4{
-        position: absolute;
-        width: 100px;
-        z-index: 1;
-        margin-right: 120px;
-        cursor: pointer;
-        height: 100px;
-        right: 0%;
-        top: 50%;
-        transform: translateY(-50%);
-        &:hover {
-          box-shadow: inset 0px -28px 16px rgba(26, 183, 250, 0.16);
-      }
-        background-color: transparent;
-      }
+    position: relative;
+    background-color: transparent;
+    @media all and (max-width: $smallTablet) {
+      width: 3660px;
+      height: 270px;
     }
     img {
-      width: 600px;
-    height: 600px;
+      max-width: 100%;
+    }
+    .portal1 {
+      margin-top: 120px;
+      position: absolute;
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      z-index: 1;
+      top: 0%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: transparent;
+      @media all and (max-width: $smallTablet) {
+        margin-top: 10px;
+        margin-left: -15px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+    .portal2 {
+      position: absolute;
+      margin-bottom: 120px;
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      z-index: 1;
+      bottom: 0%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: transparent;
+      @media all and (max-width: $smallTablet) {
+        margin-bottom: 15px;
+        margin-left: -15px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+    .portal3 {
+      position: absolute;
+      margin-left: 120px;
+      cursor: pointer;
+      width: 100px;
+      z-index: 1;
+      height: 100px;
+      left: 0%;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent;
+      @media all and (max-width: $smallTablet) {
+        margin-left: 40px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+    .portal4 {
+      position: absolute;
+      width: 100px;
+      z-index: 1;
+      margin-right: 120px;
+      cursor: pointer;
+      height: 100px;
+      right: 0%;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent;
+      @media all and (max-width: $smallTablet) {
+        margin-right: 75px;
+        width: 60px;
+        height: 60px;
+      }
     }
   }
+}
