@@ -1,9 +1,12 @@
 import EnvelopeSvg from '../../Assets/Icons/EnvelopeSvg';
+import FacebookSvg from '../../Assets/Icons/FacebookSvg';
 import CheckPaperSvg from '../../Assets/Icons/how-it-works/CheckPaperSvg';
 import FindSvg from '../../Assets/Icons/how-it-works/FindSvg';
 import OrderSvg from '../../Assets/Icons/how-it-works/OrderSvg';
 import TimelineSvg from '../../Assets/Icons/how-it-works/TimelineSvg';
+import InstagramSvg from '../../Assets/Icons/InstagramSvg';
 import TelegramSvg from '../../Assets/Icons/TelegramSvg';
+import TwitterSvg from '../../Assets/Icons/TwitterSvg';
 import WhatsAppSvg from '../../Assets/Icons/WhatsAppSvg';
 import ShieldLockSvg from '../../Assets/Icons/why-we/ShieldLockSvg';
 import ShieldQuality from '../../Assets/Icons/why-we/ShieldQuality';
@@ -62,6 +65,18 @@ export const FOOTER_ICONS: TFooterIcon[] = [
   {
     href: 'mail',
     icon: EnvelopeSvg,
+  },
+  {
+    href: 'tw',
+    icon: TwitterSvg,
+  },
+  {
+    href: 'instagram',
+    icon: InstagramSvg,
+  },
+  {
+    href: 'facebook',
+    icon: FacebookSvg,
   },
 ];
 

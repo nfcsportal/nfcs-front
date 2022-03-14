@@ -18,8 +18,6 @@
     width: 100%;
     list-style-type: none;
     .selectedItemVisible {
-        border-radius: 8px 8px 0 0 !important;
-        border-bottom: 0 !important;
         &::after {
             transform: translateY(-50%) rotate(180deg) !important;
         }
@@ -47,48 +45,49 @@
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='9' viewBox='0 0 16 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.64018 1.23178L1.87196 0.591594L0.591594 2.12804L1.35982 2.76822L2.64018 1.23178ZM8 7L7.35982 7.76822L8 8.30171L8.64018 7.76822L8 7ZM14.6402 2.76822L15.4084 2.12804L14.128 0.591594L13.3598 1.23178L14.6402 2.76822ZM1.35982 2.76822L7.35982 7.76822L8.64018 6.23178L2.64018 1.23178L1.35982 2.76822ZM8.64018 7.76822L14.6402 2.76822L13.3598 1.23178L7.35982 6.23178L8.64018 7.76822Z' fill='%23E3E6EA' fill-opacity='0.32'/%3E%3C/svg%3E");
         }
         .selectList {
+            max-width: 305px;
             list-style-type: none;
             visibility: hidden;
             opacity: 0;
             position: absolute;
             top: 130%;
-            left: -1px;
-            width: calc(100% + 2px);
+            right: -1px;
+            width: calc(100% + 1px);
             backdrop-filter: blur(16px);
             border-radius: 8px;
             border-width: 1px;
             border-style: solid;
             transition-duration: 0.3s;
+            padding: 8px 14px;
             .selectOption {
                 width: 100%;
-                padding: 10px 15px;
+                padding: 8px 15px;
                 cursor: pointer;
+                text-align: center;
                 &:hover {
-                    background-color: rgba(41, 52, 139, 0.24);
+                    background: rgba(41, 52, 139, 0.32);
+                    border-radius: 8px;
+                    color: $white;
                 }
             }
         }
         .selectListVisible {
-            border-top: 0;
-            border-radius: 0 0 8px 8px;
-            top: 99%;
+            border-radius: 8px;
+            top: calc(100% + 7px);
             visibility: visible;
             opacity: 1;
         }
         &.active {
-            border-radius: 8px 8px 0 0;
-            border-bottom: 0;
+            border-radius: 8px;
             &::after {
                 transform: translateY(-50%) rotate(180deg);
             }
             .selectList {
-                border-top: 0;
-                border-radius: 0 0 8px 8px;
+                border-radius: 8px;
                 top: 99%;
                 visibility: visible;
                 opacity: 1;
             }
         }
     }
-
 }
