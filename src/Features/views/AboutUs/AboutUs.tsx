@@ -2,10 +2,15 @@ import React from 'react';
 import useMediaQuery from 'react-use-media-query-hook';
 
 import EnvelopeSvg from '../../../Assets/Icons/EnvelopeSvg';
+import FacebookSvg from '../../../Assets/Icons/FacebookSvg';
+import InstagramSvg from '../../../Assets/Icons/InstagramSvg';
 import LocationSvg from '../../../Assets/Icons/LocationSvg';
 import PhoneSvg from '../../../Assets/Icons/PhoneSvg';
 import TelegramSvg from '../../../Assets/Icons/TelegramSvg';
+import TwitterSvg from '../../../Assets/Icons/TwitterSvg';
 import WhatsAppSvg from '../../../Assets/Icons/WhatsAppSvg';
+import tabletBg from '../../../Assets/images/about-tablet.png';
+import bigBg from '../../../Assets/images/contact-about-bg.png';
 import { SCREENS } from '../../../Constants/ScreenResolutions';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
@@ -14,8 +19,18 @@ import styles from './AboutUs.module.scss';
 
 const AboutUs: React.FC = () => {
   const isOnlyTablet = useMediaQuery(SCREENS.onlyTablet);
+  const isMobile = useMediaQuery(SCREENS.mobile);
   return (
-    <div className={`${styles.aboutPage} about-us-page page`}>
+    <div
+      className={`${styles.aboutPage} about-us-page page`}
+      style={{
+        backgroundImage: `${
+          isOnlyTablet
+            ? `url(${tabletBg})`
+            : `url(${bigBg}), linear-gradient(170.79deg, #151a2c 0.37%, #120d20 93.02%)`
+        }`,
+      }}
+    >
       <Header />
       <MainContent>
         <section className={styles.aboutUsSection}>
@@ -61,6 +76,21 @@ const AboutUs: React.FC = () => {
                           <EnvelopeSvg />
                         </span>
                       </li>
+                      <li>
+                        <span>
+                          <TwitterSvg />
+                        </span>
+                      </li>
+                      <li>
+                        <span>
+                          <InstagramSvg />
+                        </span>
+                      </li>
+                      <li>
+                        <span>
+                          <FacebookSvg />
+                        </span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -72,35 +102,59 @@ const AboutUs: React.FC = () => {
                       <ul>
                         <li>
                           <div className={styles.timelineContent}>
+                            <>
+                              {isMobile ? (
+                                <>
+                                  <div className={styles.mobileDot} />
+                                  <div className={styles.mobileLine} />
+                                </>
+                              ) : null}
+                            </>
                             <h3 className={styles.timelineTitle}>V1 VAULTS:</h3>
                             <p className={styles.timelineText}>
                               More global scope analytics for Futures,Bond analytics Fund analytics.
                             </p>
                           </div>
                           <div className={styles.timelineDate}>
-                            <p>Janruary 12</p>
+                            <p>Jan 12</p>
                           </div>
                         </li>
                         <li>
                           <div className={styles.timelineContent}>
+                            <>
+                              {isMobile ? (
+                                <>
+                                  <div className={styles.mobileDot} />
+                                  <div className={styles.mobileLine} />
+                                </>
+                              ) : null}
+                            </>
                             <h3 className={styles.timelineTitle}>V1 VAULTS:</h3>
                             <p className={styles.timelineText}>
                               More global scope analytics for Futures,Bond analytics Fund analytics.
                             </p>
                           </div>
                           <div className={styles.timelineDate}>
-                            <p>Janruary 12</p>
+                            <p>Feb 12</p>
                           </div>
                         </li>
                         <li>
                           <div className={styles.timelineContent}>
+                            <>
+                              {isMobile ? (
+                                <>
+                                  <div className={styles.mobileDot} />
+                                  <div className={styles.mobileLine} />
+                                </>
+                              ) : null}
+                            </>
                             <h3 className={styles.timelineTitle}>V1 VAULTS:</h3>
                             <p className={styles.timelineText}>
                               More global scope analytics for Futures,Bond analytics Fund analytics.
                             </p>
                           </div>
                           <div className={styles.timelineDate}>
-                            <p>Janruary 12</p>
+                            <p>Mar 12</p>
                           </div>
                         </li>
                         <div className={styles.bothClenar} />
