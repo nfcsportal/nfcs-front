@@ -81,7 +81,11 @@ const Input: React.FC<IInputProps> = ({
               placeholder={intl.formatMessage({ id: placeHolder })}
             />
             {setPassShowMode && (
-              <button onClick={() => setPassShowMode(!passShowMode)} className={styles.passwordEye}>
+              <button
+                type="button"
+                onClick={() => setPassShowMode(!passShowMode)}
+                className={styles.passwordEye}
+              >
                 {!passShowMode ? <ClosedEyeSvg /> : <OpenedEyeSvg />}
               </button>
             )}

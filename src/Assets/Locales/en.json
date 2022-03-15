@@ -73,6 +73,14 @@
     "modals.success.forgotPassword.title": "Email sent",
     "modals.success.forgotPassword.subTitle": "Please check email and reset your password",
     "modals.success.forgotPassword.button": "OK",
-    "dropdown.label": "Inquiry type"
-
+    "dropdown.label": "Inquiry type",
+    "modals.error.title": "Something went wrong",
+    "modals.error.button": "Ok",
+    "modals.error.tryLater": "Please try again later",
+    "resetPassword.header": "Reset Password",
+    "resetPassword.button": "Reset",
+    "resetPassword.rememberPass": "Remembered the password?",
+    "modals.success.resetPass.title": "Your password succesfully reseted",
+    "modals.success.resetPass.subTitle": "Please sign in with new password",
+    "modals.success.resetPass.button": "Sign In"
 }

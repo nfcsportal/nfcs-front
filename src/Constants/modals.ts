@@ -10,7 +10,7 @@ type TModals = {
 export type TModalVariantsSuccess =
   | 'change-password'
   | 'forgot-password-success'
-  | 'forgot-password-error';
+  | 'reset-password-success';
 
 export const MODALS: Record<TModalVariantsSuccess, TModals> = {
   ['change-password']: {
@@ -28,12 +28,12 @@ export const MODALS: Record<TModalVariantsSuccess, TModals> = {
     buttonText: 'modals.success.forgotPassword.button',
     outsideClose: true,
   },
-  ['forgot-password-error']: {
-    id: 'forgot-password-error',
-    type: 'error',
-    title: 'modals.success.forgotPassword.title',
-    subtitle: 'modals.success.forgotPassword.subTitle',
-    buttonText: 'modals.success.forgotPassword.button',
+  ['reset-password-success']: {
+    id: 'reset-password-success',
+    type: 'success',
+    title: 'modals.success.resetPass.title',
+    subtitle: 'modals.success.resetPass.subTitle',
+    buttonText: 'modals.success.resetPass.button',
     outsideClose: true,
   },
 };

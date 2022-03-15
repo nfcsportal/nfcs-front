@@ -5,7 +5,8 @@ import axios from 'axios';
 import { ROUTES } from '../../Constants/Routes';
 import $api, { $refreshApi, API_URL } from '../../Service/api/intercepter';
 import { AuthResponse } from '../../Service/api/types';
-import { setModal } from './modal';
+import { setDashboardLoading } from './dashboard';
+import { setErrorMessage, setModal } from './modal';
 
 interface IAuthUserResponse extends AuthResponse {
   user: IUser;
@@ -59,8 +60,15 @@ export const registration =
         }
       })
       .catch((e) => {
+        const errorMessage = e.response.data.message;
+        if (errorMessage) {
+          dispatch(setErrorMessage(e.response.data.message));
+        } else {
+          dispatch(setErrorMessage('modals.error.tryLater'));
+        }
+      })
+      .finally(() => {
         dispatch(setAuthLoader(false));
-        console.log(e);
       });
   };
 
@@ -82,33 +90,49 @@ export const signIn = (email: string, password: string, history: any) => (dispat
       }
     })
     .catch((e) => {
+      const errorMessage = e.response.data.message;
+      if (errorMessage) {
+        dispatch(setErrorMessage(e.response.data.message));
+      } else {
+        dispatch(setErrorMessage('modals.error.tryLater'));
+      }
+    })
+    .finally(() => {
       dispatch(setAuthLoader(false));
-      console.log(e);
     });
 };
 
 export const logout = () => (dispatch: Dispatch) => {
-  dispatch(setAuthLoader(true));
+  dispatch(setDashboardLoading(true));
   $api
     .post('/logout')
-    .then((response: AxiosResponse<IAuthUserResponse>) => {
+    .then(async (response: AxiosResponse<IAuthUserResponse>) => {
       if (response) {
-        localStorage.removeItem('token');
+        await localStorage.removeItem('token');
+        await localStorage.removeItem('refresh');
         dispatch(setAuth(false));
-        dispatch(setAuthLoader(false));
+        dispatch(setDashboardLoading(false));
       }
     })
-    .catch((e) => {
-      dispatch(setAuthLoader(false));
-      console.log(e);
+    .catch(async () => {
+      await localStorage.removeItem('token');
+      await localStorage.removeItem('refresh');
+    })
+    .finally(() => {
+      dispatch(setDashboardLoading(false));
     });
 };
 
 export const users = (id: string) => (dispatch: Dispatch) => {
-  dispatch(setAuthLoader(true));
-  $api.get(`/user/${id}`).then((response: AxiosResponse<IAuthUserResponse>) => {
-    console.log(response);
-  });
+  dispatch(setDashboardLoading(true));
+  $api
+    .get(`/user/${id}`)
+    .then((response: AxiosResponse<IAuthUserResponse>) => {
+      console.log(response);
+    })
+    .finally(() => {
+      dispatch(setDashboardLoading(false));
+    });
 };
 
 export const checkAuth = (history: any) => (dispatch: Dispatch) => {
@@ -127,6 +151,9 @@ export const checkAuth = (history: any) => (dispatch: Dispatch) => {
     .catch((e) => {
       history.push(ROUTES.SIGN_IN);
       console.log(e);
+    })
+    .finally(() => {
+      dispatch(setAuthLoader(false));
     });
 };
 export const forgotPassword = (email: string) => (dispatch: Dispatch) => {
@@ -141,8 +168,39 @@ export const forgotPassword = (email: string) => (dispatch: Dispatch) => {
       }
     })
     .catch((e) => {
-      console.log(e);
-      dispatch(setModal('forgot-password-error'));
+      dispatch(setAuthLoader(false));
+      const errorMessage = e.response.data.message;
+      if (errorMessage) {
+        dispatch(setErrorMessage(e.response.data.message));
+      } else {
+        dispatch(setErrorMessage('modals.error.tryLater'));
+      }
+    })
+    .finally(() => {
+      dispatch(setAuthLoader(false));
+    });
+};
+
+export const resetPassword = (password: string, resetLink: string) => (dispatch: Dispatch) => {
+  dispatch(setAuthLoader(true));
+  axios
+    .post(`${API_URL}/resetpassword`, {
+      password,
+      resetLink,
+    })
+    .then(async (response: AxiosResponse<any>) => {
+      if (response) {
+        dispatch(setModal('reset-password-success'));
+      }
+    })
+    .catch((e) => {
+      dispatch(setAuthLoader(false));
+      const errorMessage = e.response.data.message;
+      if (errorMessage) {
+        dispatch(setErrorMessage(e.response.data.message));
+      } else {
+        dispatch(setErrorMessage('modals.error.tryLater'));
+      }
     })
     .finally(() => {
       dispatch(setAuthLoader(false));
