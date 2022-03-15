@@ -7,11 +7,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("../../../Assets/images/contact-about-bg.png"),
-        linear-gradient(170.79deg, #151a2c 0.37%, #120d20 93.02%);
 }
 .aboutUsSection {
     padding: 100px 0;
+    @media all and (max-width: $tablet) {
+        padding: 70px 0;
+    }
     .aboutUsRow {
         @include flexRow(50, 2, flex-start);
         @media all and (max-width: $tablet) {
@@ -19,8 +20,21 @@
         }
         .aboutUsInfo {
             margin-top: 60px;
+            @media all and (max-width: $tablet) {
+                margin-top: 0;
+            }
             [class="title"] {
+                margin-left: 0;
                 text-align: left;
+                @media all and (max-width: $tablet) {
+                    @include fontRem(44, 700);
+                    line-height: 53px;
+                }
+                @media all and (max-width: $mobile) {
+                    @include fontRem(24, 700);
+                    line-height: 30px;
+                    margin-bottom: 16px;
+                }
             }
             [class="subTitle"] {
                 text-align: left;
@@ -29,6 +43,10 @@
                 margin-left: 0;
                 margin-right: 0;
                 @include fontRem(16, 400);
+                @media all and (max-width: $mobile) {
+                    @include fontRem(14, 400);
+                    line-height: 20px;
+                }
             }
             .aboutUsContactContainer {
                 .aboutUsContact {
@@ -69,6 +87,9 @@
         .timelineContainer {
             position: relative;
             width: 100%;
+            @media all and (max-width: $smallTablet) {
+                margin-top: 60px;
+            }
             &::before {
                 content: "";
                 position: absolute;
@@ -77,6 +98,9 @@
                 height: 100%;
                 background: #c5c5c5;
                 background-image: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+                @media all and (max-width: $mobile) {
+                    content: none;
+                } 
             }
             ul {
                 padding: 0;
@@ -85,6 +109,9 @@
                     list-style: none;
                     position: relative;
                     width: 50%;
+                    @media all and (max-width: $mobile) {
+                        width: 100%;
+                    }
 
                     &:nth-child(odd) {
                         float: left;
@@ -92,6 +119,13 @@
                         clear: both;
                         padding: 0 64px 0 0;
                         margin-bottom: 100px;
+                        @media all and (max-width: $smallTablet) {
+                            margin-bottom: 50px;
+                        }
+                        @media all and (max-width: $mobile) {
+                            float: right;
+                            padding: 0 0 0 10px;
+                        }
                         &::after {
                             content: "";
                             position: absolute;
@@ -101,6 +135,9 @@
                             transform: translateY(-50%);
                             height: 2px;
                             border: 1px dashed $blue;
+                            @media all and (max-width: $mobile) {
+                                content: none;
+                            }
                         }
                         &::before {
                             content: "";
@@ -113,6 +150,10 @@
                             background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
                             border-radius: 50%;
                             z-index: 1;
+                            @media all and (max-width: $mobile) {
+                                left: -4px;
+                                content: none;
+                            }
                         }
                         .timelineDate {
                             position: absolute;
@@ -120,6 +161,10 @@
                             transform: translateY(-50%);
                             right: -165px;
                             border-radius: 18px;
+                            @media all and (max-width: $mobile) {
+                                left: 0;
+                                right: auto;
+                            }
                         }
                     }
 
@@ -129,7 +174,12 @@
                         clear: both;
                         padding: 0 0 0 64px;
                         margin-bottom: 100px;
-
+                        @media all and (max-width: $smallTablet) {
+                            margin-bottom: 50px;
+                        }
+                        @media all and (max-width: $mobile) {
+                            padding: 0 0 0 10px;
+                        }
                         &::after {
                             content: "";
                             position: absolute;
@@ -138,7 +188,10 @@
                             top: 50%;
                             transform: translateY(-50%);
                             height: 2px;
-                            border: 1px dashed #215ae7;
+                            border: 1px dashed $blue;
+                            @media all and (max-width: $mobile) {
+                                content: none;
+                            }
                         }
                         &::before {
                             content: "";
@@ -151,16 +204,28 @@
                             background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
                             border-radius: 50%;
                             z-index: 1;
+                            @media all and (max-width: $mobile) {
+                                content: none;
+                            }
                         }
                         .timelineDate {
                             position: absolute;
                             top: 50%;
                             transform: translateY(-50%);
                             left: -165px;
+                            @media all and (max-width: $mobile) {
+                                left: 0;
+                                right: auto;
+                            }
                         }
                     }
                     &:last-of-type {
                         margin-bottom: 0;
+                        .timelineContent {
+                            &::after {
+                                height: 100%;
+                            }
+                        }
                     }
                     .timelineContent {
                         z-index: 2;
@@ -169,6 +234,31 @@
                         backdrop-filter: blur(16px);
                         border-radius: 16px;
                         padding: 34px 17px;
+                        @media all and (max-width: $mobile) {
+                            position: relative;
+                            width: 68.5%;
+                            margin-left: auto;
+                            .mobileDot {
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                left: -24px;
+                                width: 14px;
+                                height: 14px;
+                                border-radius: 50%;
+                                background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+                                z-index: 2;
+                            }
+                            .mobileLine {
+                                position: absolute;
+                                width: 24px;
+                                left: -24px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                height: 2px;
+                                border: 1px dashed $blue;
+                            }
+                        }
                         @supports (
                             mask: linear-gradient(#fff 0 0) content-box,
                             linear-gradient(
@@ -200,6 +290,10 @@
                             @include fontRem(20, 700);
                             line-height: 28px;
                             color: $white;
+                            @media all and (max-width: $smallTablet) {
+                                @include fontRem(18, 700);
+                                line-height: 26px;
+                            }
                         }
                         .timelineText {
                             position: relative;
@@ -208,6 +302,23 @@
                             text-align: center;
                             @include fontRem(18, 400);
                             color: $white;
+                            @media all and (max-width: $smallTablet) {
+                                @include fontRem(14, 400);
+                                line-height: 20px;
+                            }
+                        }
+                        &::after {
+                            content: none;
+                            position: absolute;
+                            left: -18px;
+                            width: 2px;
+                            height: calc(100% + 51px);
+                            top: 0;
+                            background-image: linear-gradient(229.09deg, #1875fc 3.76%, #1875fc 115.42%);
+                            z-index: 1;
+                            @media all and (max-width: $mobile) {
+                                content: "";
+                            } 
                         }
                     }
                     .timelineDate {
@@ -217,6 +328,10 @@
                             @include fontRem(20, 700);
                             line-height: 28px;
                             color: $white;
+                            @media all and (max-width: $mobile) {
+                                @include fontRem(14, 600);
+                                line-height: 18px;
+                            }
                         }
                     }
                 }
@@ -255,7 +370,7 @@
                             width: 1px;
                             left: 50%;
                             transform: translateX(-50%);
-                            border-left: 1px dashed #215ae7;
+                            border-left: 1px dashed $blue;
                         }
                         &::before {
                             content: "";
@@ -278,6 +393,7 @@
                         border-radius: 16px;
                         padding: 25px 5px;
                         text-align: center;
+                        min-height: 130px;
                         @supports (
                             mask: linear-gradient(#fff 0 0) content-box,
                             linear-gradient(
@@ -317,8 +433,13 @@
             }
             .tabletItemsBottom {
                 margin-top: 10px;
-                color: $white;
                 text-align: center;
+                .tableItemBlockText {
+                    @include fontRem(14, 600);
+                    line-height: 20px;
+                    color: $titleColor;
+                    text-transform: uppercase;
+                }
             }
         }
     }
