@@ -47,9 +47,14 @@ const AuthView: React.FC<IAuthViewProps> = ({
       </header>
       <MainContent>
         <section className={styles.loginSection}>
-          <div className={styles.loginForm}>
+          <div className={`${styles.loginForm} ${loading ? styles.activeLoader : ''}`}>
             <form onSubmit={submitHandler} action="">
-              {loading && <Loader type="auth" />}
+              {loading && (
+                <div className={styles.loader}>
+                  {' '}
+                  <Loader type="auth" />
+                </div>
+              )}
               <Typography className={`${styles.loginTitle} title`} component="h2" id={header} />
               {children}
               {aboveButtonText && (
