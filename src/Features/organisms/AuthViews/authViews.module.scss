@@ -3,7 +3,8 @@
 
 .loginPage {
     width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
+    height: 100%;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -49,7 +50,9 @@
             @media all and (max-width: $tablet) {
                 padding: 40px 37px 24px;
             } 
-            
+            &.activeLoader {
+                backdrop-filter: unset;
+            }
         }
         .loginTitle {
             text-align: center;
@@ -124,5 +127,15 @@
                 } 
             }
         }
+    }
+    .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 12;
+        background: rgba(41, 52, 139, 0.24);
+        backdrop-filter: blur(16px);
     }
 }
