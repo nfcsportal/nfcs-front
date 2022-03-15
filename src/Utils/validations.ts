@@ -26,6 +26,16 @@ export const signUpValidationSchema = yup.object({
   disclaimer: yup.boolean().oneOf([true]),
 });
 
+export const resetPasswordValidationScheme = yup.object({
+  password: yup
+    .string()
+    .min(8, 'validation.scheme.signin.pass.length')
+    .required('validation.scheme.signin.pass.requiere'),
+  passwordConfirmation: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'validation.scheme.signin.pass.mustmuch'),
+});
+
 export const forgotPassValidationSchema = yup.object({
   email: yup
     .string()
@@ -33,7 +43,7 @@ export const forgotPassValidationSchema = yup.object({
     .required('validation.scheme.signin.email.requiere'),
 });
 
-export const resetPasswordValidationScheme = yup.object({
+export const changePasswordValidationScheme = yup.object({
   newPass: yup
     .string()
     .min(8, 'validation.scheme.signin.pass.length')

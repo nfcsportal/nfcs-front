@@ -1,10 +1,10 @@
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
 
-import { RESET_PASS_INITIAL, TResetPass } from '../../../../Constants/authFLow';
+import { CHNAGE_PASS_INITIAL, TChnagePassword } from '../../../../Constants/authFLow';
 import { ROUTES } from '../../../../Constants/Routes';
 import { useAllowSubmit } from '../../../../Hooks/useAllowSubmitForm';
-import { resetPasswordValidationScheme } from '../../../../Utils/validations';
+import { changePasswordValidationScheme } from '../../../../Utils/validations';
 import Input from '../../../atoms/Input';
 import AuthView from '../../../organisms/AuthViews';
 
@@ -13,14 +13,14 @@ const ChangePassword: React.FC = () => {
   const [showOldPass, setShowOldPass] = useState<boolean>(false);
   const formik = useFormik({
     initialValues: {
-      ...RESET_PASS_INITIAL,
+      ...CHNAGE_PASS_INITIAL,
     },
-    validationSchema: resetPasswordValidationScheme,
-    onSubmit: (values: TResetPass) => {
+    validationSchema: changePasswordValidationScheme,
+    onSubmit: (values: TChnagePassword) => {
       console.log(values);
     },
   });
-  const allowSubmit = useAllowSubmit(formik, RESET_PASS_INITIAL);
+  const allowSubmit = useAllowSubmit(formik, CHNAGE_PASS_INITIAL);
 
   return (
     <AuthView

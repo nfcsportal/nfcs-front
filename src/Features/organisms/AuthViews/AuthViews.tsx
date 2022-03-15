@@ -37,7 +37,6 @@ const AuthView: React.FC<IAuthViewProps> = ({
 }) => {
   const history = useHistory();
   const loading = useSelector(getAuthLoading);
-
   return (
     <div className={`${styles.loginPage} page`}>
       <header className={styles.loginHeader}>

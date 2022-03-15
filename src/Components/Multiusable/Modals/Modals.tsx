@@ -8,7 +8,7 @@ import SuccesSvg from '../../../Assets/Icons/SuccesSvg';
 import Button from '../../../Features/atoms/Button';
 import Typography from '../../../Features/atoms/Typography';
 import { useCurrentButtonActions, useModal } from '../../../Hooks/useModal';
-import { setModal } from '../../../Store/Slices/modal';
+import { setErrorMessage, setModal } from '../../../Store/Slices/modal';
 import styles from './modal.module.scss';
 
 Modal.setAppElement('#root');
@@ -20,6 +20,7 @@ const Modals: React.FC = () => {
 
   const currentModalButtonAction = () => {
     dispatch(setModal(''));
+    dispatch(setErrorMessage(''));
     if (action) {
       action();
     }
