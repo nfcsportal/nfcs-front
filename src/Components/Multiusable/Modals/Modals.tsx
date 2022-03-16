@@ -19,6 +19,7 @@ const Modals: React.FC = () => {
   const dispatch = useDispatch();
 
   const currentModalButtonAction = () => {
+    document.body.style.overflow = 'auto';
     dispatch(setModal(''));
     dispatch(setErrorMessage(''));
     if (action) {

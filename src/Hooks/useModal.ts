@@ -32,7 +32,6 @@ export const useCurrentButtonActions = () => {
 export const useModal = () => {
   const modal: TModalVariantsSuccess | '' = useSelector(getModal);
   const error = useSelector(getErrorMessage);
-  console.log(error);
 
   const dispatch = useDispatch();
   const isOpen = useMemo(() => {
@@ -52,9 +51,16 @@ export const useModal = () => {
 
   const closeModal = () => {
     if (currentModal && currentModal.outsideClose) {
+      document.body.style.overflow = 'auto';
       dispatch(setModal(''));
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+  }, [isOpen]);
 
   const currentModal = useMemo(() => {
     if (modal) {

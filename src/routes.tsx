@@ -43,7 +43,7 @@ const Routes: React.FC = () => {
         <Route path="/about">
           <AboutUs />
         </Route>
-        <Route path="/current-analytic">
+        <Route path="/description/:current">
           <CurrentAnalytic />
         </Route>
         <Route path="/privacy">
