@@ -1,7 +1,8 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import mainImage from '../../../Assets/images/main-image.svg';
+import { MainPortal } from '../../../Assets/Icons/MainPortal';
 import { DESCRIPTIONS, TDescriptions } from '../../../Constants/descriptions';
 import { ROUTES } from '../../../Constants/Routes';
 import styles from './portal.module.scss';
@@ -10,7 +11,12 @@ const Portal: React.FC = () => {
   const history = useHistory();
   return (
     <>
-      <div className={styles.portalHeader}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 2 }}
+        className={styles.portalHeader}
+      >
         <h2 className="title">NFCS Portal</h2>
         <p className="subTitle">
           NFCS is a portal that will give you the opportunity to understand the world of{' '}
@@ -19,7 +25,7 @@ const Portal: React.FC = () => {
           </a>{' '}
           and offer you the best way to invest your founds.
         </p>
-      </div>
+      </motion.div>
       <div className={styles.portal}>
         <div className={styles.wrapperPortal}>
           {DESCRIPTIONS.map((current: TDescriptions, index: number) => {
@@ -31,8 +37,7 @@ const Portal: React.FC = () => {
               />
             );
           })}
-
-          <img src={mainImage} alt="" />
+          <MainPortal />
         </div>
       </div>
     </>

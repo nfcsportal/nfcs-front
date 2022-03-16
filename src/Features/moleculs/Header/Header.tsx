@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -33,7 +34,11 @@ const Header: React.FC = () => {
             <ul className={styles.headerMenuList}>
               {NAV_BAR.map((currentItem: TNavBar) => {
                 return (
-                  <li key={currentItem.path}>
+                  <motion.li
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ type: 'spring', stiffness: 30 }}
+                    key={currentItem.path}
+                  >
                     <Typography
                       onClick={() => history.push(currentItem.path)}
                       component={'span'}
@@ -42,7 +47,7 @@ const Header: React.FC = () => {
                       }`}
                       id={currentItem.id}
                     />
-                  </li>
+                  </motion.li>
                 );
               })}
               <li>
