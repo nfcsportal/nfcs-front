@@ -1,9 +1,13 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import mainImage from '../../../Assets/images/main-image.svg';
+import { DESCRIPTIONS, TDescriptions } from '../../../Constants/descriptions';
+import { ROUTES } from '../../../Constants/Routes';
 import styles from './portal.module.scss';
 
 const Portal: React.FC = () => {
+  const history = useHistory();
   return (
     <>
       <div className={styles.portalHeader}>
@@ -18,10 +22,16 @@ const Portal: React.FC = () => {
       </div>
       <div className={styles.portal}>
         <div className={styles.wrapperPortal}>
-          <div className={styles.portal1} />
-          <div className={styles.portal2} />
-          <div className={styles.portal3} />
-          <div className={styles.portal4} />
+          {DESCRIPTIONS.map((current: TDescriptions, index: number) => {
+            return (
+              <div
+                onClick={() => history.push(`${ROUTES.DESCRIPTION}/${current.current}`)}
+                key={current.current}
+                className={styles[`portal${index + 1}`]}
+              />
+            );
+          })}
+
           <img src={mainImage} alt="" />
         </div>
       </div>

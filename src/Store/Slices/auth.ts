@@ -207,6 +207,34 @@ export const resetPassword = (password: string, resetLink: string) => (dispatch:
     });
 };
 
+export const changePassword =
+  (password: string, newPassword: string, email: string) => (dispatch: Dispatch) => {
+    dispatch(setAuthLoader(true));
+    axios
+      .post(`${API_URL}/changepassword`, {
+        password,
+        newPassword,
+        email,
+      })
+      .then(async (response: AxiosResponse<any>) => {
+        if (response) {
+          dispatch(setModal('change-password'));
+        }
+      })
+      .catch((e) => {
+        dispatch(setAuthLoader(false));
+        const errorMessage = e.response.data.message;
+        if (errorMessage) {
+          dispatch(setErrorMessage(e.response.data.message));
+        } else {
+          dispatch(setErrorMessage('modals.error.tryLater'));
+        }
+      })
+      .finally(() => {
+        dispatch(setAuthLoader(false));
+      });
+  };
+
 export const { setAuth, setAuthLoader, setCurrentUser } = authSlice.actions;
 
 export default authSlice.reducer;

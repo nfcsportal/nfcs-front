@@ -1,9 +1,12 @@
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { CHNAGE_PASS_INITIAL, TChnagePassword } from '../../../../Constants/authFLow';
 import { ROUTES } from '../../../../Constants/Routes';
 import { useAllowSubmit } from '../../../../Hooks/useAllowSubmitForm';
+import { getCurrentUser } from '../../../../Store/Selectors/auth';
+import { changePassword } from '../../../../Store/Slices/auth';
 import { changePasswordValidationScheme } from '../../../../Utils/validations';
 import Input from '../../../atoms/Input';
 import AuthView from '../../../organisms/AuthViews';
@@ -11,13 +14,16 @@ import AuthView from '../../../organisms/AuthViews';
 const ChangePassword: React.FC = () => {
   const [showNewPass, setShowNewPass] = useState<boolean>(false);
   const [showOldPass, setShowOldPass] = useState<boolean>(false);
+  const currentUser = useSelector(getCurrentUser);
+
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       ...CHNAGE_PASS_INITIAL,
     },
     validationSchema: changePasswordValidationScheme,
     onSubmit: (values: TChnagePassword) => {
-      console.log(values);
+      dispatch(changePassword(values.oldPass, values.newPass, currentUser.email));
     },
   });
   const allowSubmit = useAllowSubmit(formik, CHNAGE_PASS_INITIAL);
