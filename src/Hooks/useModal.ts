@@ -13,7 +13,7 @@ export const useCurrentButtonActions = () => {
   useEffect(() => {
     switch (modal) {
       case 'change-password':
-        setAction(() => () => (window.location.pathname = ROUTES.SIGN_IN));
+        setAction(() => () => (window.location.pathname = ROUTES.DASHBOARD));
         break;
       case 'forgot-password-success':
         setAction(() => () => (window.location.pathname = ROUTES.HOME));
