@@ -11,10 +11,10 @@ import SignUp from './Features/views/AutohFlow/SignUp';
 import Contact from './Features/views/Contact';
 import CurrentAnalytic from './Features/views/CurrentAnalytic';
 import Dashboard from './Features/views/Dashboard';
-import HomePage from './Features/views/HomePage';
 import Privacy from './Features/views/Privacy';
 import { getCurrentUser } from './Store/Selectors/auth';
 
+const HomePage = React.lazy(() => import('./Features/views/HomePage'));
 const Routes: React.FC = () => {
   const currentUser = useSelector(getCurrentUser);
   return (
