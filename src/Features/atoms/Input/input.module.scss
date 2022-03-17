@@ -42,8 +42,34 @@
     }
     &:focus {
         border-color: $blue;
+        outline: none !important;
     }
 }
+.textarea{
+    padding: 10px;
+    padding-right: 5px;
+    resize: none;
+    &::-webkit-scrollbar {
+        width: 6px;
+        border-radius: 10px;
+        @media all and (max-width: $tablet) {
+            width: 3px;
+        }
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: linear-gradient(
+            229.09deg,
+            rgba(173, 179, 189, 0.24) 3.76%,
+            rgba(104, 115, 117, 0.24) 115.42%
+        );
+    }
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
+        border-radius: 10px;
+    }
+}
+
 .addonInput {
     position: relative;
     button {

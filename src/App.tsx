@@ -9,7 +9,6 @@ import { getCurrentLocale } from './Store/Selectors/main';
 
 const App: React.FC = () => {
   const currentLocale = useSelector(getCurrentLocale);
-
   return (
     <div>
       <IntlProvider locale={currentLocale} messages={LOCALES[currentLocale]}>

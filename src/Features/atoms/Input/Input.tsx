@@ -14,7 +14,7 @@ type isTruthyEqual = {
 };
 
 interface IInputProps {
-  type: 'text' | 'password';
+  type?: 'text' | 'password';
   isPassInput?: boolean;
   htmlFor: string;
   label: string;
@@ -23,12 +23,14 @@ interface IInputProps {
   name: string;
   onClick: (current: string) => void;
   onFocus: (current: string) => void;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   error?: any;
   passShowMode?: boolean;
   setPassShowMode?: (arg: boolean) => void;
   repeatMode?: boolean;
   isTruthyEqual?: isTruthyEqual;
+  textarea?: boolean;
+  style?: React.CSSProperties;
 }
 
 const Input: React.FC<IInputProps> = ({
@@ -47,24 +49,39 @@ const Input: React.FC<IInputProps> = ({
   repeatMode = false,
   isTruthyEqual,
   onFocus,
+  textarea,
+  style,
 }) => {
   const intl = useIntl();
-
   return (
     <>
       {!isPassInput ? (
         <div onClick={() => onClick(name)} className={styles.formItem}>
           <Typography className={styles.label} component="label" htmlFor={htmlFor} id={label} />
-          <input
-            name={name}
-            onFocus={() => onFocus(name)}
-            className={styles.input}
-            type={type}
-            id={htmlFor}
-            onChange={onChange}
-            value={value}
-            placeholder={intl.formatMessage({ id: placeHolder })}
-          />
+          {textarea ? (
+            <textarea
+              name={name}
+              style={style}
+              onFocus={() => onFocus(name)}
+              className={`${styles.input} ${styles.textarea}`}
+              id={htmlFor}
+              onChange={onChange}
+              value={value}
+              placeholder={intl.formatMessage({ id: placeHolder })}
+            />
+          ) : (
+            <input
+              name={name}
+              style={style}
+              onFocus={() => onFocus(name)}
+              className={styles.input}
+              type={type}
+              id={htmlFor}
+              onChange={onChange}
+              value={value}
+              placeholder={intl.formatMessage({ id: placeHolder })}
+            />
+          )}
           {error && <Typography component="p" className={styles.errorMessage} id={error} />}
         </div>
       ) : (
@@ -73,6 +90,7 @@ const Input: React.FC<IInputProps> = ({
           <div className={styles.addonInput}>
             <input
               className={styles.input}
+              style={style}
               onFocus={() => onFocus(name)}
               type={passShowMode ? 'text' : 'password'}
               id={htmlFor}
