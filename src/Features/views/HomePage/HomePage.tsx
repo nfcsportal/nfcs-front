@@ -1,10 +1,6 @@
 import React from 'react';
-import useMediaQuery from 'react-use-media-query-hook';
 
-import bgDesktop from '../../../../src/Assets/images/full-bg-progressive.jpeg';
-import bgMobile from '../../../Assets/images/fulll-bg-mobile-progressive.jpeg';
 import Portal from '../../../Components/Dumb/Portal';
-import { SCREENS } from '../../../Constants/ScreenResolutions';
 import Button from '../../atoms/Button';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
@@ -15,13 +11,11 @@ import MainContent from '../../organisms/MainContent';
 import styles from './HomePage.module.scss';
 
 const HomePage: React.FC = () => {
-  const isTablet = useMediaQuery(SCREENS.bigTablet);
-
   return (
     <div
       className="page mainPage"
       style={{
-        background: `${isTablet ? `url(${bgMobile})` : `url(${bgDesktop})`}`,
+        background: 'url(./full-bg-progressive.jpeg)',
       }}
     >
       <Header />
