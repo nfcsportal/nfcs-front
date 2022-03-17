@@ -23,10 +23,16 @@
             }
         }
         .analyticRow {
-            @include flexRow(12, 2, center);
+            @include flexRow(32, 2, center);
             @media all and (max-width: $tablet) {
                 @include flexRow(12, 1, center);
-                flex-direction: row-reverse;
+                flex-direction: column-reverse;
+            }
+            .analyticLeftColContent {
+                svg {
+                    max-width: 100%;
+                    height: auto;
+                }
             }
             .rightInner {
                 background: rgba(41, 52, 139, 0.24);

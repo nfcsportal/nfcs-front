@@ -30,7 +30,7 @@ const Header: React.FC = () => {
           <div className={styles.headerLogo} onClick={() => history.push(ROUTES.HOME)}>
             <img src={Logo} alt="Logo" />
           </div>
-          <menu className={styles.headerMenu}>
+          <menu className={`${styles.headerMenu} ${styles.active}`}>
             <ul className={styles.headerMenuList}>
               {NAV_BAR.map((currentItem: TNavBar) => {
                 return (
@@ -84,7 +84,7 @@ const Header: React.FC = () => {
               </li>
             </ul>
           </menu>
-          <div className={`${styles.headerBurger}`}>
+          <div className={`${styles.headerBurger} ${styles.active}`}>
             <div className={styles.burgerIcon} />
           </div>
         </nav>

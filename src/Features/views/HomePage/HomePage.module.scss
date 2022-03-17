@@ -2,29 +2,6 @@
 @import "/src/styles/vars";
 @import "/src/styles/mixins";
 @import "../../../Assets/styles/locale.scss";
-// .main {
-//     display: flex;
-//     height: 100vh;
-//     font-size: clamp(16px, calc(1rem + ((1vw - 3.2px) * 4)), 80px);
-//     min-height: 0vw;
-//     font-weight: 600;
-//     color: 'red';
-//     background: aqua;
-//     .#{$FR_Prefix}_main {
-//         color: rebeccapurple;
-//       }
-//       .#{$DE_Prefix}_main {
-//         color: wheat;
-//       }
-//       .#{$EN_Prefix}_main {
-//         font-size: 80px;
-//         color: red;
-//       }
-//     width: 100%;
-//     justify-content: center;
-//     align-items: center;
-// }
-
 .whyWeSection {
   position: relative;
   padding-top: 185px;

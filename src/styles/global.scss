@@ -94,7 +94,7 @@ img {
             &:last-child {
                 padding-bottom: 40px;
             }
-        } 
+        }
     }
 }
 .title {
@@ -140,7 +140,7 @@ img {
         max-width: 320px;
     }
 }
- .defualtCheck { 
+.defualtCheck {
     label {
         padding-left: 24px;
         cursor: pointer;
@@ -193,4 +193,44 @@ img {
             }
         }
     }
- }
+}
+.wrapperPortal {
+    .nftCircle1,
+    .stockCircle1,
+    .crytoCircle1,
+    .binanceCircle1 {
+        animation: animateCirlce 2s linear infinite;
+        animation-direction: alternate;
+        animation-delay: 1s;
+        @keyframes animateCirlce {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+    .nftCircle2,
+    .stockCircle2,
+    .crytoCircle2,
+    .binanceCircle2 {
+        animation: animateCirlce2 2s linear infinite;
+        animation-direction: alternate;
+        animation-delay: 0s;
+        @keyframes animateCirlce2 {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+    .pathsEvents {
+        pointer-events: none;
+    }
+    .controlCirlce {
+        cursor: pointer;
+    }
+}
