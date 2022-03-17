@@ -1,14 +1,10 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { MainPortal } from '../../../Assets/Icons/MainPortal';
-import { DESCRIPTIONS, TDescriptions } from '../../../Constants/descriptions';
-import { ROUTES } from '../../../Constants/Routes';
 import styles from './portal.module.scss';
 
 const Portal: React.FC = () => {
-  const history = useHistory();
   return (
     <>
       <motion.div
@@ -27,16 +23,7 @@ const Portal: React.FC = () => {
         </p>
       </motion.div>
       <div className={styles.portal}>
-        <div className={styles.wrapperPortal}>
-          {DESCRIPTIONS.map((current: TDescriptions, index: number) => {
-            return (
-              <div
-                onClick={() => history.push(`${ROUTES.DESCRIPTION}/${current.current}`)}
-                key={current.current}
-                className={styles[`portal${index + 1}`]}
-              />
-            );
-          })}
+        <div className={`${styles.wrapperPortal} wrapperPortal`}>
           <MainPortal />
         </div>
       </div>

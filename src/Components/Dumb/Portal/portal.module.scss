@@ -3,6 +3,9 @@
 
 .portalHeader {
   padding-top: 140px;
+  @media all and (max-width: $normalDesktop) {
+    padding-top: 90px;
+  } 
   @media all and (max-width: $tablet) {
     padding-top: 80px;
   } 
@@ -50,76 +53,6 @@
     }
     svg {
       max-width: 100%;
-    }
-    .portal1 {
-      margin-top: 120px;
-      position: absolute;
-      cursor: pointer;
-      width: 100px;
-      height: 100px;
-      z-index: 1;
-      top: 0%;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: transparent;
-      @media all and (max-width: $smallTablet) {
-        margin-top: 10px;
-        margin-left: -15px;
-        width: 60px;
-        height: 60px;
-      }
-    }
-    .portal2 {
-      position: absolute;
-      margin-bottom: 120px;
-      cursor: pointer;
-      width: 100px;
-      height: 100px;
-      z-index: 1;
-      bottom: 0%;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: transparent;
-      @media all and (max-width: $smallTablet) {
-        margin-bottom: 15px;
-        margin-left: -15px;
-        width: 60px;
-        height: 60px;
-      }
-    }
-    .portal3 {
-      position: absolute;
-      margin-left: 120px;
-      cursor: pointer;
-      width: 100px;
-      z-index: 1;
-      height: 100px;
-      left: 0%;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: transparent;
-      @media all and (max-width: $smallTablet) {
-        margin-left: 40px;
-        width: 60px;
-        height: 60px;
-      }
-    }
-    .portal4 {
-      position: absolute;
-      width: 100px;
-      z-index: 1;
-      margin-right: 120px;
-      cursor: pointer;
-      height: 100px;
-      right: 0%;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: transparent;
-      @media all and (max-width: $smallTablet) {
-        margin-right: 75px;
-        width: 60px;
-        height: 60px;
-      }
     }
   }
 }
