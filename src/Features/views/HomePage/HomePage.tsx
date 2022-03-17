@@ -1,7 +1,7 @@
 import React from 'react';
 import useMediaQuery from 'react-use-media-query-hook';
 
-import bgDesktop from '../../../Assets/images/full-bg-progressive.jpeg';
+import bgDesktop from '../../../../src/Assets/images/full-bg-progressive.jpeg';
 import bgMobile from '../../../Assets/images/fulll-bg-mobile-progressive.jpeg';
 import Portal from '../../../Components/Dumb/Portal';
 import { SCREENS } from '../../../Constants/ScreenResolutions';
@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
     <div
       className="page mainPage"
       style={{
-        backgroundImage: `${isTablet ? `url(${bgMobile})` : `url(${bgDesktop})`}`,
+        background: `${isTablet ? `url(${bgMobile})` : `url(${bgDesktop})`}`,
       }}
     >
       <Header />
