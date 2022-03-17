@@ -53,3 +53,10 @@ export const changePasswordValidationScheme = yup.object({
     .min(8, 'validation.scheme.signin.pass.length')
     .required('validation.scheme.signin.pass.requiere'),
 });
+
+export const constactUsValidationScheme = yup.object({
+  email: yup
+    .string()
+    .email('validation.scheme.signin.email.invalid')
+    .required('validation.scheme.signin.email.requiere'),
+});

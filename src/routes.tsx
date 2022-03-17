@@ -17,42 +17,41 @@ import { getCurrentUser } from './Store/Selectors/auth';
 
 const Routes: React.FC = () => {
   const currentUser = useSelector(getCurrentUser);
-
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/sign-in">
+        <Route exact path="/sign-in">
           <SignIn />
         </Route>
-        <Route path="/sign-up">
+        <Route exact path="/sign-up">
           <SignUp />
         </Route>
-        <Route path="/forgot-pass">
+        <Route exact path="/forgot-pass">
           <ForgotPassword />
         </Route>
-        <Route path="/change-password">
+        <Route exact path="/change-password">
           {!Object.entries(currentUser).length && !currentUser.isActivated && <Redirect to="/" />}
           <ChangePassword />
         </Route>
-        <Route path="/reset-password/:id">
+        <Route exact path="/reset-password/:id">
           <ResetPassword />
         </Route>
-        <Route path="/dashboard">
+        <Route exact path="/dashboard">
           <Dashboard />
         </Route>
-        <Route path="/about">
+        <Route exact path="/about">
           <AboutUs />
         </Route>
-        <Route path="/description/:current">
+        <Route exact path="/description/:current">
           <CurrentAnalytic />
         </Route>
-        <Route path="/privacy">
+        <Route exact path="/privacy">
           <Privacy />
         </Route>
-        <Route path="/contact">
+        <Route exact path="/contact">
           <Contact />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <HomePage />
         </Route>
       </Switch>

@@ -1,33 +1,78 @@
-import React, { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useMemo, useState } from 'react';
 
+import { useOutsideDetect } from '../../../Hooks/useOutsideDetect';
 import Typography from '../Typography';
 import styles from './dropdown.module.scss';
 
+type TOptions = {
+  id: string;
+  value: string;
+};
+
 interface IDropdown {
+  name: string;
   label: string;
+  options: { id: string; value: string }[];
+  value: string;
+  defaultValue?: string;
+  onClick: (current: string) => void;
+  onChange: (current: string, value: string) => void;
 }
 
-const Dropdown: React.FC<IDropdown> = ({ label }) => {
+const Dropdown: React.FC<IDropdown> = ({
+  onClick,
+  onChange,
+  name,
+  label,
+  options,
+  value,
+  defaultValue,
+}) => {
   const [open, setOpen] = useState(false);
-  console.log(setOpen);
 
+  const ref = useOutsideDetect(setOpen);
+
+  const handleClick = () => {
+    onClick(name);
+    setOpen(!open);
+  };
+
+  const handleSetValue = (curr: string) => {
+    if (curr === value) {
+      onChange(name, '');
+    } else {
+      onChange(name, curr);
+    }
+  };
+
+  const currentValue = useMemo(() => {
+    const filteredValue: TOptions | undefined = options.find((el: TOptions) => el.value === value);
+    return filteredValue && filteredValue.id;
+  }, [value]);
   return (
-    <div className={`${styles.formItem} ${styles.selectItem}`}>
-      <Typography
-        className={styles.spanText}
-        component="span"
-        id={label}
-        onClick={() => setOpen(!open)}
-      />
-      <ul className={styles.selectParent} onClick={() => setOpen(!open)}>
+    <div ref={ref} className={`${styles.formItem} ${styles.selectItem}`}>
+      <Typography className={styles.spanText} component="span" id={label} onClick={handleClick} />
+      <ul className={styles.selectParent} onClick={handleClick}>
         <li className={`${styles.selectItem} ${open && styles.selectedItemVisible}`}>
-          {/* <li className={`${styles.selectItem} ${styles.active}`}> */}
-          <p>Select</p>
+          {defaultValue && !value ? (
+            <Typography component="p" id={defaultValue} />
+          ) : (
+            <Typography component="p" id={currentValue} />
+          )}
           {open && (
             <ul className={`${styles.selectList} ${open && styles.selectListVisible}`}>
-              <li className={styles.selectOption}>1</li>
-              <li className={styles.selectOption}>2</li>
-              <li className={styles.selectOption}>3</li>
+              {options.map((curr: TOptions) => {
+                return (
+                  <Typography
+                    onClick={() => handleSetValue(curr.value)}
+                    component="li"
+                    className={`${styles.selectOption} ${value === curr.value && styles.activeLi}`}
+                    key={curr.id}
+                    id={curr.id}
+                  />
+                );
+              })}
             </ul>
           )}
         </li>
