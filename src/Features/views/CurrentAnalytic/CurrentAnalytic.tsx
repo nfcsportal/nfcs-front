@@ -1,6 +1,7 @@
 import React from 'react';
 import useMediaQuery from 'react-use-media-query-hook';
 
+import CryptoBigSvg from '../../../Assets/Icons/CryptoBigSvg';
 import LongArrow from '../../../Assets/Icons/LongArrow';
 import { SCREENS } from '../../../Constants/ScreenResolutions';
 import Footer from '../../moleculs/Footer';
@@ -25,7 +26,11 @@ const CurrentAnalytic: React.FC = () => {
               )}
             </>
             <div className={`${styles.analyticRow} row`}>
-              <div className={`${styles.analyticLeftCol} col_left`}></div>
+              <div className={`${styles.analyticLeftCol} col_left`}>
+                <div className={styles.analyticLeftColContent}>
+                  <CryptoBigSvg />
+                </div>
+              </div>
               <div className={`${styles.analyticRightCol} col_right`}>
                 <div className={styles.rightInner}>
                   <div className={styles.rightItem}>
