@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -17,9 +17,11 @@ import styles from './header.module.scss';
 
 const Header: React.FC = () => {
   const currentLocalce = useSelector(getCurrentLocale);
+  const [burger, setBurger] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
   const { currentRef, scrollPosition } = usePositions();
+
   return (
     <header
       ref={currentRef}
@@ -30,7 +32,7 @@ const Header: React.FC = () => {
           <div className={styles.headerLogo} onClick={() => history.push(ROUTES.HOME)}>
             <img src={Logo} alt="Logo" />
           </div>
-          <menu className={`${styles.headerMenu} ${styles.active}`}>
+          <menu className={`${styles.headerMenu} ${burger && styles.active}`}>
             <ul className={styles.headerMenuList}>
               {NAV_BAR.map((currentItem: TNavBar) => {
                 return (
@@ -84,7 +86,10 @@ const Header: React.FC = () => {
               </li>
             </ul>
           </menu>
-          <div className={`${styles.headerBurger} ${styles.active}`}>
+          <div
+            onClick={() => setBurger(!burger)}
+            className={`${styles.headerBurger} ${burger && styles.active}`}
+          >
             <div className={styles.burgerIcon} />
           </div>
         </nav>

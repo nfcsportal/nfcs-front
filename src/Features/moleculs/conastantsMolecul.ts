@@ -27,7 +27,7 @@ export const NAV_BAR: TNavBar[] = [
   },
   {
     title: 'How it works',
-    path: ROUTES.HOW_IT_WORKS,
+    path: ROUTES.HOME,
     id: 'navbar.howitworks',
   },
   {
@@ -82,15 +82,15 @@ export const FOOTER_ICONS: TFooterIcon[] = [
 
 export const FOOTER_MENU: Record<string, string>[] = [
   {
-    href: 'href',
+    href: '/privacy',
     id: 'footer.menu.policy',
   },
   {
-    href: 'href',
+    href: '/terms',
     id: 'footer.menu.terms',
   },
   {
-    href: 'href',
+    href: '/contact',
     id: 'footer.menu.contactus',
   },
 ];

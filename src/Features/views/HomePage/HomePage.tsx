@@ -1,7 +1,7 @@
 import React from 'react';
 import useMediaQuery from 'react-use-media-query-hook';
 
-import bgDesktop from '../../../Assets/images/full-bg-progressive.jpeg';
+import bgDesktop from '../../../Assets/images/bkgpng.png';
 import bgMobile from '../../../Assets/images/fulll-bg-mobile-progressive.jpeg';
 import Portal from '../../../Components/Dumb/Portal';
 import { SCREENS } from '../../../Constants/ScreenResolutions';
@@ -52,7 +52,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </section>
-        <section className={styles.howItWorksSection}>
+        <section id="howItWorks" className={styles.howItWorksSection}>
           <HowItWorks />
         </section>
       </MainContent>

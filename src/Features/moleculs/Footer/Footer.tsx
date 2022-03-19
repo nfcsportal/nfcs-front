@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { useHistory } from 'react-router-dom';
 
 import CopyRightSvg from '../../../Assets/Icons/CopyRightSvg';
 import LocationSvg from '../../../Assets/Icons/LocationSvg';
@@ -11,6 +12,7 @@ import { TFooterIcon } from '../typesMolecules';
 import styles from './footer.module.scss';
 
 const Footer: React.FC = () => {
+  const history = useHistory();
   return (
     <footer className={styles.footer}>
       <div className="container">
@@ -58,6 +60,7 @@ const Footer: React.FC = () => {
             {FOOTER_MENU.map((currentMenuItem: Record<string, string>) => {
               return (
                 <Typography
+                  onClick={() => history.push(currentMenuItem.href)}
                   key={currentMenuItem.id}
                   id={currentMenuItem.id}
                   className={styles.footerMenuLink}
