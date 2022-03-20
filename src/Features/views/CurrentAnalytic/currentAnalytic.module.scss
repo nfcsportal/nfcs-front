@@ -20,6 +20,12 @@
             p {
                 margin-left: 8px;
                 color: $white;
+                @include fontRem(18, 500);
+                line-height: 22px;
+                letter-spacing: 0.055em;
+                @media all and (max-width: $tablet) {
+                    @include fontRem(14, 400);
+                }
             }
         }
         .analyticRow {

@@ -1,8 +1,8 @@
 import React from 'react';
 import useMediaQuery from 'react-use-media-query-hook';
 
-import bgDesktop from '../../../Assets/images/bkgpng.png';
-import bgMobile from '../../../Assets/images/fulll-bg-mobile-progressive.jpeg';
+import bgDesktop from '../../../Assets/images/full-bg.png';
+import bgMobile from '../../../Assets/images/fulll-bg-mobile.png';
 import Portal from '../../../Components/Dumb/Portal';
 import { SCREENS } from '../../../Constants/ScreenResolutions';
 import Button from '../../atoms/Button';

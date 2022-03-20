@@ -5,10 +5,10 @@
   padding-top: 140px;
   @media all and (max-width: $normalDesktop) {
     padding-top: 90px;
-  } 
+  }
   @media all and (max-width: $tablet) {
     padding-top: 80px;
-  } 
+  }
   p {
     max-width: 790px;
     @include fontRem(24, 400);
@@ -27,32 +27,31 @@
         -webkit-text-fill-color: transparent;
         background-image: linear-gradient(229.09deg, #1875fc 3.76%, #00ddfb 115.42%);
       }
-      
     }
     @media all and (max-width: $tablet) {
       @include fontRem(14, 400);
       line-height: 22px;
       max-width: 288px;
       margin-bottom: 50px;
-    } 
+    }
   }
 }
 .portal {
   @include flex-center;
   .wrapperPortal {
-    width: 700px;
-    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     background-color: transparent;
-    @media all and (max-width: $smallTablet) {
-      width: 3660px;
-      height: 270px;
-    }
+    max-width: 700px;
     svg {
       max-width: 100%;
+      height: auto;
+      margin-top: 120px;
+      @media all and (max-width: $tablet) {
+        margin-top: 0;
+      }
     }
   }
 }
