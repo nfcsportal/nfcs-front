@@ -3,6 +3,7 @@ import useMediaQuery from 'react-use-media-query-hook';
 
 import CryptoBigSvg from '../../../Assets/Icons/CryptoBigSvg';
 import LongArrow from '../../../Assets/Icons/LongArrow';
+import WebLongArrow from '../../../Assets/Icons/WebLongArrow';
 import { SCREENS } from '../../../Constants/ScreenResolutions';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
@@ -18,12 +19,11 @@ const CurrentAnalytic: React.FC = () => {
         <section className={styles.analyticSeciton}>
           <div className="container">
             <>
-              {isTablet && (
-                <div className={styles.goBackItem}>
-                  <LongArrow />
-                  <p>Back</p>
-                </div>
-              )}
+              <div className={styles.goBackItem}>
+                {isTablet ? <LongArrow /> : <WebLongArrow />}
+
+                <p>Back</p>
+              </div>
             </>
             <div className={`${styles.analyticRow} row`}>
               <div className={`${styles.analyticLeftCol} col_left`}>

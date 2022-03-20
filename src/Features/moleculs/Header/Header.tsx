@@ -36,11 +36,7 @@ const Header: React.FC = () => {
             <ul className={styles.headerMenuList}>
               {NAV_BAR.map((currentItem: TNavBar) => {
                 return (
-                  <motion.li
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ type: 'spring', stiffness: 30 }}
-                    key={currentItem.path}
-                  >
+                  <motion.li transition={{ type: 'spring', stiffness: 30 }} key={currentItem.path}>
                     <Typography
                       onClick={() => history.push(currentItem.path)}
                       component={'span'}

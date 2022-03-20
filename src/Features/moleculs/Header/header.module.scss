@@ -67,15 +67,18 @@
                         box-shadow: 4px 8px 24px rgba(19, 20, 38, 0.16);
                         backdrop-filter: blur(16px);
                         border-radius: 8px;
-                        padding: 23px 35px;
-                        border-width: 1px;
-                        border-style: solid;
-                        border-image: linear-gradient(rgba(178, 186, 215, 0.24), rgba(157, 164, 189, 0.02)) 1;
+                        padding: 8px 6px;
+                        @media all and (max-width: $tablet) {
+                            padding: 8px 6px;
+                        }
                         li {
                             padding: 0;
                             margin-left: 0;
                             &:not(:first-child) {
-                                margin-top: 24px;
+                                margin-top: 8px;
+                                @media all and (max-width: $tablet) {
+                                    margin-top: 0;
+                                }
                             }
                         }
                         .langSubListLink {
@@ -87,12 +90,37 @@
                             transition: 0.3s;
                             line-height: 22px;
                             text-decoration: none;
-
+                            border-radius: 8px;
+                            padding: 8px;
                             &:hover {
                                 color: $white;
+                                background: rgba(41, 52, 139, 0.32);
                             }
                             &.selected {
                                 color: $white;
+                                background: rgba(41, 52, 139, 0.32);
+                            }
+                        }
+                        @supports (
+                            mask: linear-gradient(#fff 0 0) content-box,
+                            linear-gradient(
+                                #fff 0 0,
+                            )
+                        ) {
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                border-radius: 16px;
+                                padding: 1px;
+                                background: linear-gradient(rgba(178, 186, 215, 0.24), rgba(157, 164, 189, 0.02));
+                                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                                -webkit-mask-composite: xor;
+                                mask-composite: exclude;
                             }
                         }
                     }
@@ -101,7 +129,7 @@
                             transform: rotate(180deg);
                         }
                         .langSubList {
-                            top: 100%;
+                            top: 80%;
                             opacity: 1;
                             visibility: visible;
                         }
@@ -121,6 +149,7 @@
                         text-decoration: none;
                         padding-top: 12px;
                         padding-bottom: 12px;
+                        transition: 0.3s;
                         @media all and (max-width: $normalDesktop) {
                             @include fontRem(14, 400);
                         }
@@ -135,6 +164,9 @@
                         }
                         &.headerSignIn {
                             margin-left: 24px;
+                            &:hover {
+                                text-decoration: none;
+                            }
                             @media all and (max-width: $normalDesktop) {
                                 margin-left: 18px;
                             }
@@ -142,6 +174,14 @@
                         &.signupBtn {
                             @media all and (max-width: $tablet) {
                                 padding-bottom: 0;
+                            }
+                        }
+                        &.active {
+                            color: $blue;
+                        }
+                        &:hover {
+                            @media (any-hover: hover) {
+                                color: $blue;
                             }
                         }
                     }
@@ -184,6 +224,9 @@
                             }
                         }
                         &:last-child {
+                            @media all and (max-width: $tablet) {
+                                padding-bottom: 12px;
+                            }
                             .headerMenuLink {
                                 padding-bottom: 0;
                                 padding-top: 24px;

@@ -199,6 +199,7 @@ img {
     .stockCircle1,
     .crytoCircle1,
     .binanceCircle1 {
+        
         animation: animateCirlce 2s linear infinite;
         animation-direction: alternate;
         animation-delay: 1s;
@@ -232,5 +233,9 @@ img {
     }
     .controlCirlce {
         cursor: pointer;
+        &:hover {
+            fill: #18254A;
+            transition: 0.3s;
+        }
     }
 }
