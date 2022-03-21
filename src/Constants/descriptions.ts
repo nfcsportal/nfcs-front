@@ -1,6 +1,9 @@
 import React from 'react';
 
+import BinanceFutureBigSvg from '../Assets/Icons/BinanceFutureBigSvg';
 import CryptoBigSvg from '../Assets/Icons/CryptoBigSvg';
+import NftBigSvg from '../Assets/Icons/NftBigSvg';
+import StockBigSvg from '../Assets/Icons/StockBigSvg';
 
 export type TDescriptions = {
   current: string;
@@ -10,15 +13,15 @@ export type TDescriptions = {
 export const DESCRIPTIONS: TDescriptions[] = [
   {
     current: 'stock',
-    icon: CryptoBigSvg,
+    icon: StockBigSvg,
   },
   {
     current: 'nft',
-    icon: CryptoBigSvg,
+    icon: NftBigSvg,
   },
   {
     current: 'futures',
-    icon: CryptoBigSvg,
+    icon: BinanceFutureBigSvg,
   },
   {
     current: 'crypto',
