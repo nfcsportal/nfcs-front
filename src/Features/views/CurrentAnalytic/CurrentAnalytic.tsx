@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useHistory } from 'react-router-dom';
 import useMediaQuery from 'react-use-media-query-hook';
 
-import CryptoBigSvg from '../../../Assets/Icons/CryptoBigSvg';
 import LongArrow from '../../../Assets/Icons/LongArrow';
 import WebLongArrow from '../../../Assets/Icons/WebLongArrow';
+import { DESCRIPTIONS, TDescriptions } from '../../../Constants/descriptions';
+import { ROUTES } from '../../../Constants/Routes';
 import { SCREENS } from '../../../Constants/ScreenResolutions';
 import Footer from '../../moleculs/Footer';
 import Header from '../../moleculs/Header';
@@ -12,6 +14,13 @@ import styles from './currentAnalytic.module.scss';
 
 const CurrentAnalytic: React.FC = () => {
   const isTablet = useMediaQuery(SCREENS.bigTablet);
+  const history = useHistory();
+  const Component = useMemo(() => {
+    const current = history.location.pathname.split('/')[2];
+    const currentIcon = DESCRIPTIONS.find((element: TDescriptions) => element.current === current);
+    return currentIcon?.icon;
+  }, []);
+
   return (
     <div className={`${styles.analyticPage} current-analytic-page page`}>
       <Header />
@@ -19,17 +28,14 @@ const CurrentAnalytic: React.FC = () => {
         <section className={styles.analyticSeciton}>
           <div className="container">
             <>
-              <div className={styles.goBackItem}>
+              <div onClick={() => history.push(ROUTES.HOME)} className={styles.goBackItem}>
                 {isTablet ? <LongArrow /> : <WebLongArrow />}
-
                 <p>Back</p>
               </div>
             </>
             <div className={`${styles.analyticRow} row`}>
               <div className={`${styles.analyticLeftCol} col_left`}>
-                <div className={styles.analyticLeftColContent}>
-                  <CryptoBigSvg />
-                </div>
+                <div className={styles.analyticLeftColContent}>{Component && <Component />}</div>
               </div>
               <div className={`${styles.analyticRightCol} col_right`}>
                 <div className={styles.rightInner}>
