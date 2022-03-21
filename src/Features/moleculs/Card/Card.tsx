@@ -23,12 +23,23 @@ const Card: React.FC<ICard> = ({
   const Component = icon;
   return (
     <div className={`${styles.cardsCol_25} col_25`}>
+      <div
+        className={`${styles.toltipContent} ${styles.toltipContentSmall} ${styles.toltipContentNormal} ${styles.toltipContentBig}`}
+      >
+        <div className={styles.tooltipArrow} />
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae et arcu cras dolor
+          sollicitudin viverra maecenas pretium faucibus. Fermentum diam magnis suscipit dui
+          malesuada ut aenean vel. Nec a, adipiscing tortor a feugiat nec sit.
+        </p>
+      </div>
       <div className={`${styles.cardItem} ${styles[`${hoverEffect}`]}`}>
         <div className={styles.cardTooltip}>
           <button type="button" aria-label="tooltip">
             <TooltipSvg />
           </button>
         </div>
+
         <div className={styles.cardIcon}>
           <Component />
         </div>
