@@ -13,6 +13,9 @@ body {
 }
 #root {
     height: 100%;
+    > div {
+        height: 100%;
+    }
 }
 .page {
     @include flex-column;
@@ -120,6 +123,16 @@ img {
         margin-bottom: 16px;
         max-width: 302px;
     }
+    &.dashboard-title {
+        @include fontRem(32, 700);
+        line-height: 40px;
+        text-align: left;
+        max-width: unset;
+        margin-left: 0;
+    }
+}
+.section_inner {
+    background: rgba(41, 52, 139, 0.16);
 }
 .subTitle {
     @include fontRem(18, 400);
@@ -199,7 +212,6 @@ img {
     .stockCircle1,
     .crytoCircle1,
     .binanceCircle1 {
-        
         animation: animateCirlce 2s linear infinite;
         animation-direction: alternate;
         animation-delay: 1s;
@@ -234,7 +246,7 @@ img {
     .controlCirlce {
         cursor: pointer;
         &:hover {
-            fill: #18254A;
+            fill: #18254a;
             transition: 0.3s;
         }
     }

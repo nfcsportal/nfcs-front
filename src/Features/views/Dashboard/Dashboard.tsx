@@ -3,9 +3,9 @@ import React from 'react';
 import DashboardFooter from '../../moleculs/DashboardFooter';
 import DashboardSideBar from '../../moleculs/DashboardSideBar';
 import Header from '../../moleculs/Header';
-import MyPromocode from '../../organisms/MyPromocode';
+// import MyPromocode from '../../organisms/MyPromocode';
 import Settings from '../../organisms/Settings';
-
+import styles from './dashboard.module.scss';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 // import Loader from '../../../Components/Multiusable/Loader';
@@ -42,12 +42,17 @@ const Dashboard: React.FC = () => {
   // }, [user]);
 
   return (
-    <div>
+    <div className={`${styles.dashboardPage} page`}>
       <Header />
       <DashboardSideBar />
-      Settings or Promocode NAR JAN SETTINGSY KAM PROMOCODY OR SARQES MEKY COMMENT ARA MYUSYIN ANCI
-      <Settings />
-      <MyPromocode />
+      <main className="main">
+        {/* Settings or Promocode NAR JAN SETTINGSY KAM PROMOCODY OR SARQES MEKY COMMENT ARA MYUSYIN
+        ANCI */}
+        <div className={styles.dashoardRight}>
+          <Settings />
+          {/* <MyPromocode /> */}
+        </div>
+      </main>
       <DashboardFooter />
       {/* {loading && (
         <div className={styles.loader}>
