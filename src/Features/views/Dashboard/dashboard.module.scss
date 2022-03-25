@@ -1,3 +1,6 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
 .loader {
     position: fixed;
     top: 0;
@@ -7,4 +10,24 @@
     z-index: 12;
     background: rgba(41, 52, 139, 0.24);
     backdrop-filter: blur(16px);
+}
+
+.dashboardPage {
+    width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: linear-gradient(to right bottom, #151a2c, #120d20);
+}
+.dashoardRight {
+    margin-left: 380px;
+    width: calc(100% - 380px);
+    padding-top: 56px;
+    padding-right: 80px;
+    @media all and (max-width: $normalDesktop) {
+        padding-right: 56px;
+        width: calc(100% - 320px);
+        margin-left: 320px;
+    }
 }

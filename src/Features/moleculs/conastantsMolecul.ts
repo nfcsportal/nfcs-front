@@ -31,6 +31,11 @@ export const NAV_BAR: TNavBar[] = [
     id: 'navbar.howitworks',
   },
   {
+    title: 'UPT',
+    path: ROUTES.HOME,
+    id: 'UPT',
+  },
+  {
     title: 'Sign In',
     path: ROUTES.SIGN_IN,
     className: 'headerSignIn',
@@ -40,7 +45,7 @@ export const NAV_BAR: TNavBar[] = [
 
 export const LANGUAGES: TLanguages[] = [
   {
-    title: 'EN',
+    title: 'English',
     code: 'en',
   },
   {

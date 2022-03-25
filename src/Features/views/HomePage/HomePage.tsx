@@ -55,6 +55,55 @@ const HomePage: React.FC = () => {
         <section id="howItWorks" className={styles.howItWorksSection}>
           <HowItWorks />
         </section>
+        <section className={styles.uptSection}>
+          <div className="container">
+            <div className={styles.uptContainer}>
+              <div className={styles.uptSectionHeader}>
+                <h2 className={`${styles.uptTitle} title`}>
+                  What is <span>UPT</span> & How to Get?
+                </h2>
+                <p className={styles.uptSubtext}>
+                  In the world of innovations we are coordinating your knowledge and skills to
+                  discover yourself the right place for investing.In the world of innovations we are
+                  coordinating your knowledge and skills to discover yourself the right place for
+                  investing.
+                </p>
+              </div>
+              <div className={styles.uptSectionBody}>
+                <div className={styles.uptSectionRow}>
+                  <div className={`${styles.uptSectionRowCol} col_`}>
+                    <div className={styles.uptSectionItem}>
+                      <h3 className={styles.uptSectionTitle}>
+                        Get <span>10 UPT</span>
+                      </h3>
+                      <p className={styles.uptSectionText}>
+                        When you shared user registered and activated account.
+                      </p>
+                    </div>
+                  </div>
+                  <div className={`${styles.uptSectionRowCol} col_`}>
+                    <div className={styles.uptSectionItem}>
+                      <h3 className={styles.uptSectionTitle}>
+                        Get <span>25 UPT</span>
+                      </h3>
+                      <p className={styles.uptSectionText}>When you shared user buy analytics.</p>
+                    </div>
+                  </div>
+                  <div className={`${styles.uptSectionRowCol} col_`}>
+                    <div className={styles.uptSectionItem}>
+                      <h3 className={styles.uptSectionTitle}>
+                        Get <span>30 UPT</span>
+                      </h3>
+                      <p className={styles.uptSectionText}>
+                        When you buy analytics with <span>Promocode</span>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </MainContent>
       <Footer />
     </div>
