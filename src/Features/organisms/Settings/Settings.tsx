@@ -1,7 +1,23 @@
 import React from 'react';
 
+import Dropdown from '../../atoms/Dropdown';
+import Input from '../../atoms/Input';
 import styles from './settings.module.scss';
 
+const INQUIRY_OPTIONS = [
+  {
+    id: 'contactus.dropdown.generalInquiry',
+    value: 'General Inquiry',
+  },
+  {
+    id: 'contactus.dropdown.salesInquiry',
+    value: 'Sales Inquiry',
+  },
+  {
+    id: 'contactus.dropdown.techIssue',
+    value: 'Technical Issue',
+  },
+];
 const Settings: React.FC = () => {
   return (
     <section>
@@ -25,8 +41,28 @@ const Settings: React.FC = () => {
                       <button type="button">Change</button>
                     </div>
                   </div>
-                  <div className={styles.collapseContent}>
+                  <div className={styles.collapseContent} style={{ height: '120px' }}>
                     dropdown
+                    <Input
+                      htmlFor="name"
+                      type="text"
+                      name="name"
+                      placeHolder="contactus.name"
+                      label="contactus.name"
+                      onClick={() => null}
+                      onFocus={() => null}
+                      onChange={() => null}
+                      value={'formik.values.name'}
+                    />
+                    <Dropdown
+                      name="inquiry"
+                      label="contactus.dropdown.label"
+                      options={INQUIRY_OPTIONS}
+                      value={'formik.values.inquiry'}
+                      defaultValue="contactus.dropdown.generalInquiry"
+                      onClick={() => null}
+                      onChange={() => null}
+                    />
                     <div className={styles.buttons}>
                       <div className={`${styles.buttonOne} col_`}>button 1</div>
                       <div className={`${styles.buttonTwo} col_`}>button 2</div>

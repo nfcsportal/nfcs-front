@@ -3,6 +3,7 @@ import React from 'react';
 import DashboardFooter from '../../moleculs/DashboardFooter';
 import DashboardSideBar from '../../moleculs/DashboardSideBar';
 import Header from '../../moleculs/Header';
+// import BuyAnalytic from '../../organisms/BuyAnalytic';
 // import MyPromocode from '../../organisms/MyPromocode';
 import Settings from '../../organisms/Settings';
 import styles from './dashboard.module.scss';
@@ -50,6 +51,7 @@ const Dashboard: React.FC = () => {
         ANCI */}
         <div className={styles.dashoardRight}>
           <Settings />
+          {/* <BuyAnalytic /> */}
           {/* <MyPromocode /> */}
         </div>
       </main>
