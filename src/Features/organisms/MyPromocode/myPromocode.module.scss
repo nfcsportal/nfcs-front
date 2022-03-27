@@ -1,0 +1,144 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+
+.promocoSection {
+    padding: 28px 24px;
+    background: rgba(41, 52, 139, 0.16);
+    border-radius: 8px;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 8px;
+        padding: 1px;
+        background: linear-gradient(rgba(178, 186, 215, 0.24), rgba(157, 164, 189, 0.02));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+    .promocodeRow {
+        @include flexRow(14, 2);
+        position: relative;
+        z-index: 2;
+        .promocodeItem {
+            padding: 24px 44px;
+            background: rgba(41, 52, 139, 0.32);
+            border-radius: 8px;
+            @media all and (max-width: $normalDesktop) {
+                padding: 15px 20px;
+            } 
+            .UPTCount {
+                display: flex;
+                align-items: flex-start;
+                .Logo {
+                    margin-right: 24px;
+                    @media all and (max-width: $normalDesktop) {
+                        margin-right: 15px;
+                    } 
+                }
+                .Content {
+                    .Count {
+                        @include fontRem(36, 600);
+                        line-height: 44px;
+                        margin-bottom: 19px;
+                        color: $titleColor;
+                        @media all and (max-width: $normalDesktop) {
+                            @include fontRem(26, 600);
+                            margin-bottom: 0;
+                        } 
+                    }
+                    .Text {
+                        @include fontRem(16, 500);
+                        line-height: 20px;
+                        color: rgba(251, 252, 255, 0.64);
+                        @media all and (max-width: $normalDesktop) {
+                            @include fontRem(14, 500);
+                            margin-bottom: 0;
+                        } 
+                    }
+                }
+            }
+            &.promocodeItemBig {
+                margin-top: 30px;
+                background: rgba(41, 52, 139, 0.12);
+                height: calc(100% - 58px);
+                .promocodeLeftList {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    li {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: flex-start;
+                        padding-top: 44px;
+                        padding-bottom: 44px;
+                        @media all and (max-width: $normalDesktop) {
+                            padding-top: 25px;
+                            padding-bottom: 25px;
+                        } 
+                        &:first-child {
+                            padding-top: 20px;
+                            border-bottom: 1px solid rgba(182, 193, 255, 0.12);
+                        }
+                        .reffrealLinkInfoLogo {
+                            margin-right: 24px;
+                            @media all and (max-width: $normalDesktop) {
+                                margin-right: 15px;
+                            } 
+                        }
+                        .reffrealLinkInfo {
+                            .refferalLink {
+                                text-decoration: underline;
+                                text-transform: uppercase;
+                                @include fontRem(18, 600);
+                                line-height: 44px;
+                                margin-bottom: 8px;
+                                color: $titleColor;
+                                @media all and (max-width: $normalDesktop) {
+                                    @include fontRem(16, 600);
+                                    margin-bottom: 0;
+                                } 
+                            }
+                            .refferealLinkText {
+                                @include fontRem(16, 500);
+                                line-height: 14px;
+                                color: rgba(251, 252, 255, 0.72);
+                                opacity: 0.64;
+                                @media all and (max-width: $normalDesktop) {
+                                    @include fontRem(14, 500);
+                                } 
+                                
+                            }
+                        }
+                        .linkCopy {
+                            align-self: center;
+                            margin-top: -20px;
+                            margin-left: 10px;
+                            @media all and (max-width: $normalDesktop) {
+                                margin-top: -10px;
+                            } 
+                            button {
+                                @include buttonNulled;
+                            }
+                        }
+                    }
+                }
+                .promocodeForm {
+                    [class*="formItem"] {
+                        margin-bottom: 24px;
+                    }
+                    .promocodeBtn {
+                        width: auto;
+                        margin-left: auto;
+                        padding: 13px 30px;
+                    }
+                }
+            }
+        }
+    }
+}

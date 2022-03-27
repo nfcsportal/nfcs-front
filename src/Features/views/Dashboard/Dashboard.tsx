@@ -4,8 +4,8 @@ import DashboardFooter from '../../moleculs/DashboardFooter';
 import DashboardSideBar from '../../moleculs/DashboardSideBar';
 import Header from '../../moleculs/Header';
 // import BuyAnalytic from '../../organisms/BuyAnalytic';
-// import MyPromocode from '../../organisms/MyPromocode';
-import Settings from '../../organisms/Settings';
+import MyPromocode from '../../organisms/MyPromocode';
+// import Settings from '../../organisms/Settings';
 import styles from './dashboard.module.scss';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
@@ -50,9 +50,9 @@ const Dashboard: React.FC = () => {
         {/* Settings or Promocode NAR JAN SETTINGSY KAM PROMOCODY OR SARQES MEKY COMMENT ARA MYUSYIN
         ANCI */}
         <div className={styles.dashoardRight}>
-          <Settings />
+          {/* <Settings /> */}
           {/* <BuyAnalytic /> */}
-          {/* <MyPromocode /> */}
+          <MyPromocode />
         </div>
       </main>
       <DashboardFooter />

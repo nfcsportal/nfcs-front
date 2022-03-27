@@ -43,21 +43,52 @@
         }
         .settinsCollapseItem {
             padding-bottom: 30px;
-            height: 80px;
             overflow: hidden;
             .settinsCollapseItemHeader {
                 display: flex;
                 align-items: flex-start;
             }
-            &.active {
-                height: 250px;
-            }
+
             .collapseContent {
                 max-width: 350px;
-                margin-top: 32px;
                 margin-left: 280px;
+                height: 0;
+                overflow: hidden;
+                transition: height 0.3s ease;
+                .collapseContentInner {
+                    @include flex-column;
+                    flex: 1 1 auto;
+                    margin-top: 32px;
+                    [class*="formItem"] {
+                        margin-bottom: 24px;
+                    }
+                }
                 .buttons {
                     @include flexRow(8, 2, center);
+                    button {
+                        padding: 13px 30px;
+
+                    }
+                    .bordered_btn {
+                        background: transparent;
+                        border-radius: 8px;
+                        position: relative;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            border-radius: 8px;
+                            padding: 2px;
+                            background: linear-gradient(rgba(24, 117, 252, 1), rgba(0, 221, 251, 1));
+                            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                            -webkit-mask-composite: xor;
+                            mask-composite: exclude;
+                        }
+                    }
                 }
             }
             .settinsCollapseTitle {

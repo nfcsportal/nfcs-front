@@ -258,7 +258,7 @@
           padding: 10px 10px;
         }
         @media all and (max-width: $smallTablet) {
-         margin-bottom: 24px;
+          margin-bottom: 24px;
         }
         &::before {
           content: "";
@@ -306,6 +306,22 @@
           span {
             font-weight: 600;
           }
+        }
+      }
+    }
+    .uptSectionBtn {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 90px;
+      @media all and (max-width: $mobile) {
+        margin-top: 20px;
+      } 
+      button {
+        max-width: 232px;
+        @media all and (max-width: $mobile) {
+          padding: 15px 20px;
+          max-width: 100%;
         }
       }
     }

@@ -1,6 +1,8 @@
 import React from 'react';
 
+import styles from './dashboardFooter.module.scss';
+
 const DashboardFooter: React.FC = () => {
-  return <div>DashboardFooter</div>;
+  return <div className={styles.dashboardFooter}>DashboardFooter</div>;
 };
 export default DashboardFooter;

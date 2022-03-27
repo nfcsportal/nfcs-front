@@ -2,7 +2,9 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 
+import BehanceSvg from '../../../Assets/Icons/BehanceSvg';
 import CopyRightSvg from '../../../Assets/Icons/CopyRightSvg';
+import LinkedIn from '../../../Assets/Icons/LinkedIn';
 import LocationSvg from '../../../Assets/Icons/LocationSvg';
 import PhoneSvg from '../../../Assets/Icons/PhoneSvg';
 import Logo from '../../../Assets/images/logo.svg';
@@ -47,6 +49,23 @@ const Footer: React.FC = () => {
               </span>
               +374 55 846474
             </a>
+            <div className={styles.designerInfo}>
+              <ul className={styles.desingnerInfoList}>
+                <li>
+                  <span>Desing By</span> Gohar Frangyan
+                </li>
+                <li>
+                  <a href="#" target="_blank">
+                    <BehanceSvg />
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank">
+                    <LinkedIn />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className={styles.footerBottom}>

@@ -101,6 +101,9 @@ const HomePage: React.FC = () => {
                   </div>
                 </div>
               </div>
+              <div className={styles.uptSectionBtn}>
+                <Button type="primary" customClass={styles.cardBtn} id="Get" />
+              </div>
             </div>
           </div>
         </section>

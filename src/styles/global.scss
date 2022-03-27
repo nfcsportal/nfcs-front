@@ -133,6 +133,7 @@ img {
 }
 .section_inner {
     background: rgba(41, 52, 139, 0.16);
+    border-radius: 8px;
 }
 .subTitle {
     @include fontRem(18, 400);
