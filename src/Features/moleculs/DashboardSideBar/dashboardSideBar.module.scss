@@ -8,9 +8,9 @@ aside.aside {
     bottom: 0;
     width: 347px;
     background: rgba(41, 52, 139, 0.16);
-    padding: 64px 64px 0 64px 0;
+    padding: 64px 0 64px;
     @media all and (max-width: $normalDesktop) {
-         width: 287px;           
+        width: 287px;
     }
 }
 .asideContent {
@@ -26,18 +26,34 @@ aside.aside {
             }
             .asideListLink {
                 @include flex-center-vert;
-                padding: 12px 12px 12px 48px;
+                padding: 12px 20px 12px 48px;
                 text-decoration: none;
                 @include fontRem(18, 500);
                 line-height: 22px;
                 color: $titleColor;
                 border-radius: 0 8px 8px 0;
                 transition: 0.3s;
+                @media all and (max-width: $normalDesktop) {
+                    @include fontRem(16, 500);
+                    padding: 12px 12px 12px 20px;
+                }
                 &.active {
                     background: rgba(33, 90, 231, 0.12);
                 }
                 svg {
                     margin-right: 16px;
+                }
+                .radyCount {
+                    margin-left: auto;
+                    @include flex-center;
+                    background: #18aafc;
+                    border-radius: 8px;
+                    padding: 3px 12px;
+                    @include fontRem(18, 500);
+                    line-height: 22px;
+                    @media all and (max-width: $normalDesktop) {
+                        @include fontRem(16, 500);
+                    }
                 }
             }
         }

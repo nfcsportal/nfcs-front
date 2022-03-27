@@ -21,6 +21,7 @@ const DashboardSideBar: React.FC = () => {
             <a href="" className={styles.asideListLink}>
               <ForecastListSvg />
               Forecast List
+              <span className={styles.radyCount}>2</span>
             </a>
           </li>
           <li className={styles.asideListDivider} />

@@ -5,10 +5,8 @@
 
 .cardsCol_25 {
   position: relative;
-  @media all and (max-width: $tablet) {
-    margin-bottom: 32px;
-  }
-}  
+  margin-bottom: 32px;
+}
 
 .cardItem {
   position: relative;
@@ -42,7 +40,9 @@
     height: calc(100% + 147px);
     filter: blur(120px);
   }
-
+  .comingSoon {
+    display: none;
+  }
   &.cardItemBinance {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='342' height='577' viewBox='0 0 342 577' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.08'%3E%3Cmask id='mask0_523_993' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='342' height='577'%3E%3Crect x='1' y='1' width='340' height='575' rx='15' fill='%2329348B' fill-opacity='0.32' stroke='url(%23paint0_linear_523_993)' stroke-width='2'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_523_993)'%3E%3Cpath d='M-239.158 -11.9863L-239.158 805.014M-19.9739 -11.9863L-19.974 805.014M199.21 -11.9863L199.21 805.014M418.394 -11.9863L418.394 805.014M637.578 -11.9863L637.578 805.014M-328.002 33.2842L735.998 33.2842M-328.002 214.366L735.998 214.366M-328.002 395.448L735.998 395.448M-328.002 576.531L735.998 576.531M-328.002 757.613L735.998 757.613' stroke='url(%23paint1_radial_523_993)' stroke-opacity='0.24' stroke-width='4'/%3E%3Cpath d='M388.015 328.487C388.015 328.487 334.746 84.7305 240.946 86.5378C148.737 88.3144 109.138 299.676 15.338 301.483C-76.8718 303.26 -115.593 225.101 -209.393 226.909C-301.603 228.685 -355.829 352.849 -355.829 352.849L-350.673 620.454L393.364 606.118L388.015 328.487Z' fill='url(%23paint2_linear_523_993)'/%3E%3Cpath d='M240.389 84.3072L240.112 84.3436L239.834 84.3489C218.894 84.7524 200.361 97.422 182.558 117.762C164.873 137.965 148.68 164.832 132.146 192.264L131.876 192.713C115.378 220.085 98.5309 247.987 79.8376 269.115C61.1586 290.227 39.8854 305.445 14.3532 305.937C-32.9522 306.848 -66.6491 287.349 -99.2778 268.469L-100.015 268.042C-132.985 248.966 -165.017 230.639 -210.375 231.513C-254.204 232.358 -289.565 262.304 -314.373 293.165C-326.695 308.493 -336.204 323.793 -342.635 335.271C-345.848 341.005 -348.284 345.771 -349.912 349.091C-350.726 350.751 -351.337 352.049 -351.742 352.924C-351.795 353.04 -351.845 353.148 -351.891 353.249L-346.863 614.217L387.176 600.073L381.806 321.367C381.79 321.284 381.771 321.19 381.75 321.083C381.656 320.613 381.513 319.91 381.323 318.991C380.943 317.154 380.371 314.451 379.607 311.012C378.079 304.132 375.785 294.306 372.728 282.551C366.609 259.024 357.451 227.846 345.28 197.113C333.08 166.309 317.986 136.296 300.119 114.862C282.208 93.3762 262.334 81.4227 240.389 84.3072Z' stroke='url(%23paint3_linear_523_993)' stroke-width='10'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_523_993' x1='171' y1='0' x2='171' y2='577' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23B2BAD7' stop-opacity='0.24'/%3E%3Cstop offset='1' stop-color='%239DA4BD' stop-opacity='0'/%3E%3C/linearGradient%3E%3CradialGradient id='paint1_radial_523_993' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(203.998 396.514) scale(532 694.387)'%3E%3Cstop stop-color='%23B6C1FF'/%3E%3Cstop offset='0.46875' stop-color='%23A2B0FF' stop-opacity='0.37'/%3E%3Cstop offset='1' stop-color='white' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%239AAAFF' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='paint2_linear_523_993' x1='322.097' y1='121.434' x2='-360.068' y2='145.498' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%233624FF' stop-opacity='0.35'/%3E%3Cstop offset='1' stop-color='%235052F0' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint3_linear_523_993' x1='332.594' y1='140.663' x2='-362.913' y2='119.464' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%234857DC' stop-opacity='0.9'/%3E%3Cstop offset='1' stop-color='%234559F2' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
     background-color: rgba(24, 37, 74, 0.24);
@@ -77,6 +77,32 @@
       &::after {
         background: rgba(24, 170, 252, 0.24);
       }
+    }
+  }
+  &.cardItemDisabled {
+    background: rgba(24, 37, 74, 0.24);
+    backdrop-filter: blur(16px);
+    &::before {
+      background: linear-gradient(rgba(27, 58, 83, 0.24), rgba(27, 58, 83, 0.02));
+    }
+    .cardBtn {
+      pointer-events: none;
+      background: linear-gradient(229.09deg, rgba(173, 179, 189, 0.32) 3.76%, rgba(104, 115, 117, 0.32) 115.42%);
+    }
+    * {
+      color: rgba(251, 252, 255, 0.44) !important;
+    }
+    .comingSoon {
+      display: block;
+      position: absolute;
+      top: 16px;
+      right: 1px;
+      background: #18254a;
+      border-radius: 8px 0px 0px 8px;
+      padding: 14px 18px 14px 24px;
+      color: $white;
+      @include fontRem(28, 500);
+      line-height: 34px;
     }
   }
   @supports (
@@ -139,6 +165,7 @@
     }
   }
   .cardIcon {
+    margin-top: 10px;
     @media all and (max-width: $normalDesktop) {
       svg {
         width: 104px;

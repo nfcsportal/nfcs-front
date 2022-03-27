@@ -44,6 +44,7 @@ const Card: React.FC<ICard> = ({
             <TooltipSvg />
           </button>
         </div>
+        <div className={styles.comingSoon}>Coming Soon</div>
         <div className={styles.cardIcon}>
           <Component />
         </div>

@@ -25,9 +25,11 @@
     width: calc(100% - 380px);
     padding-top: 56px;
     padding-right: 80px;
+    padding-bottom: 93px;
     @media all and (max-width: $normalDesktop) {
         padding-right: 56px;
         width: calc(100% - 320px);
         margin-left: 320px;
     }
 }
+

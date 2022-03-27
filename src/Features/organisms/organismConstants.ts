@@ -1,4 +1,5 @@
 import BinanceFutureSvg from '../../Assets/Icons/cards/BinanceFutureSvg';
+// import BondDisabledSvg from '../../Assets/Icons/cards/BondDisabledSvg';
 import CryptoSvg from '../../Assets/Icons/cards/CryptoSvg';
 import NftSvg from '../../Assets/Icons/cards/NftSvg';
 import StockSvg from '../../Assets/Icons/cards/StockSvg';
@@ -41,4 +42,13 @@ export const HOME_CARDS: THomeCards[] = [
     buttonText: 'home.cards.buttonText',
     hoverEffect: 'cardItemCrypto',
   },
+  // {
+  //   icon: BondDisabledSvg,
+  //   title: 'home.cards.crypto.title',
+  //   info: 'home.cards.futures.text',
+  //   price: 750,
+  //   saledPrice: 1500,
+  //   buttonText: 'home.cards.buttonText',
+  //   hoverEffect: 'cardItemDisabled',
+  // },
 ];
