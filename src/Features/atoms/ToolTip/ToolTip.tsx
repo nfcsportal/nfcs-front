@@ -6,9 +6,12 @@ interface IToolTip {
   isOpen: boolean;
   size?: 's' | 'm' | 'l';
   text: string;
+  isForecastList?: boolean;
 }
-const ToolTip: React.FC<IToolTip> = ({ isOpen, size = 'm', text }) => {
-  console.log(isOpen);
+const ToolTip: React.FC<IToolTip> = ({ isOpen, size = 'm', isForecastList = false, text }) => {
+  const currentClass = useMemo(() => {
+    return isForecastList ? 'toltipContentDashboard' : 'toltipContent';
+  }, [isForecastList]);
 
   const currentToolTipSize = useMemo(() => {
     switch (size) {
@@ -25,7 +28,7 @@ const ToolTip: React.FC<IToolTip> = ({ isOpen, size = 'm', text }) => {
 
   return (
     <div
-      className={`${isOpen && styles.open} ${styles.toltipContent} ${styles[currentToolTipSize]}`}
+      className={`${isOpen && styles.open} ${styles[currentClass]} ${styles[currentToolTipSize]}`}
     >
       <div className={styles.tooltipArrow} />
       <p>{text}</p>

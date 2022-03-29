@@ -2,6 +2,8 @@ import React from 'react';
 
 import NftSvg from '../../../Assets/Icons/forecast/NftSvg';
 import TimeSvg from '../../../Assets/Icons/forecast/TimeSvg';
+import Button from '../../atoms/Button';
+import ToolTip from '../../atoms/ToolTip';
 import styles from './buyAnalytic.module.scss';
 
 const BuyAnalytic: React.FC = () => {
@@ -62,7 +64,40 @@ const BuyAnalytic: React.FC = () => {
                       </div>
                     </div>
                     <div className={`${styles.customCol} ${styles.customColBig}`}>
-                      <div className={styles.bodyItemRight}></div>
+                      <div className={styles.bodyItemRight}>
+                        <div className={styles.stepBarItem}></div>
+                        <div className={styles.forecastBtns}>
+                          <div className={styles.btnParent}>
+                            <Button
+                              type="primary"
+                              disabeled
+                              id="Buy With Crypto"
+                              className={`${styles.forcastBtn} ${styles.forcesastBtnPrimary}`}
+                            ></Button>
+                          </div>
+                          <div className={styles.btnParent}>
+                            <Button
+                              type="secondary"
+                              disabeled
+                              id="Buy With 33$"
+                              className={`${styles.forcastBtn} ${styles.forcesastBtnSecondary}`}
+                            ></Button>
+                          </div>
+                          <div className={styles.btnParent}>
+                            <Button
+                              type="secondary"
+                              disabeled
+                              id="Buy With UPT"
+                              className={`${styles.forcastBtn} ${styles.forcesastBtnSecondary}`}
+                            ></Button>
+                            <ToolTip
+                              isForecastList
+                              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                              isOpen={false}
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
