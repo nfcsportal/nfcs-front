@@ -1,10 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import NftSvg from '../../../Assets/Icons/forecast/NftSvg';
 import TimeSvg from '../../../Assets/Icons/forecast/TimeSvg';
+import { setActionModal } from '../../../Store/Slices/modal';
 import styles from './buyAnalytic.module.scss';
 
 const BuyAnalytic: React.FC = () => {
+  const dispatch = useDispatch();
   return (
     <section className={styles.buyForecastSection}>
       <h2 className="title dashboard-title">Forecast List</h2>
@@ -52,9 +55,12 @@ const BuyAnalytic: React.FC = () => {
                           </p>
                         </div>
                         <div className={`${styles.leftItem} ${styles.leftItemBtns}`}>
-                          <a href="" className={styles.links}>
+                          <span
+                            className={styles.links}
+                            onClick={() => dispatch(setActionModal('jasjas'))}
+                          >
                             Details
-                          </a>
+                          </span>
                           <a href="" className={styles.links}>
                             Cancel
                           </a>
