@@ -19,6 +19,7 @@ aside.aside {
         padding: 48px 24px 0 0;
         margin: 0;
         .asideListItem {
+        cursor: pointer;
             &:not(:last-child) {
                 .asideListLink {
                     margin-bottom: 24px;
