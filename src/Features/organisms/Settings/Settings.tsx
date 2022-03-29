@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useSettingsCollapse } from '../../../Hooks/useSettingsCollapse';
 import Button from '../../atoms/Button';
 import Dropdown from '../../atoms/Dropdown';
 import Input from '../../atoms/Input';
@@ -20,6 +21,7 @@ const INQUIRY_OPTIONS = [
   },
 ];
 const Settings: React.FC = () => {
+  const { collapse, currentItem, currentHeight } = useSettingsCollapse();
   return (
     <section>
       <h2 className="title dashboard-title">Settings</h2>
@@ -29,7 +31,7 @@ const Settings: React.FC = () => {
             <div className={styles.settingsCollapseRow}>
               <div className={styles.settingsCollapseCol}>
                 <div className={styles.settinsCollapseItem}>
-                  <div className={styles.settinsCollapseItemHeader}>
+                  <div className={styles.settinsCollapseItemHeader} id="header_1">
                     <h3 className={styles.settinsCollapseTitle}>Default language</h3>
                     <div className={styles.settinsCollapsetext}>
                       <p>
@@ -38,11 +40,20 @@ const Settings: React.FC = () => {
                       </p>
                     </div>
                     <div className={styles.laanguageName}>English</div>
-                    <div className={styles.collpaseBtnContainer}>
+                    <div
+                      onClick={() => collapse('language_s', 'header_1')}
+                      className={styles.collpaseBtnContainer}
+                    >
                       <button type="button">Change</button>
                     </div>
                   </div>
-                  <div className={styles.collapseContent} style={{ height: '350px' }}>
+                  <div
+                    id="language_s"
+                    className={styles.collapseContent}
+                    style={{
+                      height: `${currentItem === 'language_s' ? `${currentHeight}px` : '0px'}`,
+                    }}
+                  >
                     <div className={styles.collapseContentInner}>
                       <Input
                         htmlFor="name"
@@ -78,16 +89,25 @@ const Settings: React.FC = () => {
               </div>
               <div className={styles.settingsCollapseCol}>
                 <div className={styles.settinsCollapseItem}>
-                  <div className={styles.settinsCollapseItemHeader}>
+                  <div className={styles.settinsCollapseItemHeader} id="header_2">
                     <h3 className={styles.settinsCollapseTitle}>Name</h3>
                     <div className={styles.settinsCollapsetext}>
                       <p>Angela Merkel</p>
                     </div>
-                    <div className={styles.collpaseBtnContainer}>
+                    <div
+                      onClick={() => collapse('name_s', 'header_2')}
+                      className={styles.collpaseBtnContainer}
+                    >
                       <button type="button">Change</button>
                     </div>
                   </div>
-                  <div className={styles.collapseContent} style={{ height: '0' }}>
+                  <div
+                    id="name_s"
+                    className={styles.collapseContent}
+                    style={{
+                      height: `${currentItem === 'name_s' ? `${currentHeight}px` : '0px'}`,
+                    }}
+                  >
                     <div className={styles.collapseContentInner}>
                       <Input
                         htmlFor="name"
@@ -126,7 +146,7 @@ const Settings: React.FC = () => {
               </div>
               <div className={styles.settingsCollapseCol}>
                 <div className={styles.settinsCollapseItem}>
-                  <div className={styles.settinsCollapseItemHeader}>
+                  <div className={styles.settinsCollapseItemHeader} id="header_3">
                     <h3 className={styles.settinsCollapseTitle}>Password</h3>
                     <div className={styles.settinsCollapsetext}>
                       <p>
@@ -134,11 +154,20 @@ const Settings: React.FC = () => {
                         etiam nunc vitae congue.{' '}
                       </p>
                     </div>
-                    <div className={styles.collpaseBtnContainer}>
+                    <div
+                      onClick={() => collapse('password_s', 'header_3')}
+                      className={styles.collpaseBtnContainer}
+                    >
                       <button type="button">Change</button>
                     </div>
                   </div>
-                  <div className={styles.collapseContent} style={{ height: '0' }}>
+                  <div
+                    id="password_s"
+                    className={styles.collapseContent}
+                    style={{
+                      height: `${currentItem === 'password_s' ? `${currentHeight}px` : '0px'}`,
+                    }}
+                  >
                     <div className={styles.collapseContentInner}>
                       <Input
                         htmlFor="name"

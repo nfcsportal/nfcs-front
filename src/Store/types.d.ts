@@ -4,6 +4,9 @@ declare interface IMainSliceState {
 declare interface IDashboardSliceState {
   loading: boolean;
 }
+declare interface IDashboardLocalSlice {
+  currentSlide: string;
+}
 declare type IModalSliceState = {
   modal: '' | 'change-password' | 'forgot-password-success' | 'reset-password-success';
   errorMessage: string;
@@ -21,6 +24,7 @@ declare type TState = {
   auth: IAuthSlice;
   modal: IModalSliceState;
   dashboard: IDashboardSliceState;
+  dashboardLocal: IDashboardLocalSlice;
 };
 
 declare interface IUser {

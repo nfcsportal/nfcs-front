@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 
+import { DASHBOARD } from '../../../Constants/dashboard';
+import { getDashboardCurrentSlide } from '../../../Store/Selectors/dashboardLocal';
 import DashboardFooter from '../../moleculs/DashboardFooter';
 import DashboardSideBar from '../../moleculs/DashboardSideBar';
 import Header from '../../moleculs/Header';
-import BuyAnalytic from '../../organisms/BuyAnalytic';
-// import MyPromocode from '../../organisms/MyPromocode';
-// import Settings from '../../organisms/Settings';
 import styles from './dashboard.module.scss';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
@@ -18,6 +18,7 @@ import styles from './dashboard.module.scss';
 // import styles from './dashboard.module.scss';
 
 const Dashboard: React.FC = () => {
+  const currentSLide = useSelector(getDashboardCurrentSlide);
   // const dispatch = useDispatch();
   // const user = useSelector(getCurrentUser);
   // const auth = useSelector(getAuthStatus);
@@ -42,17 +43,17 @@ const Dashboard: React.FC = () => {
   //   }
   // }, [user]);
 
+  const Component = useMemo(() => {
+    return DASHBOARD[currentSLide];
+  }, [currentSLide]);
+
   return (
     <div className={`${styles.dashboardPage} page`}>
       <Header />
       <DashboardSideBar />
       <main className="main">
-        {/* Settings or Promocode NAR JAN SETTINGSY KAM PROMOCODY OR SARQES MEKY COMMENT ARA MYUSYIN
-        ANCI */}
         <div className={styles.dashoardRight}>
-          {/* <Settings /> */}
-          <BuyAnalytic />
-          {/* <MyPromocode /> */}
+          <Component />
         </div>
       </main>
       <DashboardFooter />
