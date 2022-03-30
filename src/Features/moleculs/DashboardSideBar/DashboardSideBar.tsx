@@ -24,13 +24,13 @@ const DashboardSideBar: React.FC = () => {
           <li className={styles.asideListItem}>
             <span
               onClick={handleChangeSLide}
-              data-current={DASHBOARD_SLIDES.buyForecast}
+              data-current={DASHBOARD_SLIDES.buyAnalytic}
               className={`${styles.asideListLink} ${
-                currentSLide === DASHBOARD_SLIDES.buyForecast && styles.active
+                currentSLide === DASHBOARD_SLIDES.buyAnalytic && styles.active
               }`}
             >
               <BuyForecastSvg />
-              Buy Forecast
+              Buy Analytic
             </span>
           </li>
           <li className={styles.asideListItem}>

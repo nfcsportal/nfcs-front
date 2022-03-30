@@ -1,0 +1,46 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+.modalTitle {
+    text-align: center;
+    @include fontRem(28, 700);
+    line-height: 36px;
+    color: $titleColor;
+}
+.detailsList {
+    margin-top: 50px;
+    .detailsItemContent {
+        &:not(:last-child) {
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid rgba(182, 193, 255, 0.16);
+        }
+        .detailtsItemTitle {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 0 16px;
+            color: rgba(251, 252, 255, 0.64);
+            @include fontRem(16, 500);
+            line-height: 20px;
+            span {
+                color: $titleColor;
+            }
+            svg {
+                margin-left: 20px;
+            }
+        }
+        .detailsItemText {
+            @include fontRem(16, 500);
+            line-height: 20px;
+            color: $titleColor;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            .line {
+                background-color: rgba(41, 52, 139, 0.88);
+                width: 26px;
+                height: 1px;
+                margin: 0 22px;
+            }
+        }
+    }
+}

@@ -4,10 +4,10 @@ import React from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 
-import TooltipSvg from '../../../Assets/Icons/cards/TooltipSvg';
 import CloseSvg from '../../../Assets/Icons/CloseSvg';
 import { getActionalModals } from '../../../Store/Selectors/modal';
 import { setActionModal } from '../../../Store/Slices/modal';
+import BinanceFuture from '../../moleculs/Modals/BinanceFuture';
 import styles from './actionalModals.module.scss';
 
 const badSuspension = {
@@ -58,37 +58,8 @@ const ActionalModals: React.FC = () => {
           <div onClick={() => dispatch(setActionModal(''))} className={styles.modalCloser}>
             <CloseSvg />
           </div>
-          <h2 className={styles.modalTitle}>Binance Future Forecast</h2>
-          <div className={styles.detailsList}>
-            <div className={styles.detailsItemContent}>
-              <p className={styles.detailtsItemTitle}>
-                Inquiry type <TooltipSvg />
-              </p>
-              <p className={styles.detailsItemText}>Cross</p>
-            </div>
-            <div className={styles.detailsItemContent}>
-              <p className={styles.detailtsItemTitle}>Adjust Leverage</p>
-              <p className={styles.detailsItemText}>25x</p>
-            </div>
-            <div className={styles.detailsItemContent}>
-              <p className={styles.detailtsItemTitle}>
-                Price Range : <span>USD</span>
-              </p>
-              <p className={styles.detailsItemText}>
-                100$ <span className={styles.line}></span>424$
-              </p>
-            </div>
-            <div className={styles.detailsItemContent}>
-              <p className={styles.detailtsItemTitle}>Time Zone</p>
-              <p className={styles.detailsItemText}>
-                (UTC - 05;00) Eastern Time (US & Canada) America/Iqualuit
-              </p>
-            </div>
-            <div className={styles.detailsItemContent}>
-              <p className={styles.detailtsItemTitle}>Date</p>
-              <p className={styles.detailsItemText}>22/Jun/1684</p>
-            </div>
-          </div>
+          <BinanceFuture />
+          {/* <DetailsModal /> */}
         </motion.div>
       </AnimatePresence>
     </Modal>
