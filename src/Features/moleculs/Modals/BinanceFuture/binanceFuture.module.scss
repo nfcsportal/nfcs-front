@@ -1,0 +1,133 @@
+@import "/src/styles/vars";
+@import "/src/styles/mixins";
+.modalTitle {
+    text-align: center;
+    @include fontRem(28, 700);
+    line-height: 36px;
+    color: $titleColor;
+}
+.detailsList {
+    margin-top: 50px;
+    padding-left: 16px;
+    padding-right: 16px;
+    .detailsItemContent {
+        margin-bottom: 40px;
+        .divider {
+            position: relative;
+            top: 18px;
+            width: 26px;
+            margin: 0 15px;
+            border: 1px solid rgba(41, 52, 139, 0.88);
+        }
+        .label {
+            @include fontRem(16, 500);
+            line-height: 20px;
+            margin-bottom: 16px;
+            color: rgba(251, 252, 255, 0.64);
+            display: block;
+        }
+        [class*="selectList"] {
+            max-width: 100%;
+            z-index: 12;
+            background: #212149;
+            box-shadow: 4px 8px 24px rgba(19, 20, 38, 0.16);
+            backdrop-filter: blur(16px);
+        }
+        [class*="formItem"] {
+            margin-bottom: 0;
+            label,
+            [class*="spanText"] {
+                color: rgba(251, 252, 255, 0.64);
+            }
+        }
+        .leverageItem {
+            background: rgba(41, 52, 139, 0.24);
+            border: 1px solid rgba(178, 186, 215, 0.32);
+            box-sizing: border-box;
+            border-radius: 8px;
+            height: 64px;
+            @include flex-center-vert;
+            justify-content: space-between;
+            padding: 13px 16px;
+            .leverageMinus,
+            .leverageplus {
+                @include buttonNulled;
+                @include fontRem(32, 500);
+                line-height: 39px;
+                color: $titleColor;
+                &:disabled {
+                    color: rgba(251, 252, 255, 0.64);
+                }
+            }
+            .leverageCount {
+                @include fontRem(22, 500);
+                line-height: 27px;
+                color: $titleColor;
+            }
+        }
+        .inputsItems {
+            @include flex-center-vert;
+            .inputsItem {
+                flex: 1;
+            }
+        }
+        .dropdownsRow {
+            @include flexRow(7, 3, flex-start);
+        }
+        .customSwich {
+            display: inline-block;
+            max-width: 115px;
+            width: 100%;
+            margin-left: auto;
+            display: flex;
+            input {
+                display: none;
+                &:checked {
+                    + label {
+                        &::after {
+                            left: 58px;
+                        }
+                    }
+                }
+            }
+            label {
+                width: 100%;
+                cursor: pointer;
+                @include flexRow(5, 2, center);
+                border: 1px solid #215ae7;
+                border-radius: 100px;
+                height: 32px;
+                position: relative;
+                p {
+                    position: relative;
+                    z-index: 1;
+                    text-align: center;
+                    @include fontRem(16, 500);
+                    line-height: 20px;
+                    color: $white;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 1px;
+                    background: #215ae7;
+                    border-radius: 100px;
+                    width: 54px;
+                    height: 28px;
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+    .modalBtn {
+        margin-top: 10px;
+        button {
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+            min-width: 232px;
+        }
+    }
+}

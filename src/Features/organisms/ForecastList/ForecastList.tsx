@@ -71,7 +71,25 @@ const ForecastList: React.FC = () => {
                     </div>
                     <div className={`${styles.customCol} ${styles.customColBig}`}>
                       <div className={styles.bodyItemRight}>
-                        <div className={styles.stepBarItem}></div>
+                        <div className={`${styles.stepBarItem} ${styles.stepBarItemFull}`}>
+                          <div className={styles.stepBarRow}>
+                            <div className={styles.stepBarRowItem}>
+                              <div className={styles.stepBarInner}>
+                                <p>Order</p>
+                              </div>
+                            </div>
+                            <div className={styles.stepBarRowItemBig}>
+                              <div className={styles.stepBarInner}>
+                                <p>Pending</p>
+                              </div>
+                            </div>
+                            <div className={styles.stepBarRowItem}>
+                              <div className={styles.stepBarInner}>
+                                <p>Done</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <div className={styles.forecastBtns}>
                           <div className={styles.btnParent}>
                             <Button
@@ -104,44 +122,6 @@ const ForecastList: React.FC = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.foreacstBodyItem}>
-              <div className={styles.forecastBodyItemContent}>
-                <div className={styles.bodyItem}>
-                  <div className={styles.bodyRow}>
-                    <div className={`${styles.customCol} ${styles.customColSmall}`}>
-                      <div className={styles.bodyItemLeft}>
-                        <div className={`${styles.leftItem} ${styles.leftItemTime}`}>
-                          <p>
-                            <TimeSvg />
-                            Order <span> 06.Jan.2022</span>
-                          </p>
-                        </div>
-                        <div className={`${styles.leftItem} ${styles.leftItemLogo}`}>
-                          <p>
-                            <NftSvg />
-                            <span>Lorem Ipsum</span>
-                            <p>
-                              <small>Open Sea</small>
-                            </p>
-                          </p>
-                        </div>
-                        <div className={`${styles.leftItem} ${styles.leftItemBtns}`}>
-                          <a href="" className={styles.links}>
-                            Details
-                          </a>
-                          <a href="" className={styles.links}>
-                            Cancel
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={`${styles.customCol} ${styles.customColBig}`}>
-                      <div className={styles.bodyItemRight}></div>
                     </div>
                   </div>
                 </div>

@@ -130,6 +130,16 @@ img {
         max-width: unset;
         margin-left: 0;
     }
+    &.dashboard-title {
+        margin-bottom: 20px;
+    }
+}
+.dashboard-sub {
+    @include fontRem(24, 400);
+    line-height: 33px;
+    letter-spacing: 0.055em;
+    color: $titleColor;
+    margin-bottom: 32px;
 }
 .section_inner {
     background: rgba(41, 52, 139, 0.16);

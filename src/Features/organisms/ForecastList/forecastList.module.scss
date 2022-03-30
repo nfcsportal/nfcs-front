@@ -170,6 +170,121 @@
                 border-radius: 8px;
                 padding: 18px 48px;
                 margin-right: 24px;
+                .stepBarRow {
+                    position: relative;
+                    padding-bottom: 22px;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        width: 90%;
+                        height: 6px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: rgba(41, 52, 139, 0.44);
+                        border-radius: 10px;
+                        background: linear-gradient(90deg, #7b43e4 50%, rgba(41, 52, 139, 0.44) 50%);
+                        @media all and (min-width: $normalDesktop) {
+                            width: 92%;
+                        } 
+                    }
+                    @include flex-center-vert;
+                    .stepBarRowItem {
+                        flex: 0 0 25%;
+                        &:first-child {
+                            .stepBarInner {
+                                p {
+                                    text-align: left;
+                                }
+                            }
+                        }
+                        &:last-child {
+                            .stepBarInner {
+                                p {
+                                    text-align: right;
+                                    &::after {
+                                        left: auto;
+                                        right: 10%;
+                                        transform: translateX(-50%);
+                                    }
+                                }
+                            }
+                        }
+                        .stepBarInner {
+                            p {
+                                position: relative;
+                                @include fontRem(16, 600);
+                                line-height: 20px;
+                                color: $titleColor;
+                                &::after {
+                                    content: "";
+                                    position: absolute;
+                                    top: calc(100% + 13px);
+                                    width: 11px;
+                                    height: 11px;
+                                    left: 10%;
+                                    transform: translateX(50%);
+                                    border-radius: 50%;
+                                    background-color: #7b43e4;
+                                    z-index: 1;
+                                }
+                            }
+                        }
+                    }
+                    .stepBarRowItemBig {
+                        flex: 0 0 50%;
+                        .stepBarInner {
+                            p {
+                                @include fontRem(16, 600);
+                                line-height: 20px;
+                                color: $titleColor;
+                                position: relative;
+                                text-align: center;
+                                &::after {
+                                    content: "";
+                                    position: absolute;
+                                    top: calc(100% + 10px);
+                                    width: 17px;
+                                    height: 17px;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    border-radius: 50%;
+                                    background: #7b43e4;
+                                    box-shadow: 4px 8px 24px rgba(19, 20, 38, 0.16);
+                                    filter: blur(1px);
+                                    z-index: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.stepBarItemFull {
+                    .stepBarRow {
+                        &::after {
+                            background: #28ccd2;
+                        }
+                        .stepBarInner {
+                            p {
+                                &::after {
+                                   background: #28CCD2; 
+                                }
+                            }
+                        }
+                        .stepBarRowItemBig {
+                           .stepBarInner {
+                            p {
+                                &::after {
+                                  width: 15px;
+                                  height: 15px;
+                                  box-shadow: unset;
+                                  filter: unset;
+                                  top: calc(100% + 11px);
+                                }
+                            }
+                           } 
+                        }
+                    }
+                }
             }
             .forecastBtns {
                 margin-top: 37px;
@@ -214,6 +329,11 @@
                         @include fontRem(16, 600);
                         line-height: 20px;
                         color: $titleColor;
+                        @media all and (max-width: $desktop) {
+                            width: 100%;
+                            @include fontRem(14, 600);
+                            padding: 12px 10px;
+                        } 
                         &:disabled {
                             cursor: not-allowed;
                             color: rgba(251, 252, 255, 0.32);
@@ -221,7 +341,6 @@
                     }
                 }
             }
-            
         }
     }
 }
