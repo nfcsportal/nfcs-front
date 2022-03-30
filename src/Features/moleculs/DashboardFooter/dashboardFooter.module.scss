@@ -1,17 +1,13 @@
 @import "/src/styles/vars";
 @import "/src/styles/mixins";
 .dashboardFooter {
-    position: fixed;
-    right: 80px;
-    bottom: 0;
     height: 50px;
-    left: 380px;
+    margin-left: 380px;
     width: calc(100% - 460px);
     z-index: 1;
     border-top: 4px solid rgba(182, 193, 255, 0.12);
-    background: rgba(41, 52, 139, 1);
     @media all and (max-width: $normalDesktop) {
-        left: 320px;
+        margin-left: 320px;
         width: calc(100% - 376px);
     } 
 }

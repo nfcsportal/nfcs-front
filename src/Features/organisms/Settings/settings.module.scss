@@ -50,15 +50,23 @@
             }
 
             .collapseContent {
-                max-width: 350px;
-                margin-left: 280px;
+                max-width: 410px;
+                margin-left: 250px;
                 height: 0;
                 overflow: hidden;
                 transition: height 0.3s ease;
+                padding: 0 30px;
                 .collapseContentInner {
                     @include flex-column;
                     flex: 1 1 auto;
                     margin-top: 32px;
+                    [class*="selectList"] {
+                        max-width: 100%;
+                        z-index: 12;
+                        background: #212149;
+                        box-shadow: 4px 8px 24px rgba(19, 20, 38, 0.16);
+                        backdrop-filter: blur(16px);
+                    }
                     [class*="formItem"] {
                         margin-bottom: 24px;
                     }
@@ -67,7 +75,6 @@
                     @include flexRow(8, 2, center);
                     button {
                         padding: 13px 30px;
-
                     }
                     .bordered_btn {
                         background: transparent;
