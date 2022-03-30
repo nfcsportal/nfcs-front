@@ -6,7 +6,7 @@
     backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 20;
     transition: 0.3s;
     @media all and (max-width: $tablet) {
         height: 64px;
