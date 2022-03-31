@@ -56,7 +56,9 @@ const Dashboard: React.FC = () => {
           <Component />
         </div>
       </main>
-      <MiniFooter />
+      <footer className={styles.dashboardFooter}>
+        <MiniFooter />
+      </footer>
       {/* {loading && (
         <div className={styles.loader}>
           {' '}
