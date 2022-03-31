@@ -108,55 +108,57 @@
             }
         }
     }
-    .footerBottom {
-        margin-top: 52px;
-        display: flex;
-        flex-wrap: wrap;
-        @media all and (max-width: $smallTablet) {
-            flex-direction: column-reverse;
+    
+}
+
+.footerBottom {
+    margin-top: 52px;
+    display: flex;
+    flex-wrap: wrap;
+    @media all and (max-width: $smallTablet) {
+        flex-direction: column-reverse;
+    }
+    .copyRight {
+        @include fontRem(18, 400);
+        line-height: 21px;
+        color: $white;
+        @include flex-center-vert;
+
+        @media all and (max-width: $normalDesktop) {
+            @include fontRem(14, 400);
+            line-height: 17px;
         }
-        .copyRight {
+        @media all and (max-width: $smallTablet) {
+            margin-top: 24px;
+            justify-content: center;
+        }
+        span {
+            margin-right: 7px;
+        }
+    }
+    .footerMenu {
+        margin-left: auto;
+        @media all and (max-width: $smallTablet) {
+            margin-right: auto;
+        }
+        .footerMenuLink {
+            cursor: pointer;
             @include fontRem(18, 400);
             line-height: 21px;
+            text-decoration: none;
             color: $white;
-            @include flex-center-vert;
-
             @media all and (max-width: $normalDesktop) {
                 @include fontRem(14, 400);
                 line-height: 17px;
             }
-            @media all and (max-width: $smallTablet) {
-                margin-top: 24px;
-                justify-content: center;
-            }
-            span {
-                margin-right: 7px;
-            }
-        }
-        .footerMenu {
-            margin-left: auto;
-            @media all and (max-width: $smallTablet) {
-                margin-right: auto;
-            }
-            .footerMenuLink {
-                cursor: pointer;
-                @include fontRem(18, 400);
-                line-height: 21px;
-                text-decoration: none;
-                color: $white;
+            &:not(:first-child) {
+                margin-left: 64px;
                 @media all and (max-width: $normalDesktop) {
                     @include fontRem(14, 400);
-                    line-height: 17px;
+                    margin-left: 40px;
                 }
-                &:not(:first-child) {
-                    margin-left: 64px;
-                    @media all and (max-width: $normalDesktop) {
-                        @include fontRem(14, 400);
-                        margin-left: 40px;
-                    }
-                    @media all and (max-width: $smallTablet) {
-                        margin-left: 20px;
-                    }
+                @media all and (max-width: $smallTablet) {
+                    margin-left: 20px;
                 }
             }
         }

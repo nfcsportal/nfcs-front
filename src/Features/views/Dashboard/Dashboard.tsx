@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 
 import { DASHBOARD } from '../../../Constants/dashboard';
 import { getDashboardCurrentSlide } from '../../../Store/Selectors/dashboardLocal';
-import DashboardFooter from '../../moleculs/DashboardFooter';
 import DashboardSideBar from '../../moleculs/DashboardSideBar';
+import MiniFooter from '../../moleculs/Footer/MiniFooter';
 import Header from '../../moleculs/Header';
 import styles from './dashboard.module.scss';
 // import { useDispatch, useSelector } from 'react-redux';
@@ -56,7 +56,7 @@ const Dashboard: React.FC = () => {
           <Component />
         </div>
       </main>
-      <DashboardFooter />
+      <MiniFooter />
       {/* {loading && (
         <div className={styles.loader}>
           {' '}

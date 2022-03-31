@@ -3,7 +3,6 @@
     
     For multiple commits for isolated change,
     on merge, squash commits with message:              type(scope): message (#pr-number) | FNC-XYZ
-
     If PR is still in progress, you can add WIP in the beginning of PR name.
 -->
 
