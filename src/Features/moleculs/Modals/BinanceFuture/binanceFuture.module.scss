@@ -80,6 +80,7 @@
             width: 100%;
             margin-left: auto;
             display: flex;
+            margin-bottom: 16px;
             input {
                 display: none;
                 &:checked {
@@ -116,7 +117,7 @@
                     border-radius: 100px;
                     width: 54px;
                     height: 28px;
-                    transition: 0.5s;
+                    transition: 0.3s;
                 }
             }
         }

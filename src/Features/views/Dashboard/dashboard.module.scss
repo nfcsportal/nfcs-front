@@ -32,4 +32,19 @@
         margin-left: 320px;
     }
 }
-
+.dashboardFooter {
+    height: 50px;
+    margin-left: 380px;
+    width: calc(100% - 460px);
+    z-index: 1;
+    border-top: 4px solid rgba(182, 193, 255, 0.12);
+    @include flex-center-vert;
+    [class*="footerBottom"] {
+        margin-top: 0;
+        width: 100%;
+    }
+    @media all and (max-width: $normalDesktop) {
+        margin-left: 320px;
+        width: calc(100% - 376px);
+    }
+}
