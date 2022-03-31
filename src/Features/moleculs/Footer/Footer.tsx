@@ -1,20 +1,16 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import { useHistory } from 'react-router-dom';
 
 import BehanceSvg from '../../../Assets/Icons/BehanceSvg';
-import CopyRightSvg from '../../../Assets/Icons/CopyRightSvg';
 import LinkedIn from '../../../Assets/Icons/LinkedIn';
 import LocationSvg from '../../../Assets/Icons/LocationSvg';
 import PhoneSvg from '../../../Assets/Icons/PhoneSvg';
 import Logo from '../../../Assets/images/logo.svg';
-import Typography from '../../atoms/Typography';
-import { FOOTER_ICONS, FOOTER_MENU } from '../conastantsMolecul';
+import { FOOTER_ICONS } from '../conastantsMolecul';
 import { TFooterIcon } from '../typesMolecules';
 import styles from './footer.module.scss';
+import MiniFooter from './MiniFooter';
 
 const Footer: React.FC = () => {
-  const history = useHistory();
   return (
     <footer className={styles.footer}>
       <div className="container">
@@ -68,27 +64,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className={styles.footerBottom}>
-          <p className={styles.copyRight}>
-            <span>
-              <CopyRightSvg />
-            </span>
-            <FormattedMessage id="footer.copyright" />
-          </p>
-          <menu className={styles.footerMenu}>
-            {FOOTER_MENU.map((currentMenuItem: Record<string, string>) => {
-              return (
-                <Typography
-                  onClick={() => history.push(currentMenuItem.href)}
-                  key={currentMenuItem.id}
-                  id={currentMenuItem.id}
-                  className={styles.footerMenuLink}
-                  component={'span'}
-                />
-              );
-            })}
-          </menu>
-        </div>
+        <MiniFooter />
       </div>
     </footer>
   );
