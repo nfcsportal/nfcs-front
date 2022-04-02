@@ -71,6 +71,122 @@
                 flex: 1;
             }
         }
+        .leverageRange {
+            margin-top: 24px;
+            input {
+                width: 100%;
+                appearance: none;
+                -webkit-appearance: none;
+                position: relative;
+                overflow: hidden;
+                height: 8px;
+                width: 100%;
+                cursor: pointer;
+                border-radius: 8px;
+                pointer-events: all;
+                &::-webkit-slider-runnable-track {
+                    background: rgba(41, 52, 139, 1);
+                    border-radius: 8px;
+                }
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    width: 0;
+                    height: 8px;
+                    background: $white;
+                    border: 0;
+                    box-shadow: -100vw 0 0 100vw $blue;
+                    border-radius: 8px;
+                }
+                &::-moz-range-track {
+                    height: 8px;
+                    border-radius: 8px;
+                    background: rgba(41, 52, 139, 1);
+                }
+                &::-moz-range-thumb {
+                    background: $white;
+                    height: 8px;
+                    width: 0;
+                    border: 0;
+                    border-radius: 8px !important;
+                    box-shadow: -100vw 0 0 100vw $blue;
+                    box-sizing: border-box;
+                }
+                &::-ms-fill-lower { 
+                    background: $blue;
+                }
+                &::-ms-thumb { 
+                    background: $white;
+                    border: 0;
+                    height: 8px;
+                    width: 0;
+                    box-sizing: border-box;
+                }
+                &::-ms-ticks-after { 
+                    display: none; 
+                }
+                
+                &::-ms-ticks-before { 
+                    display: none; 
+                }
+                &::-ms-tooltip { 
+                    display: none;
+                }
+                &::-ms-track { 
+                    background: $blue;
+                    color: transparent;
+                    height: 8px;
+                    border: 0;
+                }
+            }
+            .leverageSum {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                p {
+                    position: relative;
+                    padding-top: 7px;
+                    color: $titleColor;
+                    @include fontRem(16, 500);
+                    line-height: 20px;
+                    &.active {
+                        &::after {
+                            width: 18px;
+                            height: 18px;
+                            background-color: $blue;
+                            border: 0;
+                            top: -16px;
+                        }
+                    }
+                    &:first-child {
+                        &::after {
+                            left: 0;
+                            transform: translateX(-10%);
+                        }
+                    }
+                    &:last-child {
+                        &::after {
+                            left: auto;
+                            right: 0;
+                            transform: translateX(0);
+                        }
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: -14px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 14px;
+                        height: 14px;
+                        background: #191c3e;
+                        border: 2px solid rgba(41, 52, 139, 0.44);
+                        pointer-events: none;
+                        border-radius: 50%;
+                        transition: width 0.3s, height 0.3s;
+                    }
+                }
+            }
+        }
         .dropdownsRow {
             @include flexRow(7, 3, flex-start);
         }
