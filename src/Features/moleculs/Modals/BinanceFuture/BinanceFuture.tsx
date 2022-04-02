@@ -48,6 +48,17 @@ const BinanceFuture: React.FC = () => {
             </div>
             <button className={styles.leverageplus}>+</button>
           </div>
+          <div className={styles.leverageRange}>
+            <input type="range" />
+            <div className={styles.leverageSum}>
+              <p className={styles.active}>1x</p>
+              <p className={styles.active}>10x</p>
+              <p className={styles.active}>20x</p>
+              <p>30x</p>
+              <p>40x</p>
+              <p>50x</p>
+            </div>
+          </div>
         </div>
         <div className={styles.detailsItemContent}>
           <div className={styles.inputsItems}>
