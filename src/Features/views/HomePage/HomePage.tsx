@@ -52,10 +52,10 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </section>
-        <section id="howItWorks" className={styles.howItWorksSection}>
+        <section id="navbar.howitworks" className={styles.howItWorksSection}>
           <HowItWorks />
         </section>
-        <section className={styles.uptSection}>
+        <section id="UPT" className={styles.uptSection}>
           <div className="container">
             <div className={styles.uptContainer}>
               <div className={styles.uptSectionHeader}>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 import { useHistory } from 'react-router-dom';
 
 import ArrowSvg from '../../../Assets/Icons/ArrowSvg';
@@ -11,7 +12,7 @@ import { getCurrentLocale } from '../../../Store/Selectors/main';
 import { setLocale } from '../../../Store/Slices/mainSlice';
 import Button from '../../atoms/Button';
 import Typography from '../../atoms/Typography';
-import { LANGUAGES, NAV_BAR } from '../conastantsMolecul';
+import { LANGUAGES, LOGO_ITEM, NAV_BAR } from '../conastantsMolecul';
 import { TLanguages, TNavBar } from '../typesMolecules';
 import styles from './header.module.scss';
 
@@ -19,8 +20,39 @@ const Header: React.FC = () => {
   const currentLocalce = useSelector(getCurrentLocale);
   const [burger, setBurger] = useState(false);
   const history = useHistory();
+  const location = useLocation();
   const dispatch = useDispatch();
   const { currentRef, scrollPosition } = usePositions();
+
+  const changePage = useCallback(
+    async (currentItem: TNavBar) => {
+      const distanceToTop = burger ? 70 : 100;
+      if (burger) {
+        await setBurger(false);
+      }
+      if (location.pathname !== currentItem.path) {
+        await history.push(currentItem.path);
+      }
+
+      if (currentItem.path === ROUTES.HOME) {
+        if (currentItem.id) {
+          const scrolledItem = document.getElementById(currentItem.id)?.offsetTop;
+          if (scrolledItem) {
+            window.scrollTo({
+              top: scrolledItem - distanceToTop,
+              behavior: 'smooth',
+            });
+          }
+        } else {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        }
+      }
+    },
+    [location, burger]
+  );
 
   return (
     <header
@@ -29,7 +61,7 @@ const Header: React.FC = () => {
     >
       <div className="container">
         <nav className={styles.nav}>
-          <div className={styles.headerLogo} onClick={() => history.push(ROUTES.HOME)}>
+          <div className={styles.headerLogo} onClick={() => changePage(LOGO_ITEM)}>
             <img src={Logo} alt="Logo" />
           </div>
           <menu className={`${styles.headerMenu} ${burger && styles.active}`}>
@@ -38,7 +70,7 @@ const Header: React.FC = () => {
                 return (
                   <motion.li transition={{ type: 'spring', stiffness: 30 }} key={currentItem.path}>
                     <Typography
-                      onClick={() => history.push(currentItem.path)}
+                      onClick={() => changePage(currentItem)}
                       component={'span'}
                       className={`${styles.headerMenuLink} ${
                         currentItem.className && styles[currentItem.className]
