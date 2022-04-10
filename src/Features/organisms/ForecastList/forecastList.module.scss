@@ -6,9 +6,17 @@
     background: rgba(41, 52, 139, 0.16);
     border-radius: 8px;
     position: relative;
+    @media all and (max-width: $smallTablet) {
+        padding: 0;
+        background-color: transparent;
+    }
     .forecastHeader {
         max-width: 665px;
         margin: 0 auto;
+        @media all and (max-width: $smallTablet) {
+            max-width: 100%;
+            margin-top: 54px;
+        }
 
         .forecasstChangers {
             position: relative;
@@ -27,6 +35,12 @@
                 height: 4px;
             }
             li {
+                @media all and (max-width: $smallTablet) {
+                    flex-grow: 1 !important;
+                    flex-shrink: 0 !important;
+                    flex-basis: auto !important;
+                    max-width: 100% !important;
+                }
                 button {
                     position: relative;
                     @include buttonNulled;
@@ -35,6 +49,10 @@
                     @include fontRem(18, 400);
                     line-height: 18px;
                     color: rgba(251, 252, 255, 0.56);
+                    @media all and (max-width: $smallTablet) {
+                        @include fontRem(14, 400);
+                        line-height: 17px;
+                    }
                     &.active {
                         color: $titleColor;
                         &::after {
@@ -59,6 +77,10 @@
                         padding: 2px 10px;
                         @include fontRem(16, 500);
                         color: $titleColor;
+                        @media all and (max-width: $smallTablet) {
+                            top: -30px;
+                            @include fontRem(12, 500);
+                        }
                     }
                 }
             }
@@ -66,6 +88,9 @@
     }
     .forecastBody {
         margin-top: 33px;
+        @media all and (max-width: $smallTablet) {
+            margin-top: 24px;
+        }
         .waittimeInfo {
             margin-bottom: 22px;
             @include fontRem(20, 400);
@@ -74,42 +99,101 @@
                 font-weight: 600;
                 color: $white;
             }
+            @media all and (max-width: $smallTablet) {
+                margin-bottom: 10px;
+                @include fontRem(12, 400);
+                line-height: 44px;
+            }
         }
         .foreacstBodyItem {
             padding-bottom: 16px;
             margin-bottom: 16px;
+            @media all and (max-width: $smallTablet) {
+                position: relative;
+                background: rgba(41, 52, 139, 0.16);
+                border-radius: 8px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 8px;
+                    padding: 1px;
+                    background: linear-gradient(rgba(178, 186, 215, 0.24), rgba(157, 164, 189, 0.02));
+                    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    -webkit-mask-composite: xor;
+                    mask-composite: exclude;
+                }
+            }
             &:not(:last-child) {
                 border-bottom: 2px solid rgba(182, 193, 255, 0.16);
+                @media all and (max-width: $smallTablet) {
+                    border-bottom: 0;
+                }
             }
             .forecastBodyItemContent {
                 background: #141528;
                 border-radius: 8px;
                 padding: 32px 16px 18px 44px;
+                position: relative;
+                z-index: 1;
+                @media all and (max-width: $smallTablet) {
+                    background-color: transparent;
+                    padding: 30px 10px 74px;
+                }
                 .bodyItem {
                     .bodyRow {
                         @include flexRow(20, 2);
+                        @media all and (max-width: $smallTablet) {
+                            @include flexRow(20, 1);
+                        }
                         .customCol {
                             padding-left: 20px;
                             padding-right: 20px;
                             &.customColSmall {
                                 flex: 0 0 40%;
                                 max-width: 40%;
+                                @media all and (max-width: $smallTablet) {
+                                    flex: 0 0 100%;
+                                    max-width: 100%;
+                                }
                             }
                             &.customColBig {
                                 flex: 0 0 60%;
                                 max-width: 60%;
+                                @media all and (max-width: $smallTablet) {
+                                    flex: 0 0 100%;
+                                    max-width: 100%;
+                                }
                             }
                         }
                     }
                     .bodyItemLeft {
                         padding-right: 20px;
                         border-right: 2px solid rgba(41, 52, 139, 0.44);
+                        @media all and (max-width: $smallTablet) {
+                            padding-right: 0;
+                            border-right: 0;
+                            padding-left: 6px;
+                            border-bottom: 2px solid rgba(41, 52, 139, 0.44);
+                        }
                         .leftItem {
                             &:not(:last-child) {
                                 margin-bottom: 32px;
+                                @media all and (max-width: $smallTablet) {
+                                    margin-bottom: 24px;
+                                }
                             }
                             svg {
                                 margin-right: 24px;
+                                @media all and (max-width: $smallTablet) {
+                                    width: 32px;
+                                    height: 32px;
+                                    margin-right: 16px;
+                                }
                             }
                             p {
                                 @include flex-center-vert;
@@ -118,6 +202,10 @@
                                 line-height: 44px;
                                 margin-bottom: 0;
                                 color: $titleColor;
+                                @media all and (max-width: $smallTablet) {
+                                    @include fontRem(12, 400);
+                                    line-height: 30px;
+                                }
                                 span {
                                     font-weight: 600;
                                     color: $white;
@@ -126,6 +214,9 @@
                                     margin-top: -15px;
                                     flex: 0 0 100%;
                                     padding-left: 64px;
+                                    @media all and (max-width: $smallTablet) {
+                                        padding-left: 48px;
+                                    }
 
                                     small {
                                         color: rgba(251, 252, 255, 0.72);
@@ -135,6 +226,11 @@
                         }
                         .leftItemBtns {
                             @include flex-center-vert;
+                            @media all and (max-width: $smallTablet) {
+                                position: absolute;
+                                bottom: 0;
+                                right: 10px;
+                            }
                             .links {
                                 color: $blue;
                                 cursor: pointer;
@@ -143,6 +239,9 @@
                                 line-height: 22px;
                                 transition: 0.3s;
                                 text-decoration: none;
+                                @media all and (max-width: $smallTablet) {
+                                    @include fontRem(14, 500);
+                                }
                                 &:hover {
                                     text-decoration: underline;
                                 }
@@ -156,6 +255,10 @@
                                     margin-right: 22px;
                                     padding-right: 22px;
                                     border-right: 1px solid rgba(41, 52, 139, 0.44);
+                                    @media all and (max-width: $smallTablet) {
+                                        margin-right: 34px;
+                                        padding-right: 34px;
+                                    }
                                 }
                             }
                         }
@@ -170,6 +273,10 @@
                 border-radius: 8px;
                 padding: 18px 48px;
                 margin-right: 24px;
+                @media all and (max-width: $smallTablet) {
+                    margin-right: 0;
+                    padding: 18px 12px;
+                }
                 .stepBarRow {
                     position: relative;
                     padding-bottom: 22px;
@@ -186,7 +293,10 @@
                         background: linear-gradient(90deg, #7b43e4 50%, rgba(41, 52, 139, 0.44) 50%);
                         @media all and (min-width: $normalDesktop) {
                             width: 92%;
-                        } 
+                        }
+                        @media all and (max-width: $smallTablet) {
+                            width: 100%;
+                        }
                     }
                     @include flex-center-vert;
                     .stepBarRowItem {
@@ -195,6 +305,13 @@
                             .stepBarInner {
                                 p {
                                     text-align: left;
+                                    @media all and (max-width: $smallTablet) {
+                                        &::after {
+                                            @media all and (max-width: $smallTablet) {
+                                                left: -10%;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -206,6 +323,9 @@
                                         left: auto;
                                         right: 10%;
                                         transform: translateX(-50%);
+                                        @media all and (max-width: $smallTablet) {
+                                            right: -10%;
+                                        }
                                     }
                                 }
                             }
@@ -216,6 +336,11 @@
                                 @include fontRem(16, 600);
                                 line-height: 20px;
                                 color: $titleColor;
+                                @media all and (max-width: $smallTablet) {
+                                    @include fontRem(10, 400);
+                                    line-height: 20px;
+                                    color: rgba(251, 252, 255, 0.64);
+                                }
                                 &::after {
                                     content: "";
                                     position: absolute;
@@ -240,6 +365,9 @@
                                 color: $titleColor;
                                 position: relative;
                                 text-align: center;
+                                @media all and (max-width: $smallTablet) {
+                                    @include fontRem(10, 400);
+                                }
                                 &::after {
                                     content: "";
                                     position: absolute;
@@ -266,22 +394,22 @@
                         .stepBarInner {
                             p {
                                 &::after {
-                                   background: #28CCD2; 
+                                    background: #28ccd2;
                                 }
                             }
                         }
                         .stepBarRowItemBig {
-                           .stepBarInner {
-                            p {
-                                &::after {
-                                  width: 15px;
-                                  height: 15px;
-                                  box-shadow: unset;
-                                  filter: unset;
-                                  top: calc(100% + 11px);
+                            .stepBarInner {
+                                p {
+                                    &::after {
+                                        width: 15px;
+                                        height: 15px;
+                                        box-shadow: unset;
+                                        filter: unset;
+                                        top: calc(100% + 11px);
+                                    }
                                 }
                             }
-                           } 
                         }
                     }
                 }
@@ -291,6 +419,13 @@
                 @include flexRow(8, 3, center);
                 margin-left: auto;
                 justify-content: flex-end;
+                @media all and (max-width: $smallTablet) {
+                    @include flexRow(8, 1, center);
+                    margin-left: auto;
+                    margin-right: auto;
+                    justify-content: center;
+                    flex-direction: column;
+                }
                 .btnParent {
                     position: relative;
                     padding-left: 8px;
@@ -300,6 +435,9 @@
                             background-image: unset;
                             position: relative;
                             border-radius: 8px;
+                            @media all and (max-width: $smallTablet) {
+                                margin-top: 24px;
+                            }
                             &::before {
                                 content: "";
                                 position: absolute;
@@ -333,7 +471,10 @@
                             width: 100%;
                             @include fontRem(14, 600);
                             padding: 12px 10px;
-                        } 
+                        }
+                        @media all and (max-width: $smallTablet) {
+                            min-width: 212px;
+                        }
                         &:disabled {
                             cursor: not-allowed;
                             color: rgba(251, 252, 255, 0.32);

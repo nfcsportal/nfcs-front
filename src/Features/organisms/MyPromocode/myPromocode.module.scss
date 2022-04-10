@@ -6,6 +6,10 @@
     background: rgba(41, 52, 139, 0.16);
     border-radius: 8px;
     position: relative;
+    @media all and (max-width: $smallTablet) {
+        padding: 2px 8px 16px;
+        background-color: transparent;
+    }
     &::before {
         content: "";
         position: absolute;
@@ -20,11 +24,36 @@
         mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
+        @media all and (max-width: $smallTablet) {
+            content: none;
+        }
     }
     .promocodeRow {
         @include flexRow(12, 3);
         position: relative;
         z-index: 2;
+        @media all and (max-width: $smallTablet) {
+            @include flexRow(12, 1);
+            background: rgba(41, 52, 139, 0.16);
+            padding-bottom: 16px;
+            border-radius: 8px;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: 8px;
+                padding: 1px;
+                background: linear-gradient(rgba(178, 186, 215, 0.24), rgba(157, 164, 189, 0.02));
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+            }
+        }
         .promocodeItem {
             padding: 24px 42px;
             background: rgba(41, 52, 139, 0.32);
@@ -36,6 +65,11 @@
                 padding: 15px 20px;
                 height: 100%;
             }
+            @media all and (max-width: $smallTablet) {
+                padding: 12px 16px;
+                margin-top: 14px;
+                height: auto;
+            }
             .UPTCount {
                 display: flex;
                 align-items: flex-start;
@@ -43,6 +77,13 @@
                     margin-right: 24px;
                     @media all and (max-width: $normalDesktop) {
                         margin-right: 10px;
+                    }
+                    @media all and (max-width: $smallTablet) {
+                        margin-right: 16px;
+                        svg {
+                            width: 28px;
+                            height: 28px;
+                        }
                     }
                 }
                 .Content {
@@ -57,6 +98,11 @@
                         @media all and (max-width: $normalDesktop) {
                             @include fontRem(22, 600);
                             line-height: 36px;
+                            margin-bottom: 0;
+                        }
+                        @media all and (max-width: $smallTablet) {
+                            @include fontRem(24, 600);
+                            line-height: 30px;
                             margin-bottom: 0;
                         }
                     }
@@ -81,26 +127,112 @@
         margin-top: 30px;
         position: relative;
         z-index: 1;
+        @media all and (max-width: $smallTablet) {
+            margin-top: 8px;
+            @include flexRow(12, 1);
+        }
+        [class*="col_"] {
+            @media all and (max-width: $smallTablet) {
+                &:first-child {
+                    padding: 0;
+                }
+            }
+        }
         .reffrealLinkInfoLeft {
-            width: 1000%;
+            width: 100%;
+        }
+        .reffrealLinkInfoLogo {
+            margin-right: 24px;
+            @media all and (max-width: $normalDesktop) {
+                margin-right: 15px;
+            }
+        }
+        .reffrealLinkInfo,
+        .reffrealLinkInfoLeft {
+            .refferalLink {
+                text-decoration: underline;
+                text-transform: uppercase;
+                @include fontRem(18, 600);
+                line-height: 44px;
+                margin-bottom: 8px;
+                color: $titleColor;
+                @media all and (max-width: $normalDesktop) {
+                    @include fontRem(16, 600);
+                    margin-bottom: 0;
+                }
+                @media all and (max-width: $smallTablet) {
+                    @include fontRem(16, 600);
+                    line-height: 1.5;
+                }
+            }
+            .refferealLinkText {
+                @include fontRem(18, 600);
+                line-height: 14px;
+                color: $titleColor;
+                @media all and (max-width: $normalDesktop) {
+                    @include fontRem(16, 600);
+                }
+                @media all and (max-width: $smallTablet) {
+                    @include fontRem(12, 500);
+                    margin-top: 8px;
+                    color: rgba(251, 252, 255, 0.72);
+                    opacity: 0.64;
+                }
+            }
+        }
+        .linkCopy {
+            align-self: center;
+            margin-top: -20px;
+            margin-left: 10px;
+            @media all and (max-width: $normalDesktop) {
+                margin-top: -10px;
+            }
+            @media all and (max-width: $smallTablet) {
+                margin-left: auto;
+            }
+            button {
+                @include buttonNulled;
+            }
         }
         .promocodeItemBig {
-            background: rgba(41, 52, 139, 0.12);
             padding: 24px 42px;
             background: rgba(41, 52, 139, 0.32);
             border-radius: 8px;
             height: 100%;
             @media all and (max-width: $bigDesktop) {
                 padding: 20px;
-
             }
             @media all and (max-width: $normalDesktop) {
                 padding: 15px 20px;
+            }
+            @media all and (max-width: $smallTablet) {
+                position: relative;
+                border-radius: 8px;
+                background: rgba(41, 52, 139, 0.16);
+                padding: 0 8px;
+                height: unset;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 8px;
+                    padding: 1px;
+                    background: linear-gradient(rgba(178, 186, 215, 0.24), rgba(157, 164, 189, 0.02));
+                    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    -webkit-mask-composite: xor;
+                    mask-composite: exclude;
+                }
             }
             .promocodeLeftList {
                 list-style-type: none;
                 margin: 0;
                 padding: 0;
+                position: relative;
+                z-index: 1;
                 > li {
                     display: flex;
                     flex-wrap: wrap;
@@ -115,46 +247,8 @@
                         padding-top: 20px;
                         border-bottom: 1px solid rgba(182, 193, 255, 0.12);
                     }
-                    .reffrealLinkInfoLogo {
-                        margin-right: 24px;
-                        @media all and (max-width: $normalDesktop) {
-                            margin-right: 15px;
-                        }
-                    }
-                    .reffrealLinkInfo, .reffrealLinkInfoLeft {
-                        .refferalLink {
-                            text-decoration: underline;
-                            text-transform: uppercase;
-                            @include fontRem(18, 600);
-                            line-height: 44px;
-                            margin-bottom: 8px;
-                            color: $titleColor;
-                            @media all and (max-width: $normalDesktop) {
-                                @include fontRem(16, 600);
-                                margin-bottom: 0;
-                            }
-                        }
-                        .refferealLinkText {
-                            @include fontRem(18, 600);
-                            line-height: 14px;
-                            color: $titleColor;
-                            @media all and (max-width: $normalDesktop) {
-                                @include fontRem(16, 600);
-                            }
-                        }
-                    }
-                    .linkCopy {
-                        align-self: center;
-                        margin-top: -20px;
-                        margin-left: 10px;
-                        @media all and (max-width: $normalDesktop) {
-                            margin-top: -10px;
-                        }
-                        button {
-                            @include buttonNulled;
-                        }
-                    }
                 }
+
                 .sponsorsList {
                     margin-top: 28px;
                     list-style-type: decimal;
@@ -213,6 +307,59 @@
                     padding: 13px 30px;
                 }
             }
+        }
+        .poromocodeMobileTopView {
+            background: rgba(41, 52, 139, 0.16);
+            border-radius: 8px;
+            position: relative;
+            margin-bottom: 8px;
+            padding: 20px 8px 24px;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: 8px;
+                padding: 1px;
+                background: linear-gradient(rgba(178, 186, 215, 0.24), rgba(157, 164, 189, 0.02));
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+            }
+            .promocodeMobilTopHeader {
+                display: flex;
+                align-items: flex-start;
+                position: relative;
+                z-index: 1;
+                margin-bottom: 16px;
+                padding-bottom: 16px;
+                border-bottom: 1px solid rgba(182, 193, 255, 0.16);
+                .reffrealLinkInfo {
+                    .refferalLink {
+                        @include textShorten(1);
+                        max-width: 227px;
+                    }
+                }
+            }
+            .reffrealLinkInfoLogo {
+                svg {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            .promocodeForm {
+                [class*="formItem"]{
+                    margin-bottom: 24px;
+                }
+                .promocodeBtn {
+                    width: auto;
+                    height: 40px;
+                }
+            }
+            
         }
     }
 }

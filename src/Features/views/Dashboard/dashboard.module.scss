@@ -19,6 +19,12 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image: linear-gradient(to right bottom, #151a2c, #120d20);
+    @media all and (max-width: $smallTablet) {
+        padding: 0 16px;
+        [class="container"] {
+            padding: 0;
+        }
+    } 
 }
 .dashoardRight {
     margin-left: 380px;
@@ -31,6 +37,11 @@
         width: calc(100% - 320px);
         margin-left: 320px;
     }
+    @media all and (max-width: $smallTablet) {
+        margin-left: 0;
+        padding-right: 0;
+        width: 100%;
+    } 
 }
 .dashboardFooter {
     height: 50px;
@@ -46,5 +57,12 @@
     @media all and (max-width: $normalDesktop) {
         margin-left: 320px;
         width: calc(100% - 376px);
+    }
+    @media all and (max-width: $smallTablet) {
+        margin: 0;
+        width: 100%;
+        padding: 20px 0 8px;
+        height: unset;
+        padding-top: 20px;
     }
 }

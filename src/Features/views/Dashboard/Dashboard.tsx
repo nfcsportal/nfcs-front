@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import useMediaQuery from 'react-use-media-query-hook';
 
 import { DASHBOARD } from '../../../Constants/dashboard';
+import { SCREENS } from '../../../Constants/ScreenResolutions';
 import { getDashboardCurrentSlide } from '../../../Store/Selectors/dashboardLocal';
 import DashboardSideBar from '../../moleculs/DashboardSideBar';
 import MiniFooter from '../../moleculs/Footer/MiniFooter';
@@ -46,11 +48,11 @@ const Dashboard: React.FC = () => {
   const Component = useMemo(() => {
     return DASHBOARD[currentSLide];
   }, [currentSLide]);
-
+  const isMobile = useMediaQuery(SCREENS.mobile);
   return (
     <div className={`${styles.dashboardPage} page`}>
       <Header />
-      <DashboardSideBar />
+      {!isMobile && <DashboardSideBar />}
       <main className="main">
         <div className={styles.dashoardRight}>
           <Component />
