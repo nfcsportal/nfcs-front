@@ -13,7 +13,7 @@ const ForecastList: React.FC = () => {
   return (
     <section className={styles.buyForecastSection}>
       <h2 className="title dashboard-title">Forecast List</h2>
-      <div className="section_inner">
+      <div className="section_inner forecastListSecton_inner">
         <div className={styles.forecastSection}>
           <div className={styles.forecastHeader}>
             <ul className={styles.forecasstChangers}>
@@ -35,6 +35,98 @@ const ForecastList: React.FC = () => {
             <p className={styles.waittimeInfo}>
               Max Wait Time: <span>3 Hours</span>
             </p>
+            <div className={styles.foreacstBodyItem}>
+              <div className={styles.forecastBodyItemContent}>
+                <div className={styles.bodyItem}>
+                  <div className={styles.bodyRow}>
+                    <div className={`${styles.customCol} ${styles.customColSmall}`}>
+                      <div className={styles.bodyItemLeft}>
+                        <div className={`${styles.leftItem} ${styles.leftItemTime}`}>
+                          <p>
+                            <TimeSvg />
+                            Order<span> 06.Jan.2022</span>
+                          </p>
+                        </div>
+                        <div className={`${styles.leftItem} ${styles.leftItemLogo}`}>
+                          <p>
+                            <NftSvg />
+                            <span>Lorem Ipsum</span>
+                            <p>
+                              <small>Open Sea</small>
+                            </p>
+                          </p>
+                        </div>
+                        <div className={`${styles.leftItem} ${styles.leftItemBtns}`}>
+                          <span
+                            className={styles.links}
+                            onClick={() => dispatch(setActionModal('jasjas'))}
+                          >
+                            Details
+                          </span>
+                          <a href="" className={styles.links}>
+                            Cancel
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={`${styles.customCol} ${styles.customColBig}`}>
+                      <div className={styles.bodyItemRight}>
+                        <div className={`${styles.stepBarItem} ${styles.stepBarItemFull}`}>
+                          <div className={styles.stepBarRow}>
+                            <div className={styles.stepBarRowItem}>
+                              <div className={styles.stepBarInner}>
+                                <p>Order</p>
+                              </div>
+                            </div>
+                            <div className={styles.stepBarRowItemBig}>
+                              <div className={styles.stepBarInner}>
+                                <p>Pending</p>
+                              </div>
+                            </div>
+                            <div className={styles.stepBarRowItem}>
+                              <div className={styles.stepBarInner}>
+                                <p>Done</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className={styles.forecastBtns}>
+                          <div className={styles.btnParent}>
+                            <Button
+                              type="primary"
+                              disabeled
+                              id="Buy With Crypto"
+                              className={`${styles.forcastBtn} ${styles.forcesastBtnPrimary}`}
+                            ></Button>
+                          </div>
+                          <div className={styles.btnParent}>
+                            <Button
+                              type="secondary"
+                              disabeled
+                              id="Buy With 33$"
+                              className={`${styles.forcastBtn} ${styles.forcesastBtnSecondary}`}
+                            ></Button>
+                          </div>
+                          <div className={styles.btnParent}>
+                            <Button
+                              type="secondary"
+                              disabeled
+                              id="Buy With UPT"
+                              className={`${styles.forcastBtn} ${styles.forcesastBtnSecondary}`}
+                            ></Button>
+                            <ToolTip
+                              isForecastList
+                              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                              isOpen={false}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className={styles.foreacstBodyItem}>
               <div className={styles.forecastBodyItemContent}>
                 <div className={styles.bodyItem}>

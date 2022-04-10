@@ -27,6 +27,11 @@
     outline: none;
     position: relative;
     z-index: 34;
+    @media all and (max-width: $smallTablet) {
+        margin-left: 16px;
+        margin-right: 16px;
+        max-width: 100%;
+    }
 }
 .modalInner {
     pointer-events: all;
@@ -37,6 +42,10 @@
     height: 100%;
     overflow: auto;
     padding: 48px 24px 38px;
+    @media all and (max-width: $smallTablet) {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
     &::-webkit-scrollbar {
         width: 6px;
         border-radius: 10px;
@@ -57,5 +66,9 @@
         top: 28px;
         right: 28px;
         cursor: pointer;
+        @media all and (max-width: $smallTablet) {
+          top: 20px;
+          right: 20px;
+        }
     }
 }
