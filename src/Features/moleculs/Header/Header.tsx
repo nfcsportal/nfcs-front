@@ -2,10 +2,13 @@ import { motion } from 'framer-motion';
 import React, { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import useMediaQuery from 'react-use-media-query-hook';
 
 import ArrowSvg from '../../../Assets/Icons/ArrowSvg';
+import HeaderCoinSvg from '../../../Assets/Icons/HeaderCoinSvg';
 import Logo from '../../../Assets/images/logo.svg';
 import { ROUTES } from '../../../Constants/Routes';
+import { SCREENS } from '../../../Constants/ScreenResolutions';
 import { usePositions } from '../../../Hooks/usePositions';
 import { getCurrentLocale } from '../../../Store/Selectors/main';
 import { setLocale } from '../../../Store/Slices/mainSlice';
@@ -21,7 +24,7 @@ const Header: React.FC = () => {
   const [burger, setBurger] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
-  const isAuth = false;
+  const isAuth = true;
   const { currentRef, scrollPosition } = usePositions();
   const currNavBarItems = useMemo(() => {
     return NAV_BAR.filter((curr) => {
@@ -32,6 +35,8 @@ const Header: React.FC = () => {
       }
     });
   }, [isAuth]);
+  const isBigTablet = useMediaQuery(SCREENS.bigTablet);
+  const isOnlyTablet = useMediaQuery(SCREENS.onlyTablet);
   return (
     <header
       ref={currentRef}
@@ -58,17 +63,37 @@ const Header: React.FC = () => {
                   </motion.li>
                 );
               })}
-              <li>
-                <Button
-                  type="secondary"
-                  id="navbar.signup"
-                  className={`${styles.headerMenuLink} ${styles.signupBtn}`}
-                  onClick={() => history.push(ROUTES.SIGN_UP)}
-                />
-              </li>
-              <li>
-                <HeaderAuthView />
-              </li>
+              <>
+                {!isBigTablet && (
+                  <li>
+                    <HeaderAuthView />
+                  </li>
+                )}
+              </>
+              {!isAuth ? (
+                <li>
+                  <Button
+                    type="secondary"
+                    id="navbar.signup"
+                    className={`${styles.headerMenuLink} ${styles.signupBtn}`}
+                    onClick={() => history.push(ROUTES.SIGN_UP)}
+                  />
+                </li>
+              ) : (
+                <>
+                  {!isBigTablet && (
+                    <li>
+                      <div className={styles.cointItem}>
+                        <span className={styles.cointIcon}>
+                          <HeaderCoinSvg />
+                        </span>
+                        1345000
+                      </div>
+                    </li>
+                  )}
+                </>
+              )}
+
               <li>
                 <span className={styles.headerMenuLink}>
                   {currentLocalce.toLocaleUpperCase()}
@@ -95,11 +120,29 @@ const Header: React.FC = () => {
               </li>
             </ul>
           </menu>
-          <div
-            onClick={() => setBurger(!burger)}
-            className={`${styles.headerBurger} ${burger && styles.active}`}
-          >
-            <div className={styles.burgerIcon} />
+
+          <div className={styles.burgerFullContainer}>
+            {isBigTablet && (
+              <div className={styles.tabletItem}>
+                <HeaderAuthView />
+                <>
+                  {isOnlyTablet && (
+                    <div className={styles.cointItem}>
+                      <span className={styles.cointIcon}>
+                        <HeaderCoinSvg />
+                      </span>
+                      1345000
+                    </div>
+                  )}
+                </>
+              </div>
+            )}
+            <div
+              onClick={() => setBurger(!burger)}
+              className={`${styles.headerBurger} ${burger && styles.active}`}
+            >
+              <div className={styles.burgerIcon} />
+            </div>
           </div>
         </nav>
       </div>
