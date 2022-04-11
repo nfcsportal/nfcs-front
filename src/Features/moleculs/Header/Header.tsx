@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -14,14 +14,24 @@ import Typography from '../../atoms/Typography';
 import { LANGUAGES, NAV_BAR } from '../conastantsMolecul';
 import { TLanguages, TNavBar } from '../typesMolecules';
 import styles from './header.module.scss';
+import { HeaderAuthView } from './headerAuthView';
 
 const Header: React.FC = () => {
   const currentLocalce = useSelector(getCurrentLocale);
   const [burger, setBurger] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
+  const isAuth = false;
   const { currentRef, scrollPosition } = usePositions();
-
+  const currNavBarItems = useMemo(() => {
+    return NAV_BAR.filter((curr) => {
+      if (isAuth) {
+        return curr.path !== ROUTES.SIGN_IN;
+      } else {
+        return curr.path !== ROUTES.DASHBOARD;
+      }
+    });
+  }, [isAuth]);
   return (
     <header
       ref={currentRef}
@@ -34,7 +44,7 @@ const Header: React.FC = () => {
           </div>
           <menu className={`${styles.headerMenu} ${burger && styles.active}`}>
             <ul className={styles.headerMenuList}>
-              {NAV_BAR.map((currentItem: TNavBar) => {
+              {currNavBarItems.map((currentItem: TNavBar) => {
                 return (
                   <motion.li transition={{ type: 'spring', stiffness: 30 }} key={currentItem.path}>
                     <Typography
@@ -55,6 +65,9 @@ const Header: React.FC = () => {
                   className={`${styles.headerMenuLink} ${styles.signupBtn}`}
                   onClick={() => history.push(ROUTES.SIGN_UP)}
                 />
+              </li>
+              <li>
+                <HeaderAuthView />
               </li>
               <li>
                 <span className={styles.headerMenuLink}>
