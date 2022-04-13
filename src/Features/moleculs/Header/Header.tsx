@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 import { useHistory } from 'react-router-dom';
 import useMediaQuery from 'react-use-media-query-hook';
 
@@ -14,7 +15,7 @@ import { getCurrentLocale } from '../../../Store/Selectors/main';
 import { setLocale } from '../../../Store/Slices/mainSlice';
 import Button from '../../atoms/Button';
 import Typography from '../../atoms/Typography';
-import { LANGUAGES, NAV_BAR } from '../conastantsMolecul';
+import { LANGUAGES, LOGO_ITEM, NAV_BAR } from '../conastantsMolecul';
 import { TLanguages, TNavBar } from '../typesMolecules';
 import styles from './header.module.scss';
 import { HeaderAuthView } from './headerAuthView';
@@ -23,6 +24,7 @@ const Header: React.FC = () => {
   const currentLocalce = useSelector(getCurrentLocale);
   const [burger, setBurger] = useState(false);
   const history = useHistory();
+  const location = useLocation();
   const dispatch = useDispatch();
   const isAuth = true;
   const { currentRef, scrollPosition } = usePositions();
@@ -37,14 +39,46 @@ const Header: React.FC = () => {
   }, [isAuth]);
   const isBigTablet = useMediaQuery(SCREENS.bigTablet);
   const isOnlyTablet = useMediaQuery(SCREENS.onlyTablet);
+
+  const changePage = useCallback(
+    async (currentItem: TNavBar) => {
+      const distanceToTop = document.getElementById('header')?.clientHeight;
+      if (burger) {
+        await setBurger(false);
+      }
+      if (location.pathname !== currentItem.path) {
+        await history.push(currentItem.path);
+      }
+
+      if (currentItem.path === ROUTES.HOME) {
+        if (currentItem.id) {
+          const scrolledItem = document.getElementById(currentItem.id)?.offsetTop;
+          if (scrolledItem && distanceToTop) {
+            window.scrollTo({
+              top: scrolledItem - distanceToTop - 10,
+              behavior: 'smooth',
+            });
+          }
+        } else {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        }
+      }
+    },
+    [location, burger]
+  );
+
   return (
     <header
       ref={currentRef}
       className={`${styles.header} ${scrollPosition > 0 && styles.scrolled}`}
+      id="header"
     >
       <div className="container">
         <nav className={styles.nav}>
-          <div className={styles.headerLogo} onClick={() => history.push(ROUTES.HOME)}>
+          <div className={styles.headerLogo} onClick={() => changePage(LOGO_ITEM)}>
             <img src={Logo} alt="Logo" />
           </div>
           <menu className={`${styles.headerMenu} ${burger && styles.active}`}>
@@ -53,7 +87,7 @@ const Header: React.FC = () => {
                 return (
                   <motion.li transition={{ type: 'spring', stiffness: 30 }} key={currentItem.path}>
                     <Typography
-                      onClick={() => history.push(currentItem.path)}
+                      onClick={() => changePage(currentItem)}
                       component={'span'}
                       className={`${styles.headerMenuLink} ${
                         currentItem.className && styles[currentItem.className]

@@ -14,6 +14,12 @@ import ShieldReliability from '../../Assets/Icons/why-we/ShieldReliability';
 import { ROUTES } from '../../Constants/Routes';
 import { TFooterIcon, THowItWorks, TLanguages, TNavBar, TWhyWe } from './typesMolecules';
 
+export const LOGO_ITEM: TNavBar = {
+  title: 'Logo',
+  path: ROUTES.HOME,
+  id: '',
+};
+
 export const NAV_BAR: TNavBar[] = [
   {
     title: 'About Us',
