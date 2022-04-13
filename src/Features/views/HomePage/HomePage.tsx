@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
       <Header />
       <MainContent>
         <Portal />
-        <section className={styles.whyWeSection}>
+        <section className={styles.whyWeSection} id="navbar.whyWe">
           <WhyWe />
         </section>
         <section className={styles.cardsSection}>
@@ -52,10 +52,10 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </section>
-        <section id="navbar.howitworks" className={styles.howItWorksSection}>
+        <section className={styles.howItWorksSection} id="navbar.howitworks">
           <HowItWorks />
         </section>
-        <section id="UPT" className={styles.uptSection}>
+        <section className={styles.uptSection} id="UPT">
           <div className="container">
             <div className={styles.uptContainer}>
               <div className={styles.uptSectionHeader}>

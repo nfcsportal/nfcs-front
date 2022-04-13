@@ -42,7 +42,7 @@ const Header: React.FC = () => {
 
   const changePage = useCallback(
     async (currentItem: TNavBar) => {
-      const distanceToTop = burger ? 70 : 100;
+      const distanceToTop = document.getElementById('header')?.clientHeight;
       if (burger) {
         await setBurger(false);
       }
@@ -53,9 +53,9 @@ const Header: React.FC = () => {
       if (currentItem.path === ROUTES.HOME) {
         if (currentItem.id) {
           const scrolledItem = document.getElementById(currentItem.id)?.offsetTop;
-          if (scrolledItem) {
+          if (scrolledItem && distanceToTop) {
             window.scrollTo({
-              top: scrolledItem - distanceToTop,
+              top: scrolledItem - distanceToTop - 10,
               behavior: 'smooth',
             });
           }
@@ -74,6 +74,7 @@ const Header: React.FC = () => {
     <header
       ref={currentRef}
       className={`${styles.header} ${scrollPosition > 0 && styles.scrolled}`}
+      id="header"
     >
       <div className="container">
         <nav className={styles.nav}>
