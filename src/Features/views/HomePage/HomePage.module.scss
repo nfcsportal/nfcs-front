@@ -4,9 +4,9 @@
 @import "../../../Assets/styles/locale.scss";
 .whyWeSection {
   position: relative;
-  padding-top: 185px;
+  padding-top: 0;
   @media all and (max-width: $tablet) {
-    padding-top: 40px;
+    padding-top: 0;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -29,7 +29,7 @@
 }
 .howItWorksSection {
   position: relative;
-  padding-top: 60px;
+  padding-top: 0;
   overflow: hidden;
   z-index: 2;
   &::after {
@@ -61,6 +61,7 @@
     position: relative;
     overflow: hidden;
     z-index: 1;
+    margin-bottom: 60px;
   }
   .discrountItem {
     padding: 40px 0 50px;
