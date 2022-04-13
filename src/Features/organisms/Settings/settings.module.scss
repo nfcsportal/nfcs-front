@@ -6,6 +6,9 @@
     background: rgba(41, 52, 139, 0.16);
     border-radius: 8px;
     position: relative;
+    @media all and (max-width: $smallTablet) {
+        padding: 24px 8px;
+    } 
     &::before {
         content: "";
         position: absolute;
@@ -44,6 +47,9 @@
         .settinsCollapseItem {
             padding-bottom: 30px;
             overflow: hidden;
+            @media all and (max-width: $smallTablet)  {
+                padding-bottom: 24px;
+            }
             .settinsCollapseItemHeader {
                 display: flex;
                 align-items: flex-start;
@@ -56,10 +62,18 @@
                 overflow: hidden;
                 transition: height 0.3s ease;
                 padding: 0 30px;
+                @media all and (max-width: $smallTablet)  {
+                    margin-left: 0;
+                    max-width: 100%;
+                    padding: 0;
+                } 
                 .collapseContentInner {
                     @include flex-column;
                     flex: 1 1 auto;
                     margin-top: 32px;
+                    @media all and (max-width: $smallTablet)  {
+                        margin-top: 8px;
+                    }
                     [class*="selectList"] {
                         max-width: 100%;
                         z-index: 12;
@@ -116,6 +130,11 @@
                     margin-left: 50px;
                     max-width: 350px;
                 }
+                @media all and (max-width: $smallTablet) {
+                    margin-left: 0;
+                    max-width: 100%;
+                    margin: 8px 0 10px;
+                }
                 p {
                     @include fontRem(16, 400);
                     @media all and (max-width: $normalDesktop) {
@@ -125,7 +144,7 @@
                     color: rgba(251, 252, 255, 0.72);
                 }
             }
-            .laanguageName {
+            .languageName {
                 margin-left: auto;
                 margin-right: auto;
                 @include fontRem(20, 500);

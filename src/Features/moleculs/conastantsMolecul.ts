@@ -32,6 +32,11 @@ export const NAV_BAR: TNavBar[] = [
     id: 'navbar.contactus',
   },
   {
+    title: 'Why we?',
+    path: ROUTES.HOME,
+    id: 'navbar.whyWe',
+  },
+  {
     title: 'How it works',
     path: ROUTES.HOME,
     id: 'navbar.howitworks',
@@ -40,6 +45,11 @@ export const NAV_BAR: TNavBar[] = [
     title: 'UPT',
     path: ROUTES.HOME,
     id: 'UPT',
+  },
+  {
+    title: 'Dashboard',
+    path: ROUTES.DASHBOARD,
+    id: 'navbar.dashboard',
   },
   {
     title: 'Sign In',

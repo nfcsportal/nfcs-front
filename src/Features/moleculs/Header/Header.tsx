@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import { useHistory } from 'react-router-dom';
+import useMediaQuery from 'react-use-media-query-hook';
 
 import ArrowSvg from '../../../Assets/Icons/ArrowSvg';
+import HeaderCoinSvg from '../../../Assets/Icons/HeaderCoinSvg';
 import Logo from '../../../Assets/images/logo.svg';
 import { ROUTES } from '../../../Constants/Routes';
+import { SCREENS } from '../../../Constants/ScreenResolutions';
 import { usePositions } from '../../../Hooks/usePositions';
 import { getCurrentLocale } from '../../../Store/Selectors/main';
 import { setLocale } from '../../../Store/Slices/mainSlice';
@@ -15,6 +18,7 @@ import Typography from '../../atoms/Typography';
 import { LANGUAGES, LOGO_ITEM, NAV_BAR } from '../conastantsMolecul';
 import { TLanguages, TNavBar } from '../typesMolecules';
 import styles from './header.module.scss';
+import { HeaderAuthView } from './headerAuthView';
 
 const Header: React.FC = () => {
   const currentLocalce = useSelector(getCurrentLocale);
@@ -22,7 +26,19 @@ const Header: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
   const dispatch = useDispatch();
+  const isAuth = true;
   const { currentRef, scrollPosition } = usePositions();
+  const currNavBarItems = useMemo(() => {
+    return NAV_BAR.filter((curr) => {
+      if (isAuth) {
+        return curr.path !== ROUTES.SIGN_IN;
+      } else {
+        return curr.path !== ROUTES.DASHBOARD;
+      }
+    });
+  }, [isAuth]);
+  const isBigTablet = useMediaQuery(SCREENS.bigTablet);
+  const isOnlyTablet = useMediaQuery(SCREENS.onlyTablet);
 
   const changePage = useCallback(
     async (currentItem: TNavBar) => {
@@ -66,7 +82,7 @@ const Header: React.FC = () => {
           </div>
           <menu className={`${styles.headerMenu} ${burger && styles.active}`}>
             <ul className={styles.headerMenuList}>
-              {NAV_BAR.map((currentItem: TNavBar) => {
+              {currNavBarItems.map((currentItem: TNavBar) => {
                 return (
                   <motion.li transition={{ type: 'spring', stiffness: 30 }} key={currentItem.path}>
                     <Typography
@@ -80,14 +96,37 @@ const Header: React.FC = () => {
                   </motion.li>
                 );
               })}
-              <li>
-                <Button
-                  type="secondary"
-                  id="navbar.signup"
-                  className={`${styles.headerMenuLink} ${styles.signupBtn}`}
-                  onClick={() => history.push(ROUTES.SIGN_UP)}
-                />
-              </li>
+              <>
+                {!isBigTablet && (
+                  <li>
+                    <HeaderAuthView />
+                  </li>
+                )}
+              </>
+              {!isAuth ? (
+                <li>
+                  <Button
+                    type="secondary"
+                    id="navbar.signup"
+                    className={`${styles.headerMenuLink} ${styles.signupBtn}`}
+                    onClick={() => history.push(ROUTES.SIGN_UP)}
+                  />
+                </li>
+              ) : (
+                <>
+                  {!isBigTablet && (
+                    <li>
+                      <div className={styles.cointItem}>
+                        <span className={styles.cointIcon}>
+                          <HeaderCoinSvg />
+                        </span>
+                        1345000
+                      </div>
+                    </li>
+                  )}
+                </>
+              )}
+
               <li>
                 <span className={styles.headerMenuLink}>
                   {currentLocalce.toLocaleUpperCase()}
@@ -114,11 +153,29 @@ const Header: React.FC = () => {
               </li>
             </ul>
           </menu>
-          <div
-            onClick={() => setBurger(!burger)}
-            className={`${styles.headerBurger} ${burger && styles.active}`}
-          >
-            <div className={styles.burgerIcon} />
+
+          <div className={styles.burgerFullContainer}>
+            {isBigTablet && (
+              <div className={styles.tabletItem}>
+                <HeaderAuthView />
+                <>
+                  {isOnlyTablet && (
+                    <div className={styles.cointItem}>
+                      <span className={styles.cointIcon}>
+                        <HeaderCoinSvg />
+                      </span>
+                      1345000
+                    </div>
+                  )}
+                </>
+              </div>
+            )}
+            <div
+              onClick={() => setBurger(!burger)}
+              className={`${styles.headerBurger} ${burger && styles.active}`}
+            >
+              <div className={styles.burgerIcon} />
+            </div>
           </div>
         </nav>
       </div>

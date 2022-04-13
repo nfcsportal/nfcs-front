@@ -1,5 +1,7 @@
 import React from 'react';
+import useMediaQuery from 'react-use-media-query-hook';
 
+import { SCREENS } from '../../../Constants/ScreenResolutions';
 import { useSettingsCollapse } from '../../../Hooks/useSettingsCollapse';
 import Button from '../../atoms/Button';
 import Dropdown from '../../atoms/Dropdown';
@@ -22,6 +24,7 @@ const INQUIRY_OPTIONS = [
 ];
 const Settings: React.FC = () => {
   const { collapse, currentItem, currentHeight } = useSettingsCollapse();
+  const isMobile = useMediaQuery(SCREENS.mobile);
   return (
     <section>
       <h2 className="title dashboard-title">Settings</h2>
@@ -33,13 +36,17 @@ const Settings: React.FC = () => {
                 <div className={styles.settinsCollapseItem}>
                   <div className={styles.settinsCollapseItemHeader} id="header_1">
                     <h3 className={styles.settinsCollapseTitle}>Default language</h3>
-                    <div className={styles.settinsCollapsetext}>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante eget turpis
-                        etiam nunc vitae congue.
-                      </p>
-                    </div>
-                    <div className={styles.laanguageName}>English</div>
+                    {!isMobile && (
+                      <>
+                        <div className={styles.settinsCollapsetext}>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante eget
+                            turpis etiam nunc vitae congue.
+                          </p>
+                        </div>
+                        <div className={styles.languageName}>English</div>
+                      </>
+                    )}
                     <div
                       onClick={() => collapse('language_s', 'header_1')}
                       className={styles.collpaseBtnContainer}
@@ -47,6 +54,19 @@ const Settings: React.FC = () => {
                       <button type="button">Change</button>
                     </div>
                   </div>
+                  {isMobile && (
+                    <>
+                      <div className={styles.settinsCollapsetext}>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante eget turpis
+                          etiam nunc vitae congue.
+                        </p>
+                      </div>
+                      <div className={styles.languageName}>
+                        {currentItem !== 'language_s' ? 'English' : null}
+                      </div>
+                    </>
+                  )}
                   <div
                     id="language_s"
                     className={styles.collapseContent}
@@ -91,9 +111,11 @@ const Settings: React.FC = () => {
                 <div className={styles.settinsCollapseItem}>
                   <div className={styles.settinsCollapseItemHeader} id="header_2">
                     <h3 className={styles.settinsCollapseTitle}>Name</h3>
-                    <div className={styles.settinsCollapsetext}>
-                      <p>Angela Merkel</p>
-                    </div>
+                    {!isMobile && (
+                      <div className={styles.settinsCollapsetext}>
+                        <p>Angela Merkel</p>
+                      </div>
+                    )}
                     <div
                       onClick={() => collapse('name_s', 'header_2')}
                       className={styles.collpaseBtnContainer}
@@ -101,6 +123,11 @@ const Settings: React.FC = () => {
                       <button type="button">Change</button>
                     </div>
                   </div>
+                  {isMobile && (
+                    <div className={styles.settinsCollapsetext}>
+                      <p>Angela Merkel</p>
+                    </div>
+                  )}
                   <div
                     id="name_s"
                     className={styles.collapseContent}
@@ -148,12 +175,14 @@ const Settings: React.FC = () => {
                 <div className={styles.settinsCollapseItem}>
                   <div className={styles.settinsCollapseItemHeader} id="header_3">
                     <h3 className={styles.settinsCollapseTitle}>Password</h3>
-                    <div className={styles.settinsCollapsetext}>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante eget turpis
-                        etiam nunc vitae congue.{' '}
-                      </p>
-                    </div>
+                    {!isMobile && (
+                      <div className={styles.settinsCollapsetext}>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante eget turpis
+                          etiam nunc vitae congue.{' '}
+                        </p>
+                      </div>
+                    )}
                     <div
                       onClick={() => collapse('password_s', 'header_3')}
                       className={styles.collpaseBtnContainer}
@@ -161,6 +190,14 @@ const Settings: React.FC = () => {
                       <button type="button">Change</button>
                     </div>
                   </div>
+                  {isMobile && (
+                    <div className={styles.settinsCollapsetext}>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante eget turpis
+                        etiam nunc vitae congue.{' '}
+                      </p>
+                    </div>
+                  )}
                   <div
                     id="password_s"
                     className={styles.collapseContent}

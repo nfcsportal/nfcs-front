@@ -114,7 +114,7 @@
                                 left: 0;
                                 right: 0;
                                 bottom: 0;
-                                border-radius: 16px;
+                                border-radius: 8px;
                                 padding: 1px;
                                 background: linear-gradient(rgba(178, 186, 215, 0.24), rgba(157, 164, 189, 0.02));
                                 -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -137,7 +137,7 @@
                     &:not(:first-child) {
                         margin-left: 40px;
                         @media all and (max-width: $normalDesktop) {
-                            margin-left: 24px;
+                            margin-left: 18px;
                         }
                     }
                     .headerMenuLink {
@@ -238,10 +238,13 @@
         }
     }
     .headerBurger {
+        margin-left: 34px;
+        @media all and (max-width: $smallTablet) {
+            margin-left: 26px;
+        }
         width: 24px;
         height: 24px;
         @include flex-center;
-        margin-left: auto;
         cursor: pointer;
         display: none;
         @media all and (max-width: $tablet) {
@@ -287,6 +290,194 @@
                     top: 0;
                     transition: top 0.3s, transform 0.3s ease-in 0.3s;
                 }
+            }
+        }
+    }
+    .headerAuthComponent {
+        list-style-type: none;
+        .userItem {
+            cursor: pointer;
+            position: relative;
+            .userInfoShort {
+                padding: 16px 16px 16px 20px;
+                background: rgba(33, 90, 231, 0.08);
+                border-radius: 8px;
+                height: 48px;
+                @media all and (max-width: $normalDesktop) {
+                    padding: 16px 5px 16px 5px;
+                }
+                @include flex-center-vert;
+                .nameShort {
+                    margin-left: 14px;
+                    margin-right: 16px;
+                    @include fontRem(16, 400);
+                    line-height: 20px;
+                    color: $titleColor;
+                    @media all and (max-width: $mobile) {
+                        max-width: 100px;
+                        @include textShorten(1);
+                        @include fontRem(14, 400);
+                    }
+                        
+                }
+                .userDropdownIcon {
+                    transition: 0.3s;
+                }
+                .userDropdownIconRotated {
+                    transform: rotate(180deg);
+                }
+            }
+            .userSubList {
+                list-style-type: none;
+                visibility: hidden;
+                opacity: 0;
+                position: absolute;
+                top: 130%;
+                right: 0;
+                width: 100%;
+                list-style-type: none;
+                transition: 0.3s;
+                background: #212149;
+                box-shadow: 4px 8px 24px rgba(19, 20, 38, 0.16);
+                backdrop-filter: blur(16px);
+                border-radius: 8px;
+                padding: 8px 12px;
+                @media all and (max-width: $tablet) {
+                    padding: 8px 6px;
+                }
+                @media all and (max-width: $smallTablet) {
+                    padding: 8px 32px;
+                }
+                &.userSubListOpen {
+                    visibility: visible;
+                    opacity: 1;
+                    top: calc(100% - 11px);
+                    @media all and (max-width: $tablet) {
+                        top: 100%;
+                    }
+                }
+                li {
+                    padding: 0;
+                    margin-left: 0;
+                    &:not(:first-child) {
+                        margin-left: 0;
+                        margin-top: 8px;
+                        @media all and (max-width: $tablet) {
+                            margin-top: 0;
+                        }
+                    }
+                    &:last-child {
+                        padding-top: 8px;
+                        border-top: 1px solid rgba(182, 193, 255, 0.12);
+                    }
+                    &.cointListItem {
+                        margin-bottom: 13px;
+                        padding-bottom: 13px;
+                        border-bottom: 1px solid rgba(182, 193, 255, 0.12);
+                        display: flex;
+                        justify-content: center;
+                        .cointItem {
+                            min-width: unset;
+                            margin-left: 0;
+                            width: auto;
+                            display: inline-flex;
+                        }
+                    }
+                }
+                .userSubLink {
+                    display: block;
+                    cursor: pointer;
+                    text-align: center;
+                    @include fontRem(16, 400);
+                    color: rgba(227, 230, 234, 0.32);
+                    transition: 0.3s;
+                    line-height: 22px;
+                    text-decoration: none;
+                    border-radius: 8px;
+                    padding: 8px;
+                    &:hover {
+                        color: $white;
+                        background: rgba(41, 52, 139, 0.32);
+                    }
+                    &.selected {
+                        color: $white;
+                        background: rgba(41, 52, 139, 0.32);
+                    }
+                }
+                @supports (
+                    mask: linear-gradient(#fff 0 0) content-box,
+                    linear-gradient(
+                        #fff 0 0,
+                    )
+                ) {
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        border-radius: 8px;
+                        padding: 1px;
+                        background: linear-gradient(rgba(178, 186, 215, 0.24), rgba(157, 164, 189, 0.02));
+                        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                        -webkit-mask-composite: xor;
+                        mask-composite: exclude;
+                    }
+                }
+            }
+        }
+    }
+    .cointItem {
+        position: relative;
+        padding: 7px 6px;
+        height: 48px;
+        border-radius: 8px;
+        background: rgba(33, 90, 231, 0.08);
+        @include flex-center-vert;
+        @include fontRem(16, 500);
+        line-height: 20px;
+        color: $white;
+        min-width: 155px;
+        @media all and (max-width: $normalDesktop) {
+            min-width: unset;
+        }
+        span {
+            display: flex;
+            margin-right: 20px;
+            
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 8px;
+            padding: 2px;
+            background: linear-gradient(rgba(24, 117, 252, 1), rgba(0, 221, 251, 1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+    }
+    .burgerFullContainer {
+        @include flex-center-vert;
+        margin-left: auto;
+        .tabletItem {
+            @include flex-center-vert;
+            .cointItem {
+                padding: 10px 12px;
+                margin-left: 24px;
+            }
+            .userSubList {
+                left: 50%;
+                transform: translateX(-50%);
+                min-width: 250px;
+                
             }
         }
     }
