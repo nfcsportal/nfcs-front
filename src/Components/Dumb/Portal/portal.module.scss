@@ -38,6 +38,10 @@
 }
 .portal {
   @include flex-center;
+  padding-bottom: 185px;
+  @media all and (max-width: $tablet) {
+    padding-bottom: 40px;
+  }
   .wrapperPortal {
     display: flex;
     justify-content: center;
