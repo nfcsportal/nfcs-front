@@ -12,20 +12,61 @@ aside.aside {
     @media all and (max-width: $normalDesktop) {
         width: 287px;
     }
+    @media all and (max-width: $tablet) {
+        width: 72px;
+        overflow: hidden;
+        background: #181b38;
+        &.opened {
+            z-index: 3;
+            width: 318px;
+        }
+    }
+    @media all and (max-width: $tablet) and (min-width: $smallTablet) {
+        &.opened {
+            .asideListLink {
+                padding-left: 32px !important;
+            }
+        }
+    }
+    @media all and (max-width: $smallTablet) {
+        top: 60px;
+        width: 90%;
+        background: #181b38;
+        z-index: 3;
+        left: -100%;
+        &.opened {
+            z-index: 3;
+            width: 90%;
+            left: 0;
+        }
+    }
 }
 .asideContent {
+    @media all and (max-width: $tablet) {
+        position: relative;
+        .tabletOpener {
+            @include buttonNulled;
+            position: absolute;
+            top: 15px;
+            left: 21px;
+        }
+    } 
     .asideList {
         list-style-type: none;
-        padding: 48px 24px 0 0;
+        padding: 60px 24px 0 0;
         margin: 0;
+        @media all and (max-width: $tablet) {
+            padding: 60px 8px 0 0;
+        }
         .asideListItem {
-        cursor: pointer;
+            cursor: pointer;
             &:not(:last-child) {
                 .asideListLink {
                     margin-bottom: 24px;
                 }
             }
             .asideListLink {
+                position: relative;
                 @include flex-center-vert;
                 padding: 12px 20px 12px 48px;
                 text-decoration: none;
@@ -36,13 +77,29 @@ aside.aside {
                 transition: 0.3s;
                 @media all and (max-width: $normalDesktop) {
                     @include fontRem(16, 500);
+                    padding: 12px 12px 12px 34px;
+                }
+                @media all and (max-width: $tablet) {
+                    @include fontRem(16, 500);
                     padding: 12px 12px 12px 20px;
+                    line-height: 1;
+                    > span {
+                        &.closedSidebar {
+                            visibility: hidden;
+                        }
+                    }
                 }
                 &.active {
                     background: rgba(33, 90, 231, 0.12);
                 }
                 svg {
                     margin-right: 16px;
+                    @media all and (max-width: $tablet) {
+                        width: 32px;
+                        height: 32px;
+                        min-width: 32px;
+                        min-height: 32px;
+                    }
                 }
                 .radyCount {
                     margin-left: auto;
@@ -55,12 +112,31 @@ aside.aside {
                     @media all and (max-width: $normalDesktop) {
                         @include fontRem(16, 500);
                     }
+                    @media all and (max-width: $tablet) {
+                        &.radyCountClosed {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            visibility: visible;
+                            background: #18aafc;
+                            border-radius: 8px;
+                            width: 23px;
+                            height: 16px;
+                            @include fontRem(12, 500);
+                        }
+                    }
                 }
             }
         }
         .asideListDivider {
             border: 1px solid rgba(182, 193, 255, 0.12);
             margin: 56px 0 40px 16px;
+            @media all and (max-width: $tablet) {
+                border: 0;
+                margin: 30px 0;
+                height: 1px;
+                background-color: rgba(182, 193, 255, 0.12);
+            }
         }
     }
 }

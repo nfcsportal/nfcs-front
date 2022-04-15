@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import useMediaQuery from 'react-use-media-query-hook';
 
+import MenuFoldSvg from '../../../Assets/Icons/MenuFoldSvg';
 import { DASHBOARD } from '../../../Constants/dashboard';
 import { SCREENS } from '../../../Constants/ScreenResolutions';
 import { getDashboardCurrentSlide } from '../../../Store/Selectors/dashboardLocal';
@@ -48,13 +49,18 @@ const Dashboard: React.FC = () => {
   const Component = useMemo(() => {
     return DASHBOARD[currentSLide];
   }, [currentSLide]);
-  const isMobile = useMediaQuery(SCREENS.mobile);
+  const isMobile = useMediaQuery(SCREENS.smallTablet);
   return (
     <div className={`${styles.dashboardPage} page`}>
       <Header />
-      {!isMobile && <DashboardSideBar />}
+      <DashboardSideBar />
       <main className="main">
         <div className={styles.dashoardRight}>
+          {isMobile && (
+            <button className={styles.dashboardSideOpen}>
+              <MenuFoldSvg />
+            </button>
+          )}
           <Component />
         </div>
       </main>

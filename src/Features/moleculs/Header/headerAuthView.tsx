@@ -39,15 +39,7 @@ export const HeaderAuthView: React.FC = () => {
               </div>
             </li>
           )}
-          <li>
-            <span className={styles.userSubLink}>Order Forecast</span>
-          </li>
-          <li>
-            <span className={styles.userSubLink}>Forecast List</span>
-          </li>
-          <li>
-            <span className={styles.userSubLink}>UTP & Promocode</span>
-          </li>
+
           <li>
             <span className={styles.userSubLink}>Custom Settings</span>
           </li>

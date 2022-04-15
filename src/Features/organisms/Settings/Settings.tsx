@@ -25,6 +25,7 @@ const INQUIRY_OPTIONS = [
 const Settings: React.FC = () => {
   const { collapse, currentItem, currentHeight } = useSettingsCollapse();
   const isMobile = useMediaQuery(SCREENS.mobile);
+  const istablet = useMediaQuery(SCREENS.bigTablet);
   return (
     <section>
       <h2 className="title dashboard-title">Settings</h2>
@@ -36,7 +37,8 @@ const Settings: React.FC = () => {
                 <div className={styles.settinsCollapseItem}>
                   <div className={styles.settinsCollapseItemHeader} id="header_1">
                     <h3 className={styles.settinsCollapseTitle}>Default language</h3>
-                    {!isMobile && (
+                    {istablet && !isMobile && <div className={styles.languageName}>English</div>}
+                    {!istablet && (
                       <>
                         <div className={styles.settinsCollapsetext}>
                           <p>
@@ -54,7 +56,17 @@ const Settings: React.FC = () => {
                       <button type="button">Change</button>
                     </div>
                   </div>
-                  {isMobile && (
+                  {istablet && (
+                    <>
+                      <div className={styles.settinsCollapsetext}>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante eget turpis
+                          etiam nunc vitae congue.
+                        </p>
+                      </div>
+                    </>
+                  )}
+                  {!istablet && isMobile && (
                     <>
                       <div className={styles.settinsCollapsetext}>
                         <p>
