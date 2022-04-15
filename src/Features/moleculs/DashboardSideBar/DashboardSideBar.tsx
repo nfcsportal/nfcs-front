@@ -1,11 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import useMediaQuery from 'react-use-media-query-hook';
 
 import BuyForecastSvg from '../../../Assets/Icons/dashboard/BuyForecastSvg';
 import CustomSettingsSvg from '../../../Assets/Icons/dashboard/CustomSettingsSvg';
 import ForecastListSvg from '../../../Assets/Icons/dashboard/ForecastListSvg';
 import MyPromoCodeSvg from '../../../Assets/Icons/dashboard/MyPromoCodeSvg';
+import MenuFoldSvg from '../../../Assets/Icons/MenuFoldSvg';
 import { DASHBOARD_SLIDES } from '../../../Constants/dashboard';
+import { SCREENS } from '../../../Constants/ScreenResolutions';
 import { getDashboardCurrentSlide } from '../../../Store/Selectors/dashboardLocal';
 import { setCurrentSlide } from '../../../Store/Slices/dashboardLocal';
 import styles from './dashboardSideBar.module.scss';
@@ -16,10 +19,16 @@ const DashboardSideBar: React.FC = () => {
     dispatch(setCurrentSlide(e.currentTarget.dataset.current));
   };
   const currentSLide = useSelector(getDashboardCurrentSlide);
-
+  const onlyTablet = useMediaQuery(SCREENS.onlyTablet);
   return (
-    <aside className={styles.aside}>
+    <aside className={`${styles.aside}`}>
       <div className={styles.asideContent}>
+        {onlyTablet && (
+          <button className={styles.tabletOpener}>
+            <MenuFoldSvg />
+          </button>
+        )}
+
         <ul className={styles.asideList}>
           <li className={styles.asideListItem}>
             <span
@@ -30,7 +39,7 @@ const DashboardSideBar: React.FC = () => {
               }`}
             >
               <BuyForecastSvg />
-              Buy Analytic
+              <span className={styles.closedSidebar}>Buy Analytic</span>
             </span>
           </li>
           <li className={styles.asideListItem}>
@@ -42,8 +51,8 @@ const DashboardSideBar: React.FC = () => {
               }`}
             >
               <ForecastListSvg />
-              Forecast List
-              <span className={styles.radyCount}>2</span>
+              <span className={styles.closedSidebar}>Forecast List</span>
+              <span className={`${styles.radyCount} ${styles.radyCountClosed}`}>2</span>
             </span>
           </li>
           <li className={styles.asideListDivider} />
@@ -56,7 +65,7 @@ const DashboardSideBar: React.FC = () => {
               }`}
             >
               <MyPromoCodeSvg />
-              My PromoCode
+              <span className={styles.closedSidebar}>My PromoCode</span>
             </span>
           </li>
           <li className={styles.asideListItem}>
@@ -68,7 +77,7 @@ const DashboardSideBar: React.FC = () => {
               }`}
             >
               <CustomSettingsSvg />
-              Custom Settings
+              <span className={styles.closedSidebar}>Custom Settings</span>
             </span>
           </li>
         </ul>

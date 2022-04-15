@@ -6,6 +6,9 @@
     background: rgba(41, 52, 139, 0.16);
     border-radius: 8px;
     position: relative;
+    @media all and (max-width: $tablet) {
+        padding: 25px 30px;
+    } 
     @media all and (max-width: $smallTablet) {
         padding: 24px 8px;
     } 
@@ -53,6 +56,9 @@
             .settinsCollapseItemHeader {
                 display: flex;
                 align-items: flex-start;
+                @media all and (max-width: $tablet)  {
+                    justify-content: space-between;
+                }
             }
 
             .collapseContent {
@@ -62,6 +68,11 @@
                 overflow: hidden;
                 transition: height 0.3s ease;
                 padding: 0 30px;
+                @media all and (max-width: $tablet)  {
+                    margin-left: 0;
+                    max-width: 75%;
+                    padding: 0;
+                } 
                 @media all and (max-width: $smallTablet)  {
                     margin-left: 0;
                     max-width: 100%;
@@ -121,6 +132,9 @@
                     @include fontRem(18, 600);
                     width: 180px;
                 }
+                @media all and (max-width: $tablet) {
+                    @include fontRem(18, 600);
+                }
             }
             .settinsCollapsetext {
                 max-width: 487px;
@@ -129,6 +143,11 @@
                 @media all and (max-width: $normalDesktop) {
                     margin-left: 50px;
                     max-width: 350px;
+                }
+                @media all and (max-width: $tablet) {
+                    margin-left: 0;
+                    margin-top: 8px;
+                    max-width: 292px;
                 }
                 @media all and (max-width: $smallTablet) {
                     margin-left: 0;
@@ -150,10 +169,17 @@
                 @include fontRem(20, 500);
                 line-height: 24px;
                 color: $titleColor;
+                @media all and (max-width: $tablet) {
+                    @include fontRem(18, 500);
+                    margin-right: 56px;
+                } 
             }
             .collpaseBtnContainer {
                 display: flex;
                 margin-left: auto;
+                @media all and (max-width: $tablet) {
+                    margin-left: 0;
+                } 
                 button {
                     margin-left: auto;
                     @include fontRem(18, 500);

@@ -82,7 +82,7 @@ img {
 .current-analytic-page {
     background: linear-gradient(170.79deg, #151a2c 0.37%, #120d20 93.02%);
     section {
-        padding-bottom: 180px;
+        padding-bottom: 100px;
     }
 }
 .mainPage {
@@ -91,7 +91,7 @@ img {
     background-size: cover;
     // background-blend-mode: color-dodge;
     section {
-        padding-bottom: 180px;
+        padding-bottom: 100px;
         @media all and (max-width: $tablet) {
             padding-bottom: 0;
             &:last-child {
@@ -130,11 +130,14 @@ img {
         max-width: unset;
         margin-left: 0;
         margin-bottom: 20px;
+        @media all and (max-width: $tablet) {
+            margin-top: 30px;
+        }
         @media all and (max-width: $smallTablet) {
-        @include fontRem(24, 700);
-        line-height: 29px;
-        margin-bottom: 32px;
-        } 
+            @include fontRem(24, 700);
+            line-height: 29px;
+            margin-bottom: 32px;
+        }
     }
 }
 .dashboard-sub {
@@ -147,15 +150,16 @@ img {
         margin-top: -32px;
         margin-bottom: 32px;
         @include fontRem(16, 400);
-        } 
+    }
 }
 .section_inner {
     background: rgba(41, 52, 139, 0.16);
     border-radius: 8px;
-    &.promocodeSection_inner, &.forecastListSecton_inner {
+    &.promocodeSection_inner,
+    &.forecastListSecton_inner {
         @media all and (max-width: $smallTablet) {
             background-color: transparent;
-        } 
+        }
     }
 }
 .subTitle {

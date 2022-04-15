@@ -2,12 +2,9 @@
 @import "/src/styles/mixins";
 
 .portalHeader {
-  padding-top: 140px;
-  @media all and (max-width: $normalDesktop) {
-    padding-top: 90px;
-  }
+  padding-top: 40px;
   @media all and (max-width: $tablet) {
-    padding-top: 80px;
+    padding-top: 40px;
   }
   p {
     max-width: 790px;
@@ -38,7 +35,7 @@
 }
 .portal {
   @include flex-center;
-  padding-bottom: 185px;
+  padding-bottom: 140px;
   @media all and (max-width: $tablet) {
     padding-bottom: 40px;
   }
