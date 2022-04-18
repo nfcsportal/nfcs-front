@@ -6,6 +6,10 @@
     background: rgba(41, 52, 139, 0.16);
     border-radius: 8px;
     position: relative;
+    @media all and (max-width: $tablet) and (min-width: $realTablet) {
+        padding: 16px 10px;
+
+    }
     @media all and (max-width: $smallTablet) {
         padding: 2px 8px 16px;
         background-color: transparent;
@@ -54,6 +58,9 @@
                 mask-composite: exclude;
             }
         }
+        @media all and (max-width: $tablet) and (min-width: $realTablet) {
+            @include flexRow(4, 3);
+        }
         .promocodeItem {
             padding: 24px 42px;
             background: rgba(41, 52, 139, 0.32);
@@ -64,6 +71,9 @@
             @media all and (max-width: $normalDesktop) {
                 padding: 15px 20px;
                 height: 100%;
+            }
+            @media all and (max-width: $tablet) and (min-width: $realTablet) {
+                padding: 12px 14px;
             }
             @media all and (max-width: $smallTablet) {
                 padding: 12px 16px;
@@ -100,6 +110,9 @@
                             line-height: 36px;
                             margin-bottom: 0;
                         }
+                        @media all and (max-width: $tablet) and (min-width: $realTablet) {
+                            @include fontRem(18, 600);
+                        }
                         @media all and (max-width: $smallTablet) {
                             @include fontRem(24, 600);
                             line-height: 30px;
@@ -127,6 +140,14 @@
         margin-top: 30px;
         position: relative;
         z-index: 1;
+        @media all and (max-width: $tablet) and (min-width: $realTablet) {
+            margin: 30px 0;
+            display: block;
+            .promocodeCol {
+                @include flexRow(10, 2); 
+                 
+            }
+        }
         @media all and (max-width: $smallTablet) {
             margin-top: 8px;
             @include flexRow(12, 1);
@@ -205,6 +226,9 @@
             @media all and (max-width: $normalDesktop) {
                 padding: 15px 20px;
             }
+            @media all and (max-width: $tablet) and (min-width: $realTablet) {
+                padding: 12px 14px;
+            }
             @media all and (max-width: $smallTablet) {
                 position: relative;
                 border-radius: 8px;
@@ -259,6 +283,10 @@
                     height: 100%;
                     overflow: auto;
                     padding-right: 33px;
+                    @media all and (max-width: $tablet) and (min-width: $realTablet) {
+                        max-height: 690px;
+                        padding-right: 0;
+                    }
                     &::-webkit-scrollbar {
                         width: 8px;
                         border-radius: 10px;
@@ -286,6 +314,9 @@
                         padding-bottom: 8px;
                         margin-bottom: 8px;
                         width: 100%;
+                        @media all and (max-width: $tablet) and (min-width: $realTablet) {
+                            @include fontRem(14, 500);
+                        }
                         &:not(:last-child) {
                             border-bottom: 1px solid rgba(182, 193, 255, 0.08);
                         }
@@ -314,6 +345,9 @@
             position: relative;
             margin-bottom: 8px;
             padding: 20px 8px 24px;
+            @media all and (max-width: $tablet) and (min-width: $realTablet) {
+                background-color: transparent;
+            }
             &::before {
                 content: "";
                 position: absolute;
@@ -328,6 +362,9 @@
                 mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
                 -webkit-mask-composite: xor;
                 mask-composite: exclude;
+                @media all and (max-width: $tablet) and (min-width: $realTablet) {
+                    content: none;
+                }
             }
             .promocodeMobilTopHeader {
                 display: flex;
@@ -351,7 +388,7 @@
                 }
             }
             .promocodeForm {
-                [class*="formItem"]{
+                [class*="formItem"] {
                     margin-bottom: 24px;
                 }
                 .promocodeBtn {
@@ -359,7 +396,6 @@
                     height: 40px;
                 }
             }
-            
         }
     }
 }
