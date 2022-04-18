@@ -12,7 +12,9 @@ import Input from '../../atoms/Input';
 import styles from './myPromocode.module.scss';
 
 const MyPromocode: React.FC = () => {
-  const isMobile = useMediaQuery(SCREENS.mobile);
+  const isTablet = useMediaQuery(SCREENS.tablet);
+  const onlyTablet = useMediaQuery(SCREENS.onlyTablet);
+  const smallTablet = useMediaQuery(SCREENS.smallTablet);
   return (
     <section>
       <h2 className="title dashboard-title">My Promocode</h2>
@@ -60,8 +62,8 @@ const MyPromocode: React.FC = () => {
             </div>
           </div>
           <div className={styles.promocodeRowBody}>
-            <div className={`${styles.promocodeCol} col_`}>
-              {isMobile && (
+            <div className={`${styles.promocodeCol} ${!onlyTablet ? 'col_' : ''}`}>
+              {smallTablet && (
                 <div className={styles.poromocodeMobileTopView}>
                   <div className={styles.promocodeMobilTopHeader}>
                     <div className={styles.reffrealLinkInfoLogo}>
@@ -94,10 +96,10 @@ const MyPromocode: React.FC = () => {
                   </div>
                 </div>
               )}
-              <div className={`${styles.promocodeItem} ${styles.promocodeItemBig}`}>
-                <ul className={styles.promocodeLeftList}>
-                  {!isMobile && (
-                    <li>
+              {onlyTablet && (
+                <div className="col_">
+                  <div className={styles.poromocodeMobileTopView}>
+                    <div className={styles.promocodeMobilTopHeader}>
                       <div className={styles.reffrealLinkInfoLogo}>
                         <ReferralLinkSvg />
                       </div>
@@ -110,37 +112,123 @@ const MyPromocode: React.FC = () => {
                           <CopySvg />
                         </button>
                       </div>
-                    </li>
-                  )}
-                  <li>
-                    <div className={styles.reffrealLinkInfoLeft}>
-                      <p className={styles.refferealLinkText}>Your Sponser Address</p>
-                      <ol className={styles.sponsorsList}>
-                        <li>
-                          <p>0x85E74fA...A8K94E1Ed6468Ce</p>
-                        </li>
-                        <li>
-                          <p>0x85E74fA...A8K94E1Ed6468Ce</p>
-                        </li>
-                        <li>
-                          <p>0x85E74fA...A8K94E1Ed6468Ce</p>
-                        </li>
-                        <li>
-                          <p>0x85E74fA...A8K94E1Ed6468Ce</p>
-                        </li>
-                        <li>
-                          <p>0x85E74fA...A8K94E1Ed6468Ce</p>
-                        </li>
-                        <li>
-                          <p>0x85E74fA...A8K94E1Ed6468Ce</p>
-                        </li>
-                      </ol>
                     </div>
-                  </li>
-                </ul>
-              </div>
+
+                    <div className={styles.promocodeForm}>
+                      <Input
+                        htmlFor="name"
+                        type="text"
+                        name="name"
+                        placeHolder="contactus.name"
+                        label="contactus.name"
+                        onClick={() => null}
+                        onFocus={() => null}
+                        onChange={() => null}
+                        value={'formik.values.name'}
+                      />
+                      <Button type="primary" customClass={styles.promocodeBtn} id="Send" />
+                    </div>
+                  </div>
+                </div>
+              )}
+              {!onlyTablet && (
+                <div className={`${styles.promocodeItem} ${styles.promocodeItemBig}`}>
+                  <ul className={styles.promocodeLeftList}>
+                    {!isTablet && (
+                      <li>
+                        <div className={styles.reffrealLinkInfoLogo}>
+                          <ReferralLinkSvg />
+                        </div>
+                        <div className={styles.reffrealLinkInfo}>
+                          <p className={styles.refferalLink}>0x85E74fA...A8K94E1Ed6468Ce</p>
+                          <p className={styles.refferealLinkText}>Your Referral Link</p>
+                        </div>
+                        <div className={styles.linkCopy}>
+                          <button type="button">
+                            <CopySvg />
+                          </button>
+                        </div>
+                      </li>
+                    )}
+                    <li>
+                      <div className={styles.reffrealLinkInfoLeft}>
+                        <p className={styles.refferealLinkText}>Your Sponser Address</p>
+                        <ol className={styles.sponsorsList}>
+                          <li>
+                            <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                          </li>
+                          <li>
+                            <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                          </li>
+                          <li>
+                            <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                          </li>
+                          <li>
+                            <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                          </li>
+                          <li>
+                            <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                          </li>
+                          <li>
+                            <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                          </li>
+                        </ol>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              )}
+              {onlyTablet && (
+                <div className="col_">
+                  <div className={`${styles.promocodeItem} ${styles.promocodeItemBig}`}>
+                    <ul className={styles.promocodeLeftList}>
+                      {!isTablet && (
+                        <li>
+                          <div className={styles.reffrealLinkInfoLogo}>
+                            <ReferralLinkSvg />
+                          </div>
+                          <div className={styles.reffrealLinkInfo}>
+                            <p className={styles.refferalLink}>0x85E74fA...A8K94E1Ed6468Ce</p>
+                            <p className={styles.refferealLinkText}>Your Referral Link</p>
+                          </div>
+                          <div className={styles.linkCopy}>
+                            <button type="button">
+                              <CopySvg />
+                            </button>
+                          </div>
+                        </li>
+                      )}
+                      <li>
+                        <div className={styles.reffrealLinkInfoLeft}>
+                          <p className={styles.refferealLinkText}>Your Sponser Address</p>
+                          <ol className={styles.sponsorsList}>
+                            <li>
+                              <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                            </li>
+                            <li>
+                              <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                            </li>
+                            <li>
+                              <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                            </li>
+                            <li>
+                              <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                            </li>
+                            <li>
+                              <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                            </li>
+                            <li>
+                              <p>0x85E74fA...A8K94E1Ed6468Ce</p>
+                            </li>
+                          </ol>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
             </div>
-            {!isMobile && (
+            {!isTablet && (
               <div className={`${styles.promocodeCol} col_`}>
                 <div className={`${styles.promocodeItem} ${styles.promocodeItemBig}`}>
                   <div className={styles.promocodeForm}>
